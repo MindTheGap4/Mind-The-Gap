@@ -10,7 +10,8 @@ import {
   CongressChoice,
   House,
   SingleRep,
-  ActivityList
+  ActivityList,
+  Organizations
 } from './components'
 import {me} from './store'
 
@@ -44,6 +45,8 @@ class Routes extends Component {
         />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/organizations" component={Organizations} />
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}

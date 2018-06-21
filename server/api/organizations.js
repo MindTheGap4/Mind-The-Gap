@@ -6,10 +6,6 @@ module.exports = router
 router.get('/:searchTerm/:name', async (req, res, next) => {
   try {
     // const api_key = 'e81bd7f2ba3feabb9808165b50fa89a3'
-    console.log("IM IN THE BACKEND!!!")
-    console.log('SEARCh', req.params.searchTerm)
-    console.log('NAME', req.params.name)
-
     const  response = await axios({
       method: 'get',
       url:
@@ -18,7 +14,21 @@ router.get('/:searchTerm/:name', async (req, res, next) => {
       //   'name': req.query
       // }
     })
-    res.json(response.data.data)
+    const orgInfo = response.data.data.map(organization =>{
+      return ({
+        charityName: organization.charityName,
+        url: organization.url,
+        donationUrl: organization.donationUrl,
+        city:  organization.city,
+        state: organization.state,
+        zipCode: organization.zipCode,
+        category: organization.category
+      }
+    )})
+    // console.log("RESPONSE", response.data)
+    console.log("RESPONSE", orgInfo)
+
+    res.json(orgInfo)
   } catch (err) {
     next(err)
   }

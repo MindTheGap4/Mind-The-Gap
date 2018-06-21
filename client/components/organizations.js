@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import OrgList from './orgList';
 
 const styles = theme => ({
   root: {
@@ -76,7 +77,7 @@ class InputAdornments extends React.Component {
     const data = await axios.get(`/api/organizations/${this.state.apiParam}/${this.state.userInput}`)
     this.setState({results: {data}})
     console.log("DATA", data)
-    console.log("RESULTS ARRAY", this.state.results)
+    console.log("RESULTS ARRAY", this.state.results.data.data)
   }
 
   render() {
@@ -116,8 +117,10 @@ class InputAdornments extends React.Component {
                 Search
               </Button>
             </FormControl>
+            <OrgList orgInfo={this.state.results}/>
           </form>
         </div>
+
       </div>
     );
   }

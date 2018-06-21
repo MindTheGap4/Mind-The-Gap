@@ -6,6 +6,6 @@
 export { default as Appbar } from './appbar'
 export { default as Navbar } from './navbar'
 export { default as Organizations } from './organizations'
-
+export { default as OrgList } from './orgList'
 export { default as UserHome } from './user-home'
 export { Login, Signup } from './auth-form'

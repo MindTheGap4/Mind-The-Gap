@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { withRouter, Route, Switch } from 'react-router-dom'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
   Login,
@@ -10,6 +10,7 @@ import {
   CongressChoice,
   House,
   SingleRep,
+  ActivityList,
   Organizations
 } from './components'
 import {me} from './store'
@@ -23,11 +24,12 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props
+    const {isLoggedIn} = this.props
 
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route exact path="/account/activities" component={ActivityList} />
         <Route exact path="/representatives" component={State} />
         <Route
           exact

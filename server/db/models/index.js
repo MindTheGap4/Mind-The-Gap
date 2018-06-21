@@ -15,7 +15,15 @@ const State = require('./state')
  * we can just require it from 'db/models'
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
+
  */
+
+User.hasMany(Activity)
+Activity.belongsTo(User)
+
+User.hasMany(Point)
+Point.belongsTo(User)
+
 module.exports = {
   User,
   Point,

@@ -36,26 +36,19 @@ const styles = {
 }
 
 function SimpleCard(props) {
-  const {classes, state, handleClick} = props
+  const {classes, rep, handleClick} = props
   return (
     <div>
       <button
         onClick={() => {
-          handleClick(state)
+          handleClick(rep)
         }}
       >
         <Grid item xs={12}>
           <Card className={classes.card}>
-            <CardMedia
-              align="center"
-              className={classes.media}
-              // style={{height: 150}}
-              image={state.imageUrl}
-              title="State Picture"
-            />
             <CardContent>
               <Typography variant="headline" align="center" component="h1">
-                {state.name}
+                {rep.name}
               </Typography>
             </CardContent>
           </Card>

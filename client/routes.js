@@ -9,7 +9,8 @@ import {
   State,
   CongressChoice,
   House,
-  SingleRep
+  SingleRep,
+  ActivityList
 } from './components'
 import {me} from './store'
 
@@ -27,6 +28,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route exact path="/account/activities" component={ActivityList} />
         <Route exact path="/representatives" component={State} />
         <Route
           exact

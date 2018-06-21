@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {withStyles} from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -9,9 +9,9 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import compose from 'recompose/compose'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { logout } from '../store'
 
 const styles = {
   root: {
@@ -27,7 +27,7 @@ const styles = {
 }
 
 function ButtonAppBar(props) {
-  const {classes, handleClick, isLoggedIn} = props
+  const { classes, handleClick, isLoggedIn } = props
   return (
     <MuiThemeProvider>
       <div className={classes.root}>
@@ -49,6 +49,9 @@ function ButtonAppBar(props) {
             </Typography>
             {isLoggedIn ? (
               <div>
+                <Button color="inherit" component={Link} to="/organizations">
+                  Organizations
+                </Button>
                 <Button color="inherit" component={Link} to="/home">
                   Home
                 </Button>
@@ -58,15 +61,15 @@ function ButtonAppBar(props) {
                 </Button>
               </div>
             ) : (
-              <div>
-                <Button color="inherit" component={Link} to="/login">
-                  Login
+                <div>
+                  <Button color="inherit" component={Link} to="/login">
+                    Login
                 </Button>
-                <Button color="inherit" component={Link} to="/signup">
-                  Signup
+                  <Button color="inherit" component={Link} to="/signup">
+                    Signup
                 </Button>
-              </div>
-            )}
+                </div>
+              )}
           </Toolbar>
         </AppBar>
       </div>

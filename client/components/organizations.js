@@ -10,7 +10,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 const styles = theme => ({
   root: {
@@ -26,70 +27,71 @@ const styles = theme => ({
   textField: {
     flexBasis: 200,
   },
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
 });
 
 const ranges = [
   {
-    value: '0-20',
-    label: '0 to 20',
+    value: 'searchTerm',
+    label: 'Name',
   },
   {
-    value: '21-50',
-    label: '21 to 50',
+    value: 'city',
+    label: 'City',
   },
   {
-    value: '51-100',
-    label: '51 to 100',
+    value: 'state',
+    label: 'State',
+  },
+  {
+    value: 'zipCode',
+    label: 'Zip Code',
   },
 ];
 
 class InputAdornments extends React.Component {
-  state = {
-    amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
-    showPassword: false,
-  };
+  constructor() {
+    super()
+    this.state = {
+      apiParam: '',
+      userInput: '',
+      view: 'none',
+      results: []
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleChange = prop => event => {
     this.setState({ [prop]: event.target.value });
   };
-
-  handleMouseDownPassword = event => {
+  async handleSubmit(event) {
     event.preventDefault();
-  };
-
-  handleClickShowPassword = () => {
-    this.setState({ showPassword: !this.state.showPassword });
-  };
+    console.log('I was submitted!')
+    const data = await axios.get(`/api/organizations/${this.state.apiParam}/${this.state.userInput}`)
+    this.setState({results: {data}})
+    console.log("DATA", data)
+    console.log("RESULTS ARRAY", this.state.results)
+  }
 
   render() {
     const { classes } = this.props;
-    console.log('hi')
-
+    console.log('SELECTED TERM', this.state.userInput)
     return (
       <div>
         <h1>Organizations</h1>
         <div className={classes.root}>
-
-          {/* <TextField
-            label="With normal TextField"
-            id="simple-start-adornment"
-            className={classNames(classes.margin, classes.textField)}
-            InputProps={{
-              startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-            }}
-          /> */}
           <TextField
             select
-            label="With Select"
+            label="Search By:"
             className={classNames(classes.margin, classes.textField)}
-            value={this.state.weightRange}
-            onChange={this.handleChange('weightRange')}
-            InputProps={{
-              startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
-            }}
+            value={this.state.apiParam}
+            onChange={this.handleChange('apiParam')}
           >
             {ranges.map(option => (
               <MenuItem key={option.value} value={option.value}>
@@ -97,50 +99,24 @@ class InputAdornments extends React.Component {
               </MenuItem>
             ))}
           </TextField>
-          {/* <FormControl fullWidth className={classes.margin}>
-            <InputLabel htmlFor="adornment-amount">Amount</InputLabel>
-            <Input
-              id="adornment-amount"
-              value={this.state.amount}
-              onChange={this.handleChange('amount')}
-              startAdornment={<InputAdornment position="start">$</InputAdornment>}
-            />
-          </FormControl> */}
-          <FormControl
-            className={classNames(classes.margin, classes.withoutLabel, classes.textField)}
-            aria-describedby="weight-helper-text"
-          >
-            <Input
-              id="adornment-weight"
-              value={this.state.weight}
-              onChange={this.handleChange('weight')}
-              endAdornment={<InputAdornment position="end">Kg</InputAdornment>}
-              inputProps={{
-                'aria-label': 'Weight',
-              }}
-            />
-            <FormHelperText id="weight-helper-text">Weight</FormHelperText>
-          </FormControl>
-          {/* <FormControl className={classNames(classes.margin, classes.textField)}>
-          <InputLabel htmlFor="adornment-password">Password</InputLabel>
-          <Input
-            id="adornment-password"
-            type={this.state.showPassword ? 'text' : 'password'}
-            value={this.state.password}
-            onChange={this.handleChange('password')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="Toggle password visibility"
-                  onClick={this.handleClickShowPassword}
-                  onMouseDown={this.handleMouseDownPassword}
-                >
-                  {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-        </FormControl> */}
+          <form onSubmit={this.handleSubmit} >
+            <FormControl
+              className={classNames(classes.margin, classes.withoutLabel, classes.textField)}
+              aria-describedby="weight-helper-text"
+            >
+              <Input
+                id="adornment-weight"
+                value={this.state.userInput}
+                onChange={this.handleChange('userInput')}
+                inputProps={{
+                  'aria-label': 'Weight',
+                }}
+              />
+              <Button variant="contained" color="primary" className={classes.button} type="submit">
+                Search
+              </Button>
+            </FormControl>
+          </form>
         </div>
       </div>
     );

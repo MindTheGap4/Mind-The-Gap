@@ -2,9 +2,17 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Login, Signup, UserHome, Organizations } from './components'
-import { me } from './store'
-
+import {
+  Login,
+  Signup,
+  UserHome,
+  State,
+  CongressChoice,
+  House,
+  SingleRep,
+  Organizations
+} from './components'
+import {me} from './store'
 
 /**
  * COMPONENT
@@ -20,6 +28,19 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route exact path="/representatives" component={State} />
+        <Route
+          exact
+          path="/representatives/:state"
+          component={CongressChoice}
+        />
+        <Route exact path="/representatives/:state/senate" component={House} />
+        <Route exact path="/representatives/:state/house/" component={House} />
+        <Route
+          exact
+          path="/representatives/singleRep/:repId"
+          component={SingleRep}
+        />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/organizations" component={Organizations} />

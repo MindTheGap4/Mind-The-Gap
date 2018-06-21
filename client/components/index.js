@@ -3,9 +3,14 @@
  * This way, we can import all of our components from the same place, rather than
  * having to figure out which file they belong to!
  */
-export { default as Appbar } from './appbar'
-export { default as Navbar } from './navbar'
-export { default as Organizations } from './organizations'
 
+export { default as Organizations } from './organizations'
 export { default as UserHome } from './user-home'
 export { Login, Signup } from './auth-form'
+export {default as Appbar} from './appbar'
+export {default as Navbar} from './navbar'
+export {default as State} from './Representatives/State'
+export {default as CongressChoice} from './Representatives/CongressChoice'
+export {default as House} from './Representatives/House'
+export {default as SingleRep} from './Representatives/SingleRep'
+//export {default as Senate} from './Representatives/Senate'

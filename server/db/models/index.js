@@ -1,6 +1,7 @@
 const User = require('./user')
 const Point = require('./point')
 const Activity = require('./activity')
+const State = require('./state')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -18,5 +19,6 @@ const Activity = require('./activity')
 module.exports = {
   User,
   Point,
-  Activity
+  Activity,
+  State
 }

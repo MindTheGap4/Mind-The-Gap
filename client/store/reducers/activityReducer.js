@@ -12,7 +12,6 @@ const initialState = {
 }
 
 export const fetchActivities = () => {
-  console.log('i am here')
   return async dispatch => {
     const {data} = await axios.get('/api/activity')
     dispatch(getActivities(data))
@@ -20,16 +19,13 @@ export const fetchActivities = () => {
 }
 
 export const addActivity = activity => {
-  console.log('hit add activity')
   return async dispatch => {
     const {data} = await axios.post(`/api/activity/${activity.type}`, activity)
-    console.log('data', data)
     dispatch(postActivity(data))
   }
 }
 
 export default function activityReducer(state = initialState, action) {
-  console.log('action', action)
   switch (action.type) {
     case GET_ACTIVITIES:
       return {activityList: action.activities, isFetching: false}

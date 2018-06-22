@@ -1,6 +1,7 @@
 const User = require('./user')
 const Point = require('./point')
 const Activity = require('./activity')
+const State = require('./state')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -14,9 +15,18 @@ const Activity = require('./activity')
  * we can just require it from 'db/models'
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
+
  */
+
+User.hasMany(Activity)
+Activity.belongsTo(User)
+
+User.hasMany(Point)
+Point.belongsTo(User)
+
 module.exports = {
   User,
   Point,
-  Activity
+  Activity,
+  State
 }

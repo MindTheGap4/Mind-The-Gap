@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, State} = require('../server/db/models')
 
 /**
  * Welcome to the seed file! This seed file uses a newer language feature called...
@@ -32,6 +32,24 @@ async function seed() {
       lastName: 'theDog',
       email: 'murphy@email.com',
       password: '123'
+    })
+  ])
+
+  const states = await Promise.all([
+    State.create({
+      name: 'New York',
+      abbreviation: 'NY',
+      imageUrl: 'https://www.freeclipartnow.com/d/21878-1/new-york.jpg'
+    }),
+    State.create({
+      name: 'California',
+      abbreviation: 'CA',
+      imageUrl: 'https://www.freeclipartnow.com/d/21824-1/california.jpg'
+    }),
+    State.create({
+      name: 'Florida',
+      abbreviation: 'FL',
+      imageUrl: 'https://www.freeclipartnow.com/d/21832-1/florida.jpg'
     })
   ])
   // Wowzers! We can even `await` on the right-hand side of the assignment operator

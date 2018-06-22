@@ -13,6 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Button from '@material-ui/core/Button'
 import axios from 'axios'
 import OrgList from './orgList'
+import Grid from '@material-ui/core/Grid'
 
 const styles = theme => ({
   root: {
@@ -124,7 +125,14 @@ class InputAdornments extends React.Component {
                 Search
               </Button>
             </FormControl>
-            <OrgList orgInfo={this.state.results} />
+            <Grid
+              container
+              className={classes.root}
+              spacing={16}
+              justify="center"
+            >
+              <OrgList orgInfo={this.state.results} />
+            </Grid>
           </form>
         </div>
       </div>

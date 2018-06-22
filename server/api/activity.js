@@ -4,7 +4,7 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    console.log(req.user)
+    console.log('req.user', req.user)
     if (req.user) {
       const activities = await Activity.findAll({
         where: {

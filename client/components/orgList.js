@@ -39,7 +39,7 @@ const OrgList = props => {
     return (
       <div>
         {data.data.map(org => (
-          <Grid key={org.url} item xs={3}>
+          <Grid key={org.url} item xs={6}>
             <Grid
               container
               className={classes.demo}
@@ -60,7 +60,7 @@ const OrgList = props => {
                   <Typography variant="body2" align="center">
                     <a href={org.donationUrl}>Donate Here</a>
                   </Typography>
-                  <Textfield />
+                  <Textfield orgName={org.charityName} donationUrl={org.donationUrl} />
                   {/* <Button
                     variant="contained"
                     color="secondary"

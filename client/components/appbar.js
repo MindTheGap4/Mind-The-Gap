@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import compose from 'recompose/compose'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer';

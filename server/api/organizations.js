@@ -35,8 +35,4 @@ router.get('/:searchTerm/:name', async (req, res, next) => {
   }
 })
 
-router.post('/activity/', async (req, res, next) => {
-
-})
-
 

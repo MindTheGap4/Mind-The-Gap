@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {withStyles} from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+
 
 const styles = theme => ({
   container: {
@@ -28,24 +30,41 @@ class TextFields extends React.Component {
     })
   }
 
-  render() {
-    const {classes} = this.props
+  handleClick = event => {
+    event.preventDefault()
 
+  }
+
+  render() {
+    const { classes } = this.props
+    console.log(this.state.age)
     return (
-      <TextField
-        id="number"
-        label="Amount Donated"
-        align="center"
-        value={this.state.age}
-        onChange={this.handleChange('age')}
-        type="number"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true
-        }}
-        InputProps={{inputProps: {min: 0, max: 100}}}
-        margin="normal"
-      />
+      <div>
+        <TextField
+          id="number"
+          label="Amount Donated"
+          align="center"
+          value={this.state.age}
+          onChange={this.handleChange('age')}
+          type="number"
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true
+          }}
+          InputProps={{ inputProps: { min: 0, max: 100 } }}
+          margin="normal"
+        />
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+          type="submit"
+          justify="center"
+          onClick={this.handleClick}
+        >
+          I Donated!
+                  </Button>
+      </div>
     )
   }
 }

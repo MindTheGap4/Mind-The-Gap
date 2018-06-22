@@ -10,7 +10,6 @@ import CardMedia from '@material-ui/core/CardMedia'
 import {Link, withRouter} from 'react-router-dom'
 
 const SingleRep = props => {
-  console.log(props)
   const rep = props.location.state.selectedRep
   return (
     <div>

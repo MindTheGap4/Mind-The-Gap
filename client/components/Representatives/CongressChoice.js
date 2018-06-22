@@ -38,7 +38,6 @@ const styles = {
 function SimpleCard(props) {
   const {classes} = props
   const selectedState = props.location.state.selectedState
-  console.log(props)
   return (
     <div>
       <h1>{selectedState.name}</h1>

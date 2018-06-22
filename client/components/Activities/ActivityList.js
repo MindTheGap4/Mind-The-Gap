@@ -9,10 +9,6 @@ class ActivityList extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    const fetchActivities = this.props.fetchActivities
-    fetchActivities()
-  }
   render() {
     return (
       <div>
@@ -26,10 +22,4 @@ class ActivityList extends Component {
   }
 }
 
-const mapDispatch = dispatch => {
-  return {
-    fetchActivities: () => dispatch(fetchActivities())
-  }
-}
-
-export default connect(null, mapDispatch)(ActivityList)
+export default connect(null, null)(ActivityList)

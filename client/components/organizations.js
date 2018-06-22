@@ -1,59 +1,59 @@
-import React from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
-import axios from 'axios';
-import OrgList from './orgList';
+import React from 'react'
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import {withStyles} from '@material-ui/core/styles'
+import IconButton from '@material-ui/core/IconButton'
+import Input from '@material-ui/core/Input'
+import InputLabel from '@material-ui/core/InputLabel'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import FormControl from '@material-ui/core/FormControl'
+import TextField from '@material-ui/core/TextField'
+import MenuItem from '@material-ui/core/MenuItem'
+import Button from '@material-ui/core/Button'
+import axios from 'axios'
+import OrgList from './orgList'
 
 const styles = theme => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   margin: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing.unit
   },
   withoutLabel: {
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 3
   },
   textField: {
-    flexBasis: 200,
+    flexBasis: 200
   },
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing.unit
   },
   input: {
-    display: 'none',
-  },
-});
+    display: 'none'
+  }
+})
 
 const ranges = [
   {
     value: 'searchTerm',
-    label: 'Name',
+    label: 'Name'
   },
   {
     value: 'city',
-    label: 'City',
+    label: 'City'
   },
   {
     value: 'state',
-    label: 'State',
+    label: 'State'
   },
   {
     value: 'zipCode',
-    label: 'Zip Code',
-  },
-];
+    label: 'Zip Code'
+  }
+]
 
 class InputAdornments extends React.Component {
   constructor() {
@@ -63,26 +63,24 @@ class InputAdornments extends React.Component {
       userInput: '',
       view: 'none',
       results: []
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange = prop => event => {
-    this.setState({ [prop]: event.target.value });
-  };
+    this.setState({[prop]: event.target.value})
+  }
   async handleSubmit(event) {
-    event.preventDefault();
-    console.log('I was submitted!')
-    const data = await axios.get(`/api/organizations/${this.state.apiParam}/${this.state.userInput}`)
+    event.preventDefault()
+    const data = await axios.get(
+      `/api/organizations/${this.state.apiParam}/${this.state.userInput}`
+    )
     this.setState({results: {data}})
-    console.log("DATA", data)
-    console.log("RESULTS ARRAY", this.state.results.data.data)
   }
 
   render() {
-    const { classes } = this.props;
-    console.log('SELECTED TERM', this.state.userInput)
+    const {classes} = this.props
     return (
       <div>
         <h1>Organizations</h1>
@@ -100,9 +98,13 @@ class InputAdornments extends React.Component {
               </MenuItem>
             ))}
           </TextField>
-          <form onSubmit={this.handleSubmit} >
+          <form onSubmit={this.handleSubmit}>
             <FormControl
-              className={classNames(classes.margin, classes.withoutLabel, classes.textField)}
+              className={classNames(
+                classes.margin,
+                classes.withoutLabel,
+                classes.textField
+              )}
               aria-describedby="weight-helper-text"
             >
               <Input
@@ -110,24 +112,28 @@ class InputAdornments extends React.Component {
                 value={this.state.userInput}
                 onChange={this.handleChange('userInput')}
                 inputProps={{
-                  'aria-label': 'Weight',
+                  'aria-label': 'Weight'
                 }}
               />
-              <Button variant="contained" color="primary" className={classes.button} type="submit">
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                type="submit"
+              >
                 Search
               </Button>
             </FormControl>
-            <OrgList orgInfo={this.state.results}/>
+            <OrgList orgInfo={this.state.results} />
           </form>
         </div>
-
       </div>
-    );
+    )
   }
 }
 
 InputAdornments.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
-export default withStyles(styles)(InputAdornments);
+export default withStyles(styles)(InputAdornments)

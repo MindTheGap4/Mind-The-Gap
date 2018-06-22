@@ -3,7 +3,7 @@ const db = require('../db')
 
 const Point = db.define('point', {
   month: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false
   },
   year: {

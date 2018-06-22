@@ -44,22 +44,20 @@ function SimpleCard(props) {
           handleClick(state)
         }}
       >
-        <Grid item xs={12}>
-          <Card className={classes.card}>
-            <CardMedia
-              align="center"
-              className={classes.media}
-              // style={{height: 150}}
-              image={state.imageUrl}
-              title="State Picture"
-            />
-            <CardContent>
-              <Typography variant="headline" align="center" component="h1">
-                {state.name}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+        <Card className={classes.card}>
+          <CardMedia
+            align="center"
+            className={classes.media}
+            // style={{height: 150}}
+            image={state.imageUrl}
+            title="State Picture"
+          />
+          <CardContent>
+            <Typography variant="headline" align="center" component="h1">
+              {state.name}
+            </Typography>
+          </CardContent>
+        </Card>
       </button>
     </div>
   )

@@ -11,15 +11,7 @@ import Grid from '@material-ui/core/Grid'
 
 const styles = {
   card: {
-    width: '33%',
-    margin: '0 auto',
-    minWidth: 275,
-    padding: '1 1 1 1'
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)'
+    minWidth: 325
   },
   title: {
     marginBottom: 16,
@@ -29,9 +21,7 @@ const styles = {
     marginBottom: 12
   },
   media: {
-    height: '50%',
-    width: '50%',
-    paddingTop: '56.25%' // 16:9
+    paddingTop: '100%'
   }
 }
 
@@ -46,11 +36,15 @@ function SimpleCard(props) {
       >
         <Card className={classes.card}>
           <CardMedia
-            align="center"
             className={classes.media}
-            // style={{height: 150}}
             image={state.imageUrl}
             title="State Picture"
+            style={{
+              display: 'block',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no - repeat',
+              backgrounPosition: 'center'
+            }}
           />
           <CardContent>
             <Typography variant="headline" align="center" component="h1">

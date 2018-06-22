@@ -11,6 +11,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import compose from 'recompose/compose'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+
+
 import { logout } from '../store'
 
 const styles = {
@@ -26,55 +30,82 @@ const styles = {
   }
 }
 
-function ButtonAppBar(props) {
-  const { classes, handleClick, isLoggedIn } = props
-  return (
-    <MuiThemeProvider>
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
-              Mind the Gap
-            </Typography>
-            {isLoggedIn ? (
-              <div>
-                <Button color="inherit" component={Link} to="/organizations">
-                  Organizations
-                </Button>
-                <Button color="inherit" component={Link} to="/home">
-                  Home
-                </Button>
+class ButtonAppBar extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      open: false
+    }
+  }
+  handleToggle = () => this.setState({ open: !this.state.open });
 
-                <Button color="inherit" onClick={handleClick}>
-                  Logout
-                </Button>
-              </div>
-            ) : (
+  handleClose = () => this.setState({ open: false });
+
+
+  render() {
+    const { classes, handleClick, isLoggedIn } = this.props
+    return (
+      <MuiThemeProvider>
+        <div className={classes.root}>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="Menu"
+                label="Open Drawer"
+                onClick={this.handleToggle}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Drawer
+                docked={false}
+                width={200}
+                open={this.state.open}
+                onRequestChange={(open) => this.setState({ open })}
+              >
+                <Link to='/organizations'>
+                  <MenuItem onClick={this.handleClose}>Organizations</MenuItem>
+                </Link>
+                <Link to='/representatives'>
+                  <MenuItem onClick={this.handleClose}>Representatives</MenuItem>
+                </Link>
+              </Drawer>
+              <Typography
+                variant="title"
+                color="inherit"
+                className={classes.flex}
+              >
+                Mind the Gap
+              </Typography>
+              {isLoggedIn ? (
                 <div>
-                  <Button color="inherit" component={Link} to="/login">
-                    Login
-                </Button>
-                  <Button color="inherit" component={Link} to="/signup">
-                    Signup
-                </Button>
+
+                  <Button color="inherit" component={Link} to="/home">
+                    Home
+                  </Button>
+
+                  <Button color="inherit" onClick={handleClick}>
+                    Logout
+                  </Button>
                 </div>
-              )}
-          </Toolbar>
-        </AppBar>
-      </div>
-    </MuiThemeProvider>
-  )
+              ) : (
+                  <div>
+                    <Button color="inherit" component={Link} to="/login">
+                      Login
+                  </Button>
+                    <Button color="inherit" component={Link} to="/signup">
+                      Signup
+                  </Button>
+                  </div>
+                )}
+            </Toolbar>
+          </AppBar>
+        </div>
+      </MuiThemeProvider>
+    )
+
+  }
 }
 
 ButtonAppBar.propTypes = {

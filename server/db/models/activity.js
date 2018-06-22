@@ -7,7 +7,7 @@ const Activity = db.define('activity', {
     allowNull: false
   },
   category: {
-    type: Sequelize.STRING,
+    type: Sequelize.ENUM('donation', 'contact representative'),
     allowNull: false
   },
   date: {

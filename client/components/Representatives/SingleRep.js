@@ -8,9 +8,19 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import CardMedia from '@material-ui/core/CardMedia'
 import {Link, withRouter} from 'react-router-dom'
+import {addActivity} from '../../store/reducers/activityReducer'
+import {connect} from 'react-redux'
 
 const SingleRep = props => {
   const rep = props.location.state.selectedRep
+  // console.log('props', props)
+  const activity = {
+    name: rep.first_name + ' ' + rep.last_name,
+    location: rep.roles[0].state,
+    type: 'representatives'
+  }
+  console.log(activity)
+  const buttonSubmit = () => props.addActivity(activity)
   return (
     <div>
       <div>
@@ -18,8 +28,19 @@ const SingleRep = props => {
       </div>
       <div>Phone: {rep.roles[0].phone}</div>
       <div>Link: {rep.url}</div>
+      <button type="button" onClick={buttonSubmit}>
+        I CONTACTED THIS REP TODAY, COLLECT MY POINTS
+      </button>
     </div>
   )
 }
 
-export default SingleRep
+const mapDispatchToProps = dispatch => {
+  return {
+    addActivity: activity => {
+      dispatch(addActivity(activity))
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SingleRep)

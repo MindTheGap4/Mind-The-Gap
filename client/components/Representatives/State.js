@@ -59,7 +59,7 @@ class State extends Component {
                 <Grid
                   container
                   className={classes.demo}
-                  align="center"
+                  justify="center"
                   spacing={16}
                 >
                   <StateCard

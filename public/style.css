@@ -23,3 +23,10 @@ form div {
 h1 {
   text-align: center;
 }
+
+.card {
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

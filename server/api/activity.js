@@ -17,3 +17,21 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.post('/representatives', async (req, res, next) => {
+  try {
+    //name of rep, category: rep, date, location, hours: null, dollars: null, status: past, points: 5,
+    const newActivity = await Activity.create({
+      name: req.body.name /** */,
+      category: 'contact representative',
+      date: new Date(),
+      location: req.body.location, //** */
+      status: 'past',
+      points: 5,
+      userId: req.user.id
+    })
+    res.json(newActivity)
+  } catch (err) {
+    next(err)
+  }
+})

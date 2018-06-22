@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, State} = require('../server/db/models')
+const {User, State, Activity, Point} = require('../server/db/models')
 
 /**
  * Welcome to the seed file! This seed file uses a newer language feature called...
@@ -50,6 +50,68 @@ async function seed() {
       name: 'Florida',
       abbreviation: 'FL',
       imageUrl: 'https://www.freeclipartnow.com/d/21832-1/florida.jpg'
+    })
+  ])
+
+  const activities = await Promise.all([
+    Activity.create({
+      userId: 1,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: new Date(),
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: new Date(),
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: new Date(),
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: new Date(),
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    })
+  ])
+  const points = await Promise.all([
+    Point.create({
+      month: 5,
+      year: 2018,
+      goal: 100,
+      totalEarned: 50,
+      userId: 1
+    }),
+    Point.create({
+      month: 4,
+      year: 2018,
+      goal: 100,
+      totalEarned: 90,
+      userId: 1
+    }),
+    Point.create({
+      month: 5,
+      year: 2018,
+      goal: 100,
+      totalEarned: 60,
+      userId: 2
     })
   ])
   // Wowzers! We can even `await` on the right-hand side of the assignment operator

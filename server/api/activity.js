@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Activity} = require('../db/models')
+const { Activity } = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -32,6 +32,25 @@ router.post('/representatives', async (req, res, next) => {
       link: req.body.link,
       points: 5,
       userId: req.user.id
+    })
+    res.json(newActivity)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.post('/organizations', async (req, res, next) => {
+  try {
+    //name of rep, category: rep, date, location, hours: null, dollars: null, status: past, points: 5,
+    const newActivity = await Activity.create({
+      name: req.body.name /** */,
+      category: 'donation',
+      date: new Date(),
+      status: 'past',
+      points: req.body.points,
+      userId: req.user.id,
+      dollarAmount: req.body.points,
+      link: req.body.donationUrl
     })
     res.json(newActivity)
   } catch (err) {

@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import {withStyles} from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import { addActivity } from '../store'
-import { connect } from 'react-redux'
-
-
+import {addActivity} from '../store'
+import {connect} from 'react-redux'
+import {updatePoints} from '../store/reducers/pointsReducer'
 
 const styles = theme => ({
   container: {
@@ -40,8 +39,7 @@ class TextFields extends React.Component {
     })
   }
 
-  handleClick = (event) => {
-
+  handleClick = event => {
     event.preventDefault()
     const activity = {
       name: this.props.orgName,
@@ -54,7 +52,7 @@ class TextFields extends React.Component {
   }
 
   render() {
-    const { classes } = this.props
+    const {classes} = this.props
     return (
       <div>
         <TextField
@@ -68,7 +66,7 @@ class TextFields extends React.Component {
           InputLabelProps={{
             shrink: true
           }}
-          InputProps={{ inputProps: { min: 0, max: 100 } }}
+          InputProps={{inputProps: {min: 0, max: 100}}}
           margin="normal"
         />
         <Button
@@ -80,7 +78,7 @@ class TextFields extends React.Component {
           onClick={this.handleClick}
         >
           I Donated!
-                  </Button>
+        </Button>
       </div>
     )
   }
@@ -94,6 +92,7 @@ const mapDispatch = dispatch => {
   return {
     addActivity: activity => {
       dispatch(addActivity(activity))
+      // dispatch(updatePoints({points: +activity.points}))
     }
   }
 }

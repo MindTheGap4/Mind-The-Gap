@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import CardMedia from '@material-ui/core/CardMedia'
 import {Link, withRouter} from 'react-router-dom'
 import {addActivity} from '../../store/reducers/activityReducer'
+import {updatePoints} from '../../store/reducers/pointsReducer'
 import {connect} from 'react-redux'
 
 const SingleRep = props => {
@@ -17,6 +18,7 @@ const SingleRep = props => {
   const activity = {
     name: rep.first_name + ' ' + rep.last_name,
     location: rep.roles[0].state,
+    link: rep.url,
     type: 'representatives'
   }
   console.log(activity)
@@ -39,6 +41,7 @@ const mapDispatchToProps = dispatch => {
   return {
     addActivity: activity => {
       dispatch(addActivity(activity))
+      dispatch(updatePoints({points: 5}))
     }
   }
 }

@@ -107,6 +107,41 @@ async function seed() {
       userId: 1
     }),
     Point.create({
+      month: 3,
+      year: 2018,
+      goal: 100,
+      totalEarned: 80,
+      userId: 1
+    }),
+    Point.create({
+      month: 2,
+      year: 2018,
+      goal: 120,
+      totalEarned: 100,
+      userId: 1
+    }),
+    Point.create({
+      month: 1,
+      year: 2018,
+      goal: 100,
+      totalEarned: 110,
+      userId: 1
+    }),
+    Point.create({
+      month: 0,
+      year: 2018,
+      goal: 110,
+      totalEarned: 110,
+      userId: 1
+    }),
+    Point.create({
+      month: 11,
+      year: 2017,
+      goal: 100,
+      totalEarned: 120,
+      userId: 1
+    }),
+    Point.create({
       month: 5,
       year: 2018,
       goal: 100,

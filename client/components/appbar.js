@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import {withStyles} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -8,13 +8,12 @@ import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import Drawer from 'material-ui/Drawer'
+import MenuItem from 'material-ui/MenuItem'
 
-
-import { logout } from '../store'
+import {logout} from '../store'
 
 const styles = {
   root: {
@@ -36,13 +35,12 @@ class ButtonAppBar extends React.Component {
       open: false
     }
   }
-  handleToggle = () => this.setState({ open: !this.state.open });
+  handleToggle = () => this.setState({open: !this.state.open})
 
-  handleClose = () => this.setState({ open: false });
-
+  handleClose = () => this.setState({open: false})
 
   render() {
-    const { classes, handleClick, isLoggedIn } = this.props
+    const {classes, handleClick, isLoggedIn} = this.props
     return (
       <MuiThemeProvider>
         <div className={classes.root}>
@@ -61,13 +59,24 @@ class ButtonAppBar extends React.Component {
                 docked={false}
                 width={200}
                 open={this.state.open}
-                onRequestChange={(open) => this.setState({ open })}
+                onRequestChange={open => this.setState({open})}
               >
-                <Link to='/organizations'>
+                <Link to="/home">
+                  <MenuItem onClick={this.handleClose}>Home</MenuItem>
+                </Link>
+                <Link to="/account/activities">
+                  <MenuItem onClick={this.handleClose}>Activities</MenuItem>
+                </Link>
+                <Link to="/account/points">
+                  <MenuItem onClick={this.handleClose}>Points</MenuItem>
+                </Link>
+                <Link to="/organizations">
                   <MenuItem onClick={this.handleClose}>Organizations</MenuItem>
                 </Link>
-                <Link to='/representatives'>
-                  <MenuItem onClick={this.handleClose}>Representatives</MenuItem>
+                <Link to="/representatives">
+                  <MenuItem onClick={this.handleClose}>
+                    Representatives
+                  </MenuItem>
                 </Link>
               </Drawer>
               <Typography
@@ -79,7 +88,6 @@ class ButtonAppBar extends React.Component {
               </Typography>
               {isLoggedIn ? (
                 <div>
-
                   <Button color="inherit" component={Link} to="/home">
                     Home
                   </Button>
@@ -89,21 +97,20 @@ class ButtonAppBar extends React.Component {
                   </Button>
                 </div>
               ) : (
-                  <div>
-                    <Button color="inherit" component={Link} to="/login">
-                      Login
+                <div>
+                  <Button color="inherit" component={Link} to="/login">
+                    Login
                   </Button>
-                    <Button color="inherit" component={Link} to="/signup">
-                      Signup
+                  <Button color="inherit" component={Link} to="/signup">
+                    Signup
                   </Button>
-                  </div>
-                )}
+                </div>
+              )}
             </Toolbar>
           </AppBar>
         </div>
       </MuiThemeProvider>
     )
-
   }
 }
 

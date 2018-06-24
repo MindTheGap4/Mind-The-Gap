@@ -57,10 +57,12 @@ class State extends Component {
             return (
               <Grid item xs={3}>
                 <Grid
+                  key={state.name}
                   container
                   className={classes.demo}
                   justify="center"
                   spacing={16}
+                  style={{padding: 20}}
                 >
                   <StateCard
                     key={state.id}

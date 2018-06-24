@@ -7,12 +7,15 @@ import {Link} from 'react-router-dom'
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email} = props
+  console.log(props)
+  const {firstName, lastName} = props
 
   return (
     <div>
-      <h3>Welcome, {email}</h3>
-      <Link to="/account/activities">account</Link>
+      <h3>
+        Welcome, {firstName} {lastName}
+      </h3>
+      {/* <Link to="/account/activities">account</Link> */}
     </div>
   )
 }
@@ -22,7 +25,9 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    email: state.user.email,
+    firstName: state.user.firstName,
+    lastName: state.user.lastName
   }
 }
 

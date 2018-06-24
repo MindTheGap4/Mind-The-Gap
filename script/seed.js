@@ -50,6 +50,236 @@ async function seed() {
       name: 'Florida',
       abbreviation: 'FL',
       imageUrl: 'https://www.freeclipartnow.com/d/21832-1/florida.jpg'
+    }),
+    State.create({
+      name: 'Alabama',
+      abbreviation: 'AL',
+      imageUrl: 'https://www.freeclipartnow.com/d/21816-7/alabama.jpg'
+    }),
+    State.create({
+      name: 'Alaska',
+      abbreviation: 'AK',
+      imageUrl: 'https://www.freeclipartnow.com/d/21819-6/alaska.jpg'
+    }),
+    State.create({
+      name: 'Arizona',
+      abbreviation: 'AZ',
+      imageUrl: 'https://www.freeclipartnow.com/d/21821-6/arizona.jpg'
+    }),
+    State.create({
+      name: 'Arkansas',
+      abbreviation: 'AR',
+      imageUrl: 'https://www.freeclipartnow.com/d/21823-6/arkansas.jpg'
+    }),
+    State.create({
+      name: 'Colorado',
+      abbreviation: 'CO',
+      imageUrl: 'https://www.freeclipartnow.com/d/21827-6/colorado.jpg'
+    }),
+    State.create({
+      name: 'Connecticut',
+      abbreviation: 'CT',
+      imageUrl: 'https://www.freeclipartnow.com/d/21829-6/connecticut.jpg'
+    }),
+    State.create({
+      name: 'Delaware',
+      abbreviation: 'DE',
+      imageUrl: 'https://www.freeclipartnow.com/d/21831-6/delaware.jpg'
+    }),
+    State.create({
+      name: 'Georgia',
+      abbreviation: 'GA',
+      imageUrl: 'https://www.freeclipartnow.com/d/21835-6/georgia.jpg'
+    }),
+    State.create({
+      name: 'Hawaii',
+      abbreviation: 'HI',
+      imageUrl: 'https://www.freeclipartnow.com/d/21837-6/hawaii.jpg'
+    }),
+    State.create({
+      name: 'Idaho',
+      abbreviation: 'ID',
+      imageUrl: 'https://www.freeclipartnow.com/d/21839-6/idaho.jpg'
+    }),
+    State.create({
+      name: 'Illinois',
+      abbreviation: 'IL',
+      imageUrl: 'https://www.freeclipartnow.com/d/21841-6/illinois.jpg'
+    }),
+    State.create({
+      name: 'Indiana',
+      abbreviation: 'IN',
+      imageUrl: 'https://www.freeclipartnow.com/d/21843-6/indiana.jpg'
+    }),
+    State.create({
+      name: 'Iowa',
+      abbreviation: 'IA',
+      imageUrl: 'https://www.freeclipartnow.com/d/21845-6/iowa.jpg'
+    }),
+    State.create({
+      name: 'Kansas',
+      abbreviation: 'KS',
+      imageUrl: 'https://www.freeclipartnow.com/d/21847-6/kansas.jpg'
+    }),
+    State.create({
+      name: 'Kentucky',
+      abbreviation: 'KY',
+      imageUrl: 'https://www.freeclipartnow.com/d/21849-6/kentucky.jpg'
+    }),
+    State.create({
+      name: 'Louisiana',
+      abbreviation: 'LA',
+      imageUrl: 'https://www.freeclipartnow.com/d/21851-6/louisiana.jpg'
+    }),
+    State.create({
+      name: 'Maine',
+      abbreviation: 'ME',
+      imageUrl: 'https://www.freeclipartnow.com/d/21853-6/maine.jpg'
+    }),
+    State.create({
+      name: 'Maryland',
+      abbreviation: 'MD',
+      imageUrl: 'https://www.freeclipartnow.com/d/21855-6/maryland.jpg'
+    }),
+    State.create({
+      name: 'Massachusetts',
+      abbreviation: 'MA',
+      imageUrl: 'https://www.freeclipartnow.com/d/21857-6/massachusetts.jpg'
+    }),
+    State.create({
+      name: 'Michigan',
+      abbreviation: 'MI',
+      imageUrl: 'https://www.freeclipartnow.com/d/21859-6/michigan.jpg'
+    }),
+    State.create({
+      name: 'Minnesota',
+      abbreviation: 'MN',
+      imageUrl: 'https://www.freeclipartnow.com/d/21861-6/minnesota.jpg'
+    }),
+    State.create({
+      name: 'Mississippi',
+      abbreviation: 'MS',
+      imageUrl: 'https://www.freeclipartnow.com/d/21863-6/mississippi.jpg'
+    }),
+    State.create({
+      name: 'Missouri',
+      abbreviation: 'MO',
+      imageUrl: 'https://www.freeclipartnow.com/d/21865-6/missouri.jpg'
+    }),
+    State.create({
+      name: 'Montana',
+      abbreviation: 'MT',
+      imageUrl: 'https://www.freeclipartnow.com/d/21867-6/montana.jpg'
+    }),
+    State.create({
+      name: 'Nebraska',
+      abbreviation: 'NE',
+      imageUrl: 'https://www.freeclipartnow.com/d/21869-6/nebraska.jpg'
+    }),
+    State.create({
+      name: 'Nevada',
+      abbreviation: 'NV',
+      imageUrl: 'https://www.freeclipartnow.com/d/21871-6/nevada.jpg'
+    }),
+    State.create({
+      name: 'New Hampshire',
+      abbreviation: 'NH',
+      imageUrl: 'https://www.freeclipartnow.com/d/21873-6/new-hampshire.jpg'
+    }),
+    State.create({
+      name: 'New Jersey',
+      abbreviation: 'NJ',
+      imageUrl: 'https://www.freeclipartnow.com/d/21875-6/new-jersey.jpg'
+    }),
+    State.create({
+      name: 'New Mexico',
+      abbreviation: 'NM',
+      imageUrl: 'https://www.freeclipartnow.com/d/21877-6/new-mexico.jpg'
+    }),
+    State.create({
+      name: 'North Carolina',
+      abbreviation: 'NC',
+      imageUrl: 'https://www.freeclipartnow.com/d/21881-6/north-carolina.jpg'
+    }),
+    State.create({
+      name: 'North Dakota',
+      abbreviation: 'ND',
+      imageUrl: 'https://www.freeclipartnow.com/d/21883-6/north-dakota.jpg'
+    }),
+    State.create({
+      name: 'Ohio',
+      abbreviation: 'OH',
+      imageUrl: 'https://www.freeclipartnow.com/d/21885-6/ohio.jpg'
+    }),
+    State.create({
+      name: 'Oklahoma',
+      abbreviation: 'OK',
+      imageUrl: 'https://www.freeclipartnow.com/d/21887-6/oklahoma.jpg'
+    }),
+    State.create({
+      name: 'Oregon',
+      abbreviation: 'OR',
+      imageUrl: 'https://www.freeclipartnow.com/d/21889-6/oregon.jpg'
+    }),
+    State.create({
+      name: 'Pennsylvania',
+      abbreviation: 'PA',
+      imageUrl: 'https://www.freeclipartnow.com/d/21891-6/pennsylvania.jpg'
+    }),
+    State.create({
+      name: 'Rhode Island',
+      abbreviation: 'RI',
+      imageUrl: 'https://www.freeclipartnow.com/d/21893-6/rhode-island.jpg'
+    }),
+    State.create({
+      name: 'South Carolina',
+      abbreviation: 'SC',
+      imageUrl: 'https://www.freeclipartnow.com/d/21895-6/south-carolina.jpg'
+    }),
+    State.create({
+      name: 'Tennessee',
+      abbreviation: 'TN',
+      imageUrl: 'https://www.freeclipartnow.com/d/21899-6/tennessee.jpg'
+    }),
+    State.create({
+      name: 'Texas',
+      abbreviation: 'TX',
+      imageUrl: 'https://www.freeclipartnow.com/d/21901-6/texas.jpg'
+    }),
+    State.create({
+      name: 'Utah',
+      abbreviation: 'UT',
+      imageUrl: 'https://www.freeclipartnow.com/d/21903-6/utah.jpg'
+    }),
+    State.create({
+      name: 'Vermont',
+      abbreviation: 'VT',
+      imageUrl: 'https://www.freeclipartnow.com/d/21905-6/vermont.jpg'
+    }),
+    State.create({
+      name: 'Virgina',
+      abbreviation: 'VA',
+      imageUrl: 'https://www.freeclipartnow.com/d/21907-6/virginia.jpg'
+    }),
+    State.create({
+      name: 'Washington',
+      abbreviation: 'WA',
+      imageUrl: 'https://www.freeclipartnow.com/d/21909-6/washington.jpg'
+    }),
+    State.create({
+      name: 'West Virginia',
+      abbreviation: 'WV',
+      imageUrl: 'https://www.freeclipartnow.com/d/21911-6/west-virginia.jpg'
+    }),
+    State.create({
+      name: 'Wisconsin',
+      abbreviation: 'WI',
+      imageUrl: 'https://www.freeclipartnow.com/d/21913-6/wisconsin.jpg'
+    }),
+    State.create({
+      name: 'Wyoming',
+      abbreviation: 'WY',
+      imageUrl: 'https://www.freeclipartnow.com/d/21915-6/wyoming.jpg'
     })
   ])
 

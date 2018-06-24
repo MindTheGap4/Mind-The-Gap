@@ -1,7 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {withStyles} from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import { addActivity } from '../store'
+import { connect } from 'react-redux'
+
+
 
 const styles = theme => ({
   container: {
@@ -19,33 +24,64 @@ const styles = theme => ({
 })
 
 class TextFields extends React.Component {
-  state = {
-    age: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      amount: '',
+      orgName: ''
+    }
+
+    this.handleClick = this.handleClick.bind(this)
   }
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
     })
   }
 
-  render() {
-    const {classes} = this.props
+  handleClick = (event) => {
 
+    event.preventDefault()
+    const activity = {
+      name: this.props.orgName,
+      points: this.state.amount,
+      type: 'organizations',
+      donationUrl: this.props.donationUrl
+    }
+
+    this.props.addActivity(activity)
+  }
+
+  render() {
+    const { classes } = this.props
     return (
-      <TextField
-        id="number"
-        label="Amount Donated"
-        align="center"
-        value={this.state.age}
-        onChange={this.handleChange('age')}
-        type="number"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true
-        }}
-        InputProps={{inputProps: {min: 0, max: 100}}}
-        margin="normal"
-      />
+      <div>
+        <TextField
+          id="number"
+          label="Amount Donated"
+          align="center"
+          value={this.state.amount}
+          onChange={this.handleChange('amount')}
+          type="number"
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true
+          }}
+          InputProps={{ inputProps: { min: 0, max: 100 } }}
+          margin="normal"
+        />
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+          type="submit"
+          justify="center"
+          onClick={this.handleClick}
+        >
+          I Donated!
+                  </Button>
+      </div>
     )
   }
 }
@@ -54,4 +90,12 @@ TextFields.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(TextFields)
+const mapDispatch = dispatch => {
+  return {
+    addActivity: activity => {
+      dispatch(addActivity(activity))
+    }
+  }
+}
+
+export default withStyles(styles)(connect(null, mapDispatch)(TextFields))

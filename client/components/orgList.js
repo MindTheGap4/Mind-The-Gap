@@ -34,11 +34,11 @@ const styles = theme => ({
 
 const OrgList = props => {
   const { classes } = props
-  const { data } = props.orgInfo
-  if (data && data.data) {
+
+  if (props.results) {
     return (
       <div>
-        {data.data.map(org => (
+        {props.results.map(org => (
           <Grid key={org.url} item xs={6}>
             <Grid
               container

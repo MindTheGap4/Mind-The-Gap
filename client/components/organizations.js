@@ -5,7 +5,6 @@ import {withStyles} from '@material-ui/core/styles'
 import IconButton from '@material-ui/core/IconButton'
 import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
-import InputAdornment from '@material-ui/core/InputAdornment'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import FormControl from '@material-ui/core/FormControl'
 import TextField from '@material-ui/core/TextField'
@@ -14,6 +13,7 @@ import Button from '@material-ui/core/Button'
 import axios from 'axios'
 import OrgList from './orgList'
 import Grid from '@material-ui/core/Grid'
+import FilterOrgs from './FilterOrgs'
 
 const styles = theme => ({
   root: {
@@ -37,47 +37,37 @@ const styles = theme => ({
   }
 })
 
-const ranges = [
-  {
-    value: 'searchTerm',
-    label: 'Name'
-  },
-  {
-    value: 'city',
-    label: 'City'
-  },
-  {
-    value: 'state',
-    label: 'State'
-  },
-  {
-    value: 'zipCode',
-    label: 'Zip Code'
-  }
-]
-
 class InputAdornments extends React.Component {
   constructor() {
     super()
     this.state = {
-      apiParam: '',
-      userInput: '',
-      view: 'none',
-      results: []
+      results: [],
+      filteredResults: []
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
+    this.handleFilterSubmit = this.handleFilterSubmit.bind(this)
   }
 
-  handleChange = prop => event => {
-    this.setState({[prop]: event.target.value})
-  }
-  async handleSubmit(event) {
-    event.preventDefault()
+  async handleSearchSubmit(filterType, filterText) {
     const data = await axios.get(
-      `/api/organizations/${this.state.apiParam}/${this.state.userInput}`
+      `/api/organizations/${filterType}/${filterText}`
     )
-    this.setState({results: {data}})
+    const results = data.data
+    console.log("RESULTS", results)
+    this.setState({results: results, filteredResults: results})
+  }
+  handleFilterSubmit(filterType, filterText) {
+    this.setState((prevState) => {
+      const newResults = prevState.results.filter(result => {
+        if (filterType === 'searchTerm') {
+          return result.charityName.includes(filterText)
+        }
+        return false
+      })
+
+      return {filteredResults: newResults}
+    })
   }
 
   render() {
@@ -85,55 +75,17 @@ class InputAdornments extends React.Component {
     return (
       <div>
         <h1>Organizations</h1>
-        <div className={classes.root}>
-          <TextField
-            select
-            label="Search By:"
-            className={classNames(classes.margin, classes.textField)}
-            value={this.state.apiParam}
-            onChange={this.handleChange('apiParam')}
+        <div className={classes.root} >
+          <FilterOrgs onFilterSubmit={this.handleSearchSubmit} label="Search By:" button="Search"/>
+          <FilterOrgs onFilterSubmit={this.handleFilterSubmit} label="Filter by" button="Filter"/>
+          <Grid
+            container
+            className={classes.root}
+            spacing={16}
+            justify="center"
           >
-            {ranges.map(option => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-          <form onSubmit={this.handleSubmit}>
-            <FormControl
-              className={classNames(
-                classes.margin,
-                classes.withoutLabel,
-                classes.textField
-              )}
-              aria-describedby="weight-helper-text"
-            >
-              <Input
-                id="adornment-weight"
-                value={this.state.userInput}
-                onChange={this.handleChange('userInput')}
-                inputProps={{
-                  'aria-label': 'Weight'
-                }}
-              />
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                type="submit"
-              >
-                Search
-              </Button>
-            </FormControl>
-            <Grid
-              container
-              className={classes.root}
-              spacing={16}
-              justify="center"
-            >
-              <OrgList orgInfo={this.state.results} />
-            </Grid>
-          </form>
+            <OrgList results={this.state.filteredResults} />
+          </Grid>
         </div>
       </div>
     )

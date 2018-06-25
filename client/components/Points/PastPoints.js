@@ -2,64 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {createYearObj, monthNumToName} from '../../../helpers'
+import Chart from '../D3/BarChart'
 
 export const PastPoints = props => {
-  function createYearObj() {
-    const userStartYear = props.userDate.getFullYear()
-    const userStartMonth = props.userDate.getMonth()
-
-    console.log('userstartmonth', userStartMonth)
-    console.log('user start yer', userStartYear)
-    const currentYear = new Date().getFullYear()
-    const currentMonth = new Date().getMonth()
-    const yearObj = {}
-    // var months = [
-    //   'January',
-    //   'February',
-    //   'March',
-    //   'April',
-    //   'May',
-    //   'June',
-    //   'July',
-    //   'August',
-    //   'September',
-    //   'October',
-    //   'November',
-    //   'December'
-    // ]
-
-    // function monthNumToName(monthnum) {
-    //   return months[monthnum] || ''
-    // }
-    for (let year = userStartYear; year <= currentYear; year++) {
-      let loopStartMonth
-      let loopEndMonth
-      yearObj[year] = []
-      if (year === userStartYear) {
-        loopStartMonth = userStartMonth
-      } else {
-        loopStartMonth = 0
+  const sortedPoints = createYearObj(props.userDate, props.allPoints)
+  const currentYear = new Date().getFullYear()
+  const thisYearPoints = sortedPoints[currentYear]
+  console.log('sorted points', sortedPoints)
+  console.log('thismonthspoints', thisYearPoints)
+  let data
+  if (thisYearPoints) {
+    data = thisYearPoints.map(month => {
+      return {
+        name: monthNumToName(month.month),
+        goal: month.goal,
+        earned: month.totalEarned
       }
-      if (year === currentYear) {
-        loopEndMonth = currentMonth
-      } else {
-        loopEndMonth = 11
-      }
-      for (let month = loopStartMonth; month <= loopEndMonth; month++) {
-        // const monthName = monthNumToName(month)
-        yearObj[year][month] = {month: true}
-      }
-    }
-    console.log('year obj', yearObj)
-    console.log('all points', props.allPoints)
-    props.allPoints.forEach(point => {
-      // const monthName = monthNumToName(point.month)
-      yearObj[point.year][point.month] = point
     })
-    console.log(yearObj)
-    return yearObj
+    console.log('data', data)
   }
-  const sortedPoints = createYearObj()
   return (
     <div>
       <div>pastpoints</div>
@@ -71,7 +33,7 @@ export const PastPoints = props => {
               {sortedPoints[key].map(monthObj => {
                 return (
                   <div>
-                    {props.monthNumToName(monthObj.month)} points earned:{' '}
+                    {monthNumToName(monthObj.month)} points earned:{' '}
                     {monthObj.totalEarned} goal:{monthObj.goal}
                   </div>
                 )
@@ -80,6 +42,7 @@ export const PastPoints = props => {
           )
         })}
       </div>
+      <div>{thisYearPoints && <Chart data={data} />}</div>
     </div>
   )
 }
@@ -87,24 +50,24 @@ export const PastPoints = props => {
 const mapState = state => {
   return {
     allPoints: state.points.allPoints,
-    userDate: new Date(state.user.createdAt),
-    monthNumToName: monthNum => {
-      var months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ]
-      return months[monthNum]
-    }
+    userDate: new Date(state.user.createdAt)
+    // monthNumToName: monthNum => {
+    //   var months = [
+    //     'January',
+    //     'February',
+    //     'March',
+    //     'April',
+    //     'May',
+    //     'June',
+    //     'July',
+    //     'August',
+    //     'September',
+    //     'October',
+    //     'November',
+    //     'December'
+    //   ]
+    //   return months[monthNum]
+    // }
   }
 }
 

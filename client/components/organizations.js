@@ -67,7 +67,6 @@ class InputAdornments extends React.Component {
         } else if(filterType === 'state') {
           return result.state.includes(filterText)
         } else if (filterType === 'zipCode') {
-          console.log('ZIP CODE', result)
           return result.zipCode.includes(filterText)
         }
         return false

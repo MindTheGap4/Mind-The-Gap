@@ -53,6 +53,9 @@ class InputAdornments extends React.Component {
   }
 
   async handleSearchSubmit(filterType, filterText) {
+    if (filterType === 'searchTerm') {
+      filterText = filterText.toLowerCase()
+    }
     const data = await axios.get(
       `/api/organizations/${filterType}/${filterText}`
     )

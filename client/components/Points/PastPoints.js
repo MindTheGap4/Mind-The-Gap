@@ -8,27 +8,28 @@ export const PastPoints = props => {
     const userStartYear = props.userDate.getFullYear()
     const userStartMonth = props.userDate.getMonth()
     console.log('userstartmonth', userStartMonth)
+    console.log('user start yer', userStartYear)
     const currentYear = new Date().getFullYear()
     const currentMonth = new Date().getMonth()
     const yearObj = {}
-    var months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-    ]
+    // var months = [
+    //   'January',
+    //   'February',
+    //   'March',
+    //   'April',
+    //   'May',
+    //   'June',
+    //   'July',
+    //   'August',
+    //   'September',
+    //   'October',
+    //   'November',
+    //   'December'
+    // ]
 
-    function monthNumToName(monthnum) {
-      return months[monthnum] || ''
-    }
+    // function monthNumToName(monthnum) {
+    //   return months[monthnum] || ''
+    // }
     for (let year = userStartYear; year <= currentYear; year++) {
       let loopStartMonth
       let loopEndMonth
@@ -48,6 +49,8 @@ export const PastPoints = props => {
         yearObj[year][month] = {month: true}
       }
     }
+    console.log('year obj', yearObj)
+    console.log('all points', props.allPoints)
     props.allPoints.forEach(point => {
       // const monthName = monthNumToName(point.month)
       yearObj[point.year][point.month] = point

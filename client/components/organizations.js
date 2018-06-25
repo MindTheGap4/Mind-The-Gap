@@ -62,6 +62,12 @@ class InputAdornments extends React.Component {
       const newResults = prevState.results.filter(result => {
         if (filterType === 'searchTerm') {
           return result.charityName.includes(filterText)
+        } else if(filterType === 'city') {
+          return result.city.includes(filterText)
+        } else if(filterType === 'state') {
+          return result.state.includes(filterText)
+        } else if (filterType === 'zipCode') {
+          return result.zipCode.includes(filterType)
         }
         return false
       })

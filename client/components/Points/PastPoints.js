@@ -7,6 +7,7 @@ export const PastPoints = props => {
   function createYearObj() {
     const userStartYear = props.userDate.getFullYear()
     const userStartMonth = props.userDate.getMonth()
+
     console.log('userstartmonth', userStartMonth)
     console.log('user start yer', userStartYear)
     const currentYear = new Date().getFullYear()

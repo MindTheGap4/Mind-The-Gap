@@ -92,7 +92,7 @@ const mapDispatch = dispatch => {
   return {
     addActivity: activity => {
       dispatch(addActivity(activity))
-      // dispatch(updatePoints({points: +activity.points}))
+      dispatch(updatePoints({points: +activity.points}))
     }
   }
 }

@@ -14,6 +14,7 @@ import Icon from '@material-ui/core/Icon'
 import {Link, withRouter} from 'react-router-dom'
 import {addActivity} from '../../store/reducers/activityReducer'
 import {connect} from 'react-redux'
+import {updatePoints} from '../../store/reducers/pointsReducer'
 // import usSenate from 'civil-services-us-senate'
 // console.log(usSenate)
 
@@ -103,6 +104,7 @@ const SingleRep = props => {
             className="social-icons collect-points"
             size="small"
             color="primary"
+            onClick={buttonSubmit}
           >
             <span className="collect-points">
               {' '}

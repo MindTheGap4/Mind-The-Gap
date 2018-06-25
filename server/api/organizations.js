@@ -7,12 +7,12 @@ router.get('/:searchTerm/:name', async (req, res, next) => {
   try {
     const response = await axios({
       method: 'get',
-      url:
-        `http://data.orghunter.com/v1/charitysearch?user_key=e81bd7f2ba3feabb9808165b50fa89a3&${req.params.searchTerm}=${req.params.name}`
-
+      url: `http://data.orghunter.com/v1/charitysearch?user_key=${
+        process.env.ORG_KEY
+      }&${req.params.searchTerm}=${req.params.name}`
     })
     const orgInfo = response.data.data.map(organization => {
-      return ({
+      return {
         charityName: organization.charityName,
         url: organization.url,
         donationUrl: organization.donationUrl,
@@ -21,15 +21,12 @@ router.get('/:searchTerm/:name', async (req, res, next) => {
         zipCode: organization.zipCode,
         category: organization.category
       }
-      )
     })
     // console.log("RESPONSE", response.data)
-    console.log("RESPONSE", orgInfo)
+    console.log('RESPONSE', orgInfo)
 
     res.json(orgInfo)
   } catch (err) {
     next(err)
   }
 })
-
-

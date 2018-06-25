@@ -1,7 +1,7 @@
 import axios from 'axios'
 import history from '../history'
 import {fetchActivities} from './reducers/activityReducer'
-import {fetchCurrentPoints} from './reducers/pointsReducer'
+import {fetchCurrentPoints, fetchAllPoints} from './reducers/pointsReducer'
 
 /**
  * ACTION TYPES
@@ -27,6 +27,9 @@ export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me')
     dispatch(getUser(res.data || defaultUser))
+    dispatch(fetchActivities())
+    dispatch(fetchCurrentPoints())
+    dispatch(fetchAllPoints())
   } catch (err) {
     console.error(err)
   }
@@ -42,8 +45,10 @@ export const auth = (email, password, method) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
+    console.log('in auth')
     dispatch(fetchActivities())
     dispatch(fetchCurrentPoints())
+    dispatch(fetchAllPoints())
     history.push('/home')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)

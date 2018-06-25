@@ -7,7 +7,6 @@ import {Link} from 'react-router-dom'
  * COMPONENT
  */
 export const UserHome = props => {
-  console.log(props)
   const {firstName, lastName} = props
 
   return (
@@ -26,6 +25,7 @@ export const UserHome = props => {
 const mapState = state => {
   return {
     email: state.user.email,
+    points: state.points,
     firstName: state.user.firstName,
     lastName: state.user.lastName
   }

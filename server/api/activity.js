@@ -12,6 +12,8 @@ router.get('/', async (req, res, next) => {
         }
       })
       res.json(activities)
+    } else {
+      res.json('no user')
     }
   } catch (err) {
     next(err)
@@ -27,6 +29,7 @@ router.post('/representatives', async (req, res, next) => {
       date: new Date(),
       location: req.body.location, //** */
       status: 'past',
+      link: req.body.link,
       points: 5,
       userId: req.user.id
     })

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Piechart from './Points/PieChart'
+import Chart from './D3/BarChart'
 /**
  * COMPONENT
  */
@@ -22,6 +23,16 @@ export const UserHome = props => {
           data={[
             {value: 92 - 34, label: 'Code lines'},
             {value: 34, label: 'Empty lines'}
+          ]}
+        />
+      </div>
+      <div>
+        <Chart
+          data={[
+            {name: 'Page A', uv: 40, pv: 24, amt: 24},
+            {name: 'Page B', uv: 30, pv: 13, amt: 22},
+            {name: 'Page C', uv: 20, pv: 98, amt: 2290},
+            {name: 'Page D', uv: 27, pv: 39, amt: 20}
           ]}
         />
       </div>

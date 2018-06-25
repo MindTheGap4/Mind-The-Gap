@@ -23,3 +23,29 @@ form div {
 h1 {
   text-align: center;
 }
+
+.social-icons {
+  flex: 1 1 0;
+
+}
+
+.collect-points {
+  width: 200px;
+}
+
+.centering-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+
+}
+
+.list {
+  list-style: none;
+}
+
+.divider {
+  margin-left: 27px;
+  margin-right: 27px;
+}

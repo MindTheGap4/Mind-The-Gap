@@ -1,15 +1,20 @@
 const router = require('express').Router()
 const axios = require('axios')
+// const usSenate = require('civil-services-us-senate')
+
+// const normalizedUsSenate =
 
 router.get('/house/:state', async (req, res, next) => {
   try {
-    const {data} = await axios.get(
+    // res.json(usSenate)
+    const { data } = await axios.get(
       `https://api.propublica.org/congress/v1/members/house/${
-        req.params.state
+      req.params.state
       }/current.json`,
-      {headers: {'X-API-Key': 'AQU4JBzxHHzCREJtgfV0gCv43pPD4SGCTGhUwE19'}}
+      { headers: { 'X-API-Key': 'AQU4JBzxHHzCREJtgfV0gCv43pPD4SGCTGhUwE19' } }
     )
     res.json(data)
+    console.log('inside API/representatuves house/state', data)
   } catch (err) {
     next(err)
   }
@@ -17,11 +22,11 @@ router.get('/house/:state', async (req, res, next) => {
 
 router.get('/senate/:state', async (req, res, next) => {
   try {
-    const {data} = await axios.get(
+    const { data } = await axios.get(
       `https://api.propublica.org/congress/v1/members/senate/${
-        req.params.state
+      req.params.state
       }/current.json`,
-      {headers: {'X-API-Key': 'AQU4JBzxHHzCREJtgfV0gCv43pPD4SGCTGhUwE19'}}
+      { headers: { 'X-API-Key': 'AQU4JBzxHHzCREJtgfV0gCv43pPD4SGCTGhUwE19' } }
     )
     res.json(data)
   } catch (err) {
@@ -31,9 +36,9 @@ router.get('/senate/:state', async (req, res, next) => {
 
 router.get('/singleRep/:id', async (req, res, next) => {
   try {
-    const {data} = await axios.get(
+    const { data } = await axios.get(
       `https://api.propublica.org/congress/v1/members/${req.params.id}.json`,
-      {headers: {'X-API-Key': 'AQU4JBzxHHzCREJtgfV0gCv43pPD4SGCTGhUwE19'}}
+      { headers: { 'X-API-Key': 'AQU4JBzxHHzCREJtgfV0gCv43pPD4SGCTGhUwE19' } }
     )
     res.json(data)
   } catch (err) {

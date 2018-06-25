@@ -20,6 +20,9 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap'
   },
+  card: {
+    flexGrow: 1
+  },
   margin: {
     margin: theme.spacing.unit
   },
@@ -54,17 +57,16 @@ class InputAdornments extends React.Component {
       `/api/organizations/${filterType}/${filterText}`
     )
     const results = data.data
-    console.log("RESULTS", results)
     this.setState({results: results, filteredResults: results})
   }
   handleFilterSubmit(filterType, filterText) {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       const newResults = prevState.results.filter(result => {
         if (filterType === 'searchTerm') {
           return result.charityName.includes(filterText)
-        } else if(filterType === 'city') {
+        } else if (filterType === 'city') {
           return result.city.includes(filterText)
-        } else if(filterType === 'state') {
+        } else if (filterType === 'state') {
           return result.state.includes(filterText)
         } else if (filterType === 'zipCode') {
           return result.zipCode.includes(filterText)
@@ -81,17 +83,19 @@ class InputAdornments extends React.Component {
     return (
       <div>
         <h1>Organizations</h1>
-        <div className={classes.root} >
-          <FilterOrgs onFilterSubmit={this.handleSearchSubmit} label="Search By:" button="Search"/>
-          <FilterOrgs onFilterSubmit={this.handleFilterSubmit} label="Filter by" button="Filter"/>
-          <Grid
-            container
-            className={classes.root}
-            spacing={16}
-            justify="center"
-          >
-            <OrgList results={this.state.filteredResults} />
-          </Grid>
+        <div className={classes.root}>
+          <FilterOrgs
+            onFilterSubmit={this.handleSearchSubmit}
+            label="Search By:"
+            button="Search"
+          />
+          <FilterOrgs
+            onFilterSubmit={this.handleFilterSubmit}
+            label="Filter by"
+            button="Filter"
+          />
+
+          <OrgList results={this.state.filteredResults} />
         </div>
       </div>
     )

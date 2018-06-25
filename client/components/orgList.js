@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import {withStyles} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
@@ -33,18 +33,25 @@ const styles = theme => ({
 })
 
 const OrgList = props => {
-  const { classes } = props
+  const {classes} = props
 
   if (props.results) {
     return (
-      <div>
+      <Grid
+        container
+        className={classes.card}
+        spacing={16}
+        justify="center"
+        style={{padding: 50}}
+      >
         {props.results.map(org => (
-          <Grid key={org.url} item xs={6}>
+          <Grid key={org.url} item xs={3}>
             <Grid
               container
               className={classes.demo}
               justify="center"
               spacing={16}
+              style={{padding: 20}}
             >
               <Card className={classes.card}>
                 <CardContent>
@@ -60,7 +67,10 @@ const OrgList = props => {
                   <Typography variant="body2" align="center">
                     <a href={org.donationUrl}>Donate Here</a>
                   </Typography>
-                  <Textfield orgName={org.charityName} donationUrl={org.donationUrl} />
+                  <Textfield
+                    orgName={org.charityName}
+                    donationUrl={org.donationUrl}
+                  />
                   {/* <Button
                     variant="contained"
                     color="secondary"
@@ -75,7 +85,7 @@ const OrgList = props => {
             </Grid>
           </Grid>
         ))}
-      </div>
+      </Grid>
     )
   } else {
     return null

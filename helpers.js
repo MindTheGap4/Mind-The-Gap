@@ -2,8 +2,8 @@ export function createYearObj(userDate, allPoints) {
   const userStartYear = userDate.getFullYear()
   const userStartMonth = userDate.getMonth()
 
-  console.log('userstartmonth', userStartMonth)
-  console.log('user start yer', userStartYear)
+  //console.log('userstartmonth', userStartMonth)
+  // console.log('user start yer', userStartYear)
   const currentYear = new Date().getFullYear()
   const currentMonth = new Date().getMonth()
   const yearObj = {}
@@ -26,13 +26,13 @@ export function createYearObj(userDate, allPoints) {
       yearObj[year][month] = {month: true}
     }
   }
-  console.log('year obj', yearObj)
-  console.log('all points', allPoints)
+  // console.log('year obj', yearObj)
+  // console.log('all points', allPoints)
   allPoints.forEach(point => {
     // const monthName = monthNumToName(point.month)
     yearObj[point.year][point.month] = point
   })
-  console.log(yearObj)
+  // console.log(yearObj)
   return yearObj
 }
 

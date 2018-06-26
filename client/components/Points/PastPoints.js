@@ -9,8 +9,7 @@ export const PastPoints = props => {
   const sortedPoints = createYearObj(props.userDate, props.allPoints)
   const currentYear = new Date().getFullYear()
   const thisYearPoints = sortedPoints[currentYear]
-  console.log('sorted points', sortedPoints)
-  console.log('thismonthspoints', thisYearPoints)
+
   let data
   if (thisYearPoints) {
     data = thisYearPoints.map(month => {
@@ -20,7 +19,7 @@ export const PastPoints = props => {
         earned: month.totalEarned
       }
     })
-    console.log('data', data)
+    console.log('BAR data', data)
   }
   return (
     <div>

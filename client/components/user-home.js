@@ -12,6 +12,7 @@ export const UserHome = props => {
   let repPoints = 0
   let donationPoints = 0
   const currentPoints = points && points.currentPoints.goal
+
   const thisMonth =
     activities &&
     activities.filter(

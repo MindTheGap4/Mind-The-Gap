@@ -15,8 +15,6 @@ import {Link, withRouter} from 'react-router-dom'
 import {addActivity} from '../../store/reducers/activityReducer'
 import {connect} from 'react-redux'
 import {updatePoints} from '../../store/reducers/pointsReducer'
-// import usSenate from 'civil-services-us-senate'
-// console.log(usSenate)
 
 const styles = {
   card: {
@@ -30,7 +28,7 @@ const styles = {
 
 const SponsorCard = props => {
   const {classes, sponsor, handleClick} = props
-  console.log('')
+
   return (
     <div className="centering-card">
       {/* <button
@@ -46,9 +44,16 @@ const SponsorCard = props => {
             title="Sponsor Card"
           />
           <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              {sponsor.name}
-            </Typography>
+            <button
+              type="button"
+              onClick={() => {
+                handleClick(sponsor)
+              }}
+            >
+              <Typography gutterBottom variant="headline" component="h2">
+                {sponsor.name}
+              </Typography>
+            </button>
             {/* <Typography component="p">{sponsor.description}</Typography> */}
           </CardContent>
           <hr className="divider" />

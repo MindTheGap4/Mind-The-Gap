@@ -8,6 +8,7 @@ import {fetchCurrentPoints, fetchAllPoints} from './reducers/pointsReducer'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const PUT_POINTS = 'PUT_POINTS'
 
 /**
  * INITIAL STATE
@@ -19,6 +20,7 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+const putPoints = user => ({type: PUT_POINTS, user})
 
 /**
  * THUNK CREATORS
@@ -45,7 +47,6 @@ export const auth = (email, password, method) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
-    console.log('in auth')
     dispatch(fetchActivities())
     dispatch(fetchCurrentPoints())
     dispatch(fetchAllPoints())
@@ -65,6 +66,13 @@ export const logout = () => async dispatch => {
   }
 }
 
+export const updatePoints = points => {
+  return async dispatch => {
+    const {data} = await axios.put(`/api/users`, {points: points})
+    dispatch(putPoints(data))
+  }
+}
+
 /**
  * REDUCER
  */
@@ -74,6 +82,8 @@ export default function(state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
+    case PUT_POINTS:
+      return action.user
     default:
       return state
   }

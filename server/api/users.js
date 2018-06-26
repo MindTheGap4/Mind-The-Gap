@@ -15,3 +15,16 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/', async (req, res, next) => {
+  try {
+    const user = await User.findOne({where: {id: req.user.id}})
+    const points = user.pointsSpent + req.body.points
+    const updatedUser = await user.update({
+      pointsSpent: points
+    })
+    res.json(updatedUser)
+  } catch (err) {
+    next(err)
+  }
+})

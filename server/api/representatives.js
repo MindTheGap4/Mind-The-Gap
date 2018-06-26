@@ -14,7 +14,6 @@ router.get('/house/:state', async (req, res, next) => {
       {headers: {'X-API-Key': process.env.REP_KEY}}
     )
     res.json(data)
-    console.log('inside API/representatuves house/state', data)
   } catch (err) {
     next(err)
   }

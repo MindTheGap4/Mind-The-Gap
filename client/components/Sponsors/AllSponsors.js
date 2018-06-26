@@ -40,23 +40,23 @@ class AllSponsors extends Component {
       allSponsors: data
     })
   }
-  async handleClick(evt) {
-    const {data} = await axios.get(`/api/sponsors/singleSponsor/${evt.id}`)
+  async handleClick(sponsor) {
+    const {data} = await axios.get(`/api/events/bySponsor/${sponsor.id}`)
     this.setState(
       {
-        selectedSponsor: data
+        selectedSponsor: sponsor
       },
       () => {
         this.props.history.push({
           pathname: `/sponsors/${this.state.selectedSponsor.id}`,
-          state: {selectedSponsor: this.state.selectedSponsor}
+          state: {selectedSponsor: this.state.selectedSponsor, events: data}
         })
       }
     )
   }
   render() {
     const {classes} = this.props
-    console.log('hello')
+
     return (
       <div className={classes.root}>
         <Grid className={classes.paper} container spacing={40}>

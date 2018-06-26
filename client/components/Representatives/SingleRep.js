@@ -15,8 +15,6 @@ import {Link, withRouter} from 'react-router-dom'
 import {addActivity} from '../../store/reducers/activityReducer'
 import {connect} from 'react-redux'
 import {updatePoints} from '../../store/reducers/pointsReducer'
-// import usSenate from 'civil-services-us-senate'
-// console.log(usSenate)
 
 const styles = {
   card: {
@@ -32,8 +30,6 @@ const SingleRep = props => {
   const {classes} = props
 
   const rep = props.location.state.selectedRep
-  console.log('props', props)
-  console.log('REP', rep)
 
   const activity = {
     name: rep.first_name + ' ' + rep.last_name,
@@ -41,7 +37,7 @@ const SingleRep = props => {
     link: rep.url,
     type: 'representatives'
   }
-  console.log(activity)
+
   const buttonSubmit = () => props.addActivity(activity)
   return (
     <div className="centering-card">
@@ -87,16 +83,19 @@ const SingleRep = props => {
 
         <CardActions>
           <Button className="social-icons" size="small" color="primary">
-            <Icon className={classes.icon}>email</Icon>
-            <a href={rep.url} target="_blank" />
+            <a href={rep.url} target="_blank">
+              <Icon className={classes.icon}>email</Icon>
+            </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
-            <i className=" fab fa-facebook fa-lg" />
-            <a href={rep.url} target="_blank" />
+            <a href={rep.url} target="_blank">
+              <i className=" fab fa-facebook fa-lg" />
+            </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
-            <i className=" fab fa-twitter fa-lg" />
-            <a href={rep.url} target="_blank" />
+            <a href={rep.url} target="_blank">
+              <i className=" fab fa-twitter fa-lg" />
+            </a>
           </Button>
         </CardActions>
         <CardActions>

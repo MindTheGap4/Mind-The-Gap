@@ -88,10 +88,13 @@ class ButtonAppBar extends React.Component {
               </Typography>
               {isLoggedIn ? (
                 <div>
-                  <Button color="inherit" component={Link} to="/home">
+                  {/* <Button color="inherit" component={Link} to="/home">
                     Home
-                  </Button>
-
+                  </Button> */}
+                  <div>
+                    Points to Spend:{' '}
+                    {this.props.totalPoints - this.props.user.pointsSpent}
+                  </div>
                   <Button color="inherit" onClick={handleClick}>
                     Logout
                   </Button>
@@ -118,8 +121,14 @@ ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired
 }
 const mapState = state => {
+  let sum = 0
+  state.points.allPoints.forEach(point => {
+    sum += point.totalEarned
+  })
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    totalPoints: sum,
+    user: state.user
   }
 }
 

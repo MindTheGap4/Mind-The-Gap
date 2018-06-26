@@ -87,16 +87,19 @@ const SingleRep = props => {
 
         <CardActions>
           <Button className="social-icons" size="small" color="primary">
-            <Icon className={classes.icon}>email</Icon>
-            <a href={rep.url} target="_blank" />
+            <a href={rep.url} target="_blank">
+              <Icon className={classes.icon}>email</Icon>
+            </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
-            <i className=" fab fa-facebook fa-lg" />
-            <a href={rep.url} target="_blank" />
+            <a href={rep.url} target="_blank">
+              <i className=" fab fa-facebook fa-lg" />
+            </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
-            <i className=" fab fa-twitter fa-lg" />
-            <a href={rep.url} target="_blank" />
+            <a href={rep.url} target="_blank">
+              <i className=" fab fa-twitter fa-lg" />
+            </a>
           </Button>
         </CardActions>
         <CardActions>

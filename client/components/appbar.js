@@ -71,7 +71,10 @@ class ButtonAppBar extends React.Component {
                   <MenuItem onClick={this.handleClose}>Activities</MenuItem>
                 </Link>
                 <Link to="/account/points">
-                  <MenuItem onClick={this.handleClose}>Points</MenuItem>
+                  <MenuItem onClick={this.handleClose}>My Points</MenuItem>
+                </Link>
+                <Link to="/myEvents">
+                  <MenuItem onClick={this.handleClose}>My Events</MenuItem>
                 </Link>
                 <Link to="/organizations">
                   <MenuItem onClick={this.handleClose}>Organizations</MenuItem>
@@ -80,6 +83,12 @@ class ButtonAppBar extends React.Component {
                   <MenuItem onClick={this.handleClose}>
                     Representatives
                   </MenuItem>
+                </Link>
+                <Link to="/sponsors">
+                  <MenuItem onClick={this.handleClose}>Sponsors</MenuItem>
+                </Link>
+                <Link to="/events">
+                  <MenuItem onClick={this.handleClose}>Events</MenuItem>
                 </Link>
                 <div className="progress-wrapper">
                   <CircularProgressbar

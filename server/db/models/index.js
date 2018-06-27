@@ -33,6 +33,9 @@ Event.belongsTo(Sponsor)
 User.belongsToMany(Event, {through: 'userEvent'})
 Event.belongsToMany(User, {through: 'userEvent'})
 
+userEvent.belongsTo(Event)
+userEvent.belongsTo(User)
+
 module.exports = {
   User,
   Point,

@@ -7,6 +7,8 @@ router.use('/representatives', require('./representatives'))
 router.use('/states', require('./states'))
 router.use('/activity', require('./activity'))
 router.use('/points', require('./points'))
+router.use('/sponsors', require('./sponsors'))
+router.use('/events', require('./events'))
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')

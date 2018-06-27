@@ -7,16 +7,24 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {monthNumToName} from '../../helpers';
+import {addGoal} from '../store/reducers/pointsReducer';
+import {connect} from 'react-redux';
 
 const currentMonthNum = new Date().getMonth()
 const currentMonthName = monthNumToName(currentMonthNum)
 console.log('MONTH NAME', currentMonthName)
 
 export default class GoalsDialog extends React.Component {
-  state = {
+  constructor(){
+    super()
+  this.state = {
     open: false,
   };
-
+  this.handleClickOpen = this.handleClickOpen.bind(this);
+  this.handleClose = this.handleClose.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+  this.handleChange = this.handleChange.bind(this);
+  }
   handleClickOpen = () => {
     this.setState({ open: true });
   };
@@ -25,6 +33,13 @@ export default class GoalsDialog extends React.Component {
     this.setState({ open: false });
   };
 
+  handleSubmit = event => {
+    this.setState({ open: false });
+    this.props.updateGoal()
+  }
+  handleChange = event => {
+    event.target.name = event.target.value
+  }
   render() {
     return (
       <div>
@@ -47,13 +62,15 @@ export default class GoalsDialog extends React.Component {
               label="Points"
               type="number"
               fullWidth
+              name="goal"
+              onChange={this.handleChange}
             />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleSubmit} color="primary">
               Ready to kick butt
             </Button>
           </DialogActions>
@@ -62,3 +79,12 @@ export default class GoalsDialog extends React.Component {
     );
   }
 }
+
+
+const mapDispatch = dispatch => {
+  return {
+    updateGoal: goal => dispatch(addGoal(goal))
+  }
+}
+
+

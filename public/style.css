@@ -26,7 +26,6 @@ h1 {
 
 .social-icons {
   flex: 1 1 0;
-
 }
 
 .collect-points {
@@ -38,7 +37,6 @@ h1 {
   align-items: center;
   justify-content: center;
   height: 90vh;
-
 }
 
 .list {
@@ -48,4 +46,8 @@ h1 {
 .divider {
   margin-left: 27px;
   margin-right: 27px;
+}
+
+.progress-wrapper {
+  width: 150px;
 }

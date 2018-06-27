@@ -53,6 +53,9 @@ class InputAdornments extends React.Component {
   }
 
   async handleSearchSubmit(filterType, filterText) {
+    if (filterType === 'searchTerm') {
+      filterText = filterText.toLowerCase()
+    }
     const data = await axios.get(
       `/api/organizations/${filterType}/${filterText}`
     )
@@ -63,11 +66,11 @@ class InputAdornments extends React.Component {
     this.setState(prevState => {
       const newResults = prevState.results.filter(result => {
         if (filterType === 'searchTerm') {
-          return result.charityName.includes(filterText)
+          return result.charityName.includes(filterText.toUpperCase())
         } else if (filterType === 'city') {
-          return result.city.includes(filterText)
+          return result.city.includes(filterText.toUpperCase())
         } else if (filterType === 'state') {
-          return result.state.includes(filterText)
+          return result.state.includes(filterText.charAt(0).toUpperCase() + filterText.slice(1))
         } else if (filterType === 'zipCode') {
           return result.zipCode.includes(filterText)
         }

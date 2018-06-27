@@ -18,6 +18,7 @@ export const PastPoints = props => {
       }
     })
   }
+  console.log("DATA", data)
   return (
     <div>
       <div>pastpoints</div>

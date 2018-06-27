@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import TwoLevelPieChart from '../D3/TwoLevelPieChart'
 
 export const CurrentPoints = props => {
-
+  console.log('CURRENT POINTs', props.currentPoints)
   return (
     <div>
       <div>current points</div>

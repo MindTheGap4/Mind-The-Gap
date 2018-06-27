@@ -36,9 +36,6 @@ class TwoLevelPieChart extends Component {
   })
 
 const dataSent=[{name: 'Contacted Rep', value: repPoints}, {name: 'Donation', value: donationPoints}, {name: 'Points until goal', value: this.props.currentPoints.goal - this.props.currentPoints.totalEarned}]
-console.log('CONTACT REP POINT', repPoints)
-console.log("DONATION POINTS", donationPoints)
-console.log('GOAL LEFT', (this.props.currentPoints.goal - this.props.currentPoints.totalEarned))
     return(
       <PieChart width={800} height={400} >
       <Pie activeIndex={this.state.activeIndex} activeShape={RenderActiveShape} cx={300} cy={200} innerRadius={60} outerRadius={80} fill='#8884d8' onMouseEnter={this.onPieEnter} data={dataSent}/>

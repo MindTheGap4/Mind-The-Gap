@@ -12,7 +12,7 @@ const Point = db.define('point', {
   },
   goal: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    defaultValue: 0
   },
   totalEarned: {
     type: Sequelize.INTEGER,

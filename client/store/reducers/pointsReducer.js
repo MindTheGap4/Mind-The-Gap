@@ -17,7 +17,6 @@ const initialState = {
   currentPoints: {},
   allPoints: [],
   isFetching: true,
-  goal: 0
 }
 
 export const fetchCurrentPoints = () => {
@@ -41,9 +40,10 @@ export const updatePoints = input => {
   }
 }
 
-export const addGoal = input => {
+export const addGoal = goal => {
   return async dispatch => {
-    const {data} = await axios.put('/api/points/addGoal', input)
+    const {data} = await axios.put('/api/points/addGoal', { goal })
+    console.log('I WAS DISPATChED', data)
     dispatch(postGoal(data))
   }
 }
@@ -65,8 +65,10 @@ export default function pointReducer(state = initialState, action) {
         currentPoints: action.currentPoints
       }
       case ADD_GOAL:
-         return {...state,
-          goal: action.goal}
+         return {
+           ...state,
+          currentPoints: {goal: action.goal.goal}
+         }
     default:
       return state
   }

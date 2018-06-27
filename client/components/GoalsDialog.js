@@ -12,14 +12,15 @@ import {connect} from 'react-redux';
 
 const currentMonthNum = new Date().getMonth()
 const currentMonthName = monthNumToName(currentMonthNum)
-console.log('MONTH NAME', currentMonthName)
 
-export default class GoalsDialog extends React.Component {
+ class GoalsDialog extends React.Component {
   constructor(){
     super()
   this.state = {
     open: false,
+    goal: 0
   };
+
   this.handleClickOpen = this.handleClickOpen.bind(this);
   this.handleClose = this.handleClose.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,11 +35,16 @@ export default class GoalsDialog extends React.Component {
   };
 
   handleSubmit = event => {
+    event.preventDefault()
     this.setState({ open: false });
-    this.props.updateGoal()
+    this.props.updateGoal(+this.state.goal)
+    console.log("SUBMIT GOAL", +this.state.goal)
   }
   handleChange = event => {
-    event.target.name = event.target.value
+    console.log('value', event.target.value)
+    this.setState({
+      [event.target.name] : [event.target.value]
+    })
   }
   render() {
     return (
@@ -87,4 +93,5 @@ const mapDispatch = dispatch => {
   }
 }
 
+export default connect(null, mapDispatch)(GoalsDialog)
 

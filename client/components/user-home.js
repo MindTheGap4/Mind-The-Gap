@@ -8,8 +8,9 @@ import TwoLevelPieChart from './D3/TwoLevelPieChart';
  * COMPONENT
  */
 export const UserHome = props => {
-  const {firstName, lastName, goal} = props
+  const {firstName, lastName, goal, points} = props
   console.log("GOAL", goal)
+  console.log("POINTS", points)
 
 
   return (
@@ -38,7 +39,8 @@ const mapState = state => {
     email: state.user.email,
     firstName: state.user.firstName,
     lastName: state.user.lastName,
-    goal: state.points.currentPoints.goal
+    goal: state.points.currentPoints.goal,
+    points: state.points
   }
 }
 

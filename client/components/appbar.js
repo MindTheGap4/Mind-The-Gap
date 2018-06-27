@@ -12,6 +12,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
+import CircularProgressbar from 'react-circular-progressbar'
 
 import {logout} from '../store'
 
@@ -40,7 +41,9 @@ class ButtonAppBar extends React.Component {
   handleClose = () => this.setState({open: false})
 
   render() {
-    const {classes, handleClick, isLoggedIn} = this.props
+    const {classes, handleClick, isLoggedIn, points} = this.props
+    const {totalEarned, goal} = points.currentPoints
+    const pointsPercentage = Math.round(totalEarned / goal * 100)
     return (
       <MuiThemeProvider>
         <div className={classes.root}>
@@ -78,6 +81,13 @@ class ButtonAppBar extends React.Component {
                     Representatives
                   </MenuItem>
                 </Link>
+                <div className="progress-wrapper">
+                  <CircularProgressbar
+                    strokeWidth={15}
+                    percentage={pointsPercentage}
+                    text={`${pointsPercentage}%`}
+                  />
+                </div>
               </Drawer>
               <Typography
                 variant="title"
@@ -127,6 +137,7 @@ const mapState = state => {
   })
   return {
     isLoggedIn: !!state.user.id,
+    points: state.points,
     totalPoints: sum,
     user: state.user
   }

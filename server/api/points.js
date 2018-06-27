@@ -5,14 +5,14 @@ module.exports = router
 router.get('/currentPoints', async (req, res, next) => {
   try {
     if (req.user) {
-      const points = await Point.findOne({
+      const points = await Point.findOrCreate({
         where: {
           month: new Date().getMonth(),
           year: new Date().getFullYear(),
           userId: req.user.id
         }
       })
-      res.json(points)
+      res.json(points[0])
     } else {
       res.json('no user')
     }

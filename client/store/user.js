@@ -72,18 +72,13 @@ export const createUser = (
       firstName,
       lastName
     })
-  } catch (authError) {
-    return dispatch(getUser({error: authError}))
-  }
-
-  try {
     dispatch(getUser(res.data))
     dispatch(fetchActivities())
     dispatch(fetchCurrentPoints())
     dispatch(fetchAllPoints())
     history.push('/home')
-  } catch (dispatchOrHistoryErr) {
-    console.error(dispatchOrHistoryErr)
+  } catch (authError) {
+    return dispatch(getUser({error: authError}))
   }
 }
 

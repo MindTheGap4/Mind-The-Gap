@@ -55,3 +55,24 @@ router.put('/addPoints', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/addGoal', async (req, res, next) => {
+  console.log("INCOMING PUT REQUEST FOR GOAL POINTS", req.body)
+  try {
+    const points = await Point.findOne({
+      where: {
+        month: new Date().getMonth(),
+        year: new Date().getFullYear(),
+        userId: req.user.id
+      }
+    })
+    const updatedGoal = await points.update({
+      goal: req.body.goal
+    })
+    res.json(updatedGoal)
+  } catch (err) {
+    next(err)
+  }
+})
+
+

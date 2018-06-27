@@ -1,7 +1,14 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, State, Activity, Point} = require('../server/db/models')
+const {
+  User,
+  State,
+  Activity,
+  Point,
+  Event,
+  Sponsor
+} = require('../server/db/models')
 
 /**
  * Welcome to the seed file! This seed file uses a newer language feature called...
@@ -25,13 +32,17 @@ async function seed() {
       firstName: 'Cody',
       lastName: 'theDog',
       email: 'cody@email.com',
-      password: '123'
+      password: '123',
+      createdAt: new Date('2017-12-26 11:07:26.571-04'),
+      id: 1,
+      pointsSpent: 300
     }),
     User.create({
       firstName: 'Murphy',
       lastName: 'theDog',
       email: 'murphy@email.com',
-      password: '123'
+      password: '123',
+      id: 2
     })
   ])
 
@@ -377,6 +388,100 @@ async function seed() {
       goal: 100,
       totalEarned: 5,
       userId: 2
+    })
+  ])
+
+  const sponsors = await Promise.all([
+    Sponsor.create({
+      name: 'SoulCycle',
+      id: 1,
+      description:
+        "Our mission is to bring Soul to the people. Our one of a kind, rockstar instructors guide riders through an inspirational, meditative fitness experience that’s designed to benefit the body, mind and soul. Set in a dark candlelit room to high-energy music, our riders move in unison as a pack to the beat and follow the signature choreography of our instructors. The experience is tribal. It's primal. It's fun.",
+      imageUrl:
+        'https://i.pinimg.com/originals/07/4a/23/074a239c652fd4eed672683534dd1260.jpg',
+      url: 'https://www.soul-cycle.com/',
+      twitterUrl: 'https://twitter.com/soulcycle',
+      facebookUrl: 'https://www.facebook.com/SoulCycleInc/',
+      instagramUrl: 'https://www.instagram.com/soulcycle/?hl=en'
+    }),
+    Sponsor.create({
+      name: 'Yoga To The People',
+      id: 2,
+      description:
+        'Yoga to the People is a unique yoga studio with the goal of recapturing what we consider to be the essence of yoga… simply put, yoga made available to everyone. In a time where yoga as a business is getting a lot of attention, the fact that it is being priced out of many people’s reach is in direct conflict with what we consider to be the spirit of yoga itself. The question our studio seeks to answer is: Can a yoga studio maintain itself as a business while keeping the focus of its intention on providing yoga as a service first and foremost?',
+      imageUrl:
+        'https://pbs.twimg.com/profile_images/254771330/Twitter_Logo_400x400.jpg',
+      url: 'https://yogatothepeople.com/',
+      twitterUrl: 'https://twitter.com/Yogatothepeople',
+      facebookUrl: 'https://www.facebook.com/yogatothepeople/',
+      instagramUrl: 'https://www.instagram.com/yogatothepeople/?hl=en'
+    }),
+    Sponsor.create({
+      name: 'Fat Cat',
+      id: 3,
+      description:
+        'fat cat is a diverse cultural institution featuring live music, games, art space and innovative educational programming. our musical offerings highlight emerging artists and legends of genres ranging from jazz to latin, classical and world music. we sustain the tradition of late nightly jam sessions which makes New York the jazz capital. these sessions allow young musicians to earn their chops alongside veterans, and provide pages for a living musical language to be (re)written.',
+      imageUrl:
+        'http://jazzafterhours.net/uploads/event_images/88/fatcat-2__large.png',
+      url: 'http://www.fatcatmusic.org/mission.html',
+      twitterUrl: 'https://twitter.com/fatcatNYC',
+      facebookUrl: 'https://www.facebook.com/fatcatjazz/',
+      instagramUrl: 'https://www.instagram.com/fatcatnyc/?hl=en',
+      city: 'New York City',
+      state: 'NY'
+    })
+  ])
+
+  const events = await Promise.all([
+    Event.create({
+      name: 'Spin Class',
+      date: new Date('2018-07-26 7:30:00'),
+      location: '5 Bryant Park New York, NY 10018',
+      description: 'One hour soul cycle class',
+      spotsAvailable: 20,
+      pointCost: 100,
+      sponsorId: 1
+    }),
+    Event.create({
+      name: 'Spin Class',
+      date: new Date('2018-07-10 18:30:00'),
+      location: '2325 Collins Avenue Miami Beach, FL 33139',
+      description: 'One hour soul cycle class',
+      spotsAvailable: 20,
+      pointCost: 100,
+      sponsorId: 1
+    }),
+    Event.create({
+      name: 'Yoga Class',
+      date: new Date('2018-07-17 19:30:00'),
+      location: '1017 6th Ave. @ 38th Street, 3rd Fl, New York, NY 10018',
+      description: 'One hour yoga class',
+      spotsAvailable: 15,
+      pointCost: 80,
+      sponsorId: 2
+    }),
+    Event.create({
+      name: 'Yoga Class',
+      date: new Date('2018-08-17 19:30:00'),
+      location: '2710 Broadway 3rd Floor, New York, NY 10025',
+      description: 'One hour yoga class',
+      spotsAvailable: 15,
+      pointCost: 80,
+      sponsorId: 2
+    }),
+    Event.create({
+      name: 'Free drink',
+      location: '75 Christopher St, New York, NY 10014',
+      description: 'One free drink',
+      pointCost: 30,
+      sponsorId: 3
+    }),
+    Event.create({
+      name: 'Free ping pong game',
+      location: '75 Christopher St, New York, NY 10014',
+      description: '30 minutes of ping pong',
+      pointCost: 70,
+      sponsorId: 3
     })
   ])
   // Wowzers! We can even `await` on the right-hand side of the assignment operator

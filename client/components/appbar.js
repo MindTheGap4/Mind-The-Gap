@@ -12,6 +12,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
+import CircularProgressbar from 'react-circular-progressbar'
 
 import {logout} from '../store'
 
@@ -40,7 +41,9 @@ class ButtonAppBar extends React.Component {
   handleClose = () => this.setState({open: false})
 
   render() {
-    const {classes, handleClick, isLoggedIn} = this.props
+    const {classes, handleClick, isLoggedIn, points} = this.props
+    const {totalEarned, goal} = points.currentPoints
+    const pointsPercentage = Math.round(totalEarned / goal * 100)
     return (
       <MuiThemeProvider>
         <div className={classes.root}>
@@ -78,6 +81,13 @@ class ButtonAppBar extends React.Component {
                     Representatives
                   </MenuItem>
                 </Link>
+                <div className="progress-wrapper">
+                  <CircularProgressbar
+                    strokeWidth={15}
+                    percentage={pointsPercentage}
+                    text={`${pointsPercentage}%`}
+                  />
+                </div>
               </Drawer>
               <Typography
                 variant="title"
@@ -88,10 +98,13 @@ class ButtonAppBar extends React.Component {
               </Typography>
               {isLoggedIn ? (
                 <div>
-                  <Button color="inherit" component={Link} to="/home">
+                  {/* <Button color="inherit" component={Link} to="/home">
                     Home
-                  </Button>
-
+                  </Button> */}
+                  <div>
+                    Points to Spend:{' '}
+                    {this.props.totalPoints - this.props.user.pointsSpent}
+                  </div>
                   <Button color="inherit" onClick={handleClick}>
                     Logout
                   </Button>
@@ -118,8 +131,15 @@ ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired
 }
 const mapState = state => {
+  let sum = 0
+  state.points.allPoints.forEach(point => {
+    sum += point.totalEarned
+  })
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    points: state.points,
+    totalPoints: sum,
+    user: state.user
   }
 }
 

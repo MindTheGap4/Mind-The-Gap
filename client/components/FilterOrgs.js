@@ -14,18 +14,18 @@ import Button from '@material-ui/core/Button'
 const styles = theme => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   margin: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing.unit
   },
   withoutLabel: {
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 3
   },
   textField: {
-    flexBasis: 200,
-  },
-});
+    flexBasis: 200
+  }
+})
 
 const ranges = [
   {
@@ -67,10 +67,8 @@ class FilterOrgs extends React.Component {
     this.props.onFilterSubmit(this.state.filterType, this.state.filterText)
   }
 
-  render () {
-    const { classes } = this.props
-    console.log("PROPS", this.props)
-    console.log("STATE", this.state)
+  render() {
+    const {classes} = this.props
     return (
       <div className={classes.root}>
         <TextField
@@ -111,7 +109,7 @@ class FilterOrgs extends React.Component {
               className={classes.button}
               type="submit"
             >
-            {this.props.button}
+              {this.props.button}
             </Button>
           </FormControl>
         </form>
@@ -120,5 +118,4 @@ class FilterOrgs extends React.Component {
   }
 }
 
-
-export default  withStyles(styles)(FilterOrgs)
+export default withStyles(styles)(FilterOrgs)

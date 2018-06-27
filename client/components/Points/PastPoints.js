@@ -17,7 +17,6 @@ export const PastPoints = props => {
         earned: month.totalEarned
       }
     })
-    console.log('BAR data', data)
   }
   return (
     <div>

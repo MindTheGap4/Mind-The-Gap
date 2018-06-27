@@ -7,7 +7,8 @@ const {
   Activity,
   Point,
   Event,
-  Sponsor
+  Sponsor,
+  UserEvent
 } = require('../server/db/models')
 
 /**
@@ -482,6 +483,23 @@ async function seed() {
       description: '30 minutes of ping pong',
       pointCost: 70,
       sponsorId: 3
+    })
+  ])
+  const userEvents = await Promise.all([
+    UserEvent.create({
+      status: 'Active',
+      userId: 1,
+      eventId: 1
+    }),
+    UserEvent.create({
+      status: 'Active',
+      userId: 1,
+      eventId: 2
+    }),
+    UserEvent.create({
+      status: 'Active',
+      userId: 1,
+      eventId: 3
     })
   ])
   // Wowzers! We can even `await` on the right-hand side of the assignment operator

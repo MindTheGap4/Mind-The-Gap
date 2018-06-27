@@ -59,6 +59,7 @@ class AllSponsors extends Component {
 
     return (
       <div className={classes.root}>
+        <h1>Our Sponsors</h1>
         <Grid className={classes.paper} container spacing={40}>
           {this.state.allSponsors.map(sponsor => {
             return (

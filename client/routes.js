@@ -15,7 +15,8 @@ import {
   PointsHome,
   AllSponsors,
   SponsorCard,
-  SingleSponsor
+  SingleSponsor,
+  AllEvents
 } from './components'
 import {me} from './store'
 
@@ -50,6 +51,7 @@ class Routes extends Component {
         />
         <Route exact path="/sponsors" component={AllSponsors} />
         <Route exact path="/sponsors/:sponsorId" component={SingleSponsor} />
+        <Route exact path="/events" component={AllEvents} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/organizations" component={Organizations} />

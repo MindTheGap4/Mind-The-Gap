@@ -1,20 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import GoalsDialog from './GoalsDialog'
 
 import TwoLevelPieChart from './D3/TwoLevelPieChart';
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {firstName, lastName} = props
+  const {firstName, lastName, goal} = props
+  console.log("GOAL", goal)
+
 
   return (
     <div>
       <h3>
         Welcome, {firstName} {lastName}
       </h3>
-     <TwoLevelPieChart />
+      {
+        goal === 0 ?
+          <div>
+            <p>You haven't set up your goal yet!!</p>
+            <GoalsDialog />
+            </div>
+            : <TwoLevelPieChart />
+
+      }
+
     </div>
   )
 }
@@ -26,6 +38,7 @@ const mapState = state => {
     email: state.user.email,
     firstName: state.user.firstName,
     lastName: state.user.lastName,
+    goal: state.points.currentPoints.goal
   }
 }
 

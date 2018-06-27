@@ -3,6 +3,7 @@ import axios from 'axios'
 const GET_CURRENT_POINTS = 'GET_CURRENT_POINTS'
 const GET_ALL_POINTS = 'GET_ALL_POINTS'
 const ADD_POINTS = 'ADD_POINTS'
+const ADD_GOAL = 'ADD_GOAL'
 
 const getCurrentPoints = points => ({type: GET_CURRENT_POINTS, points})
 

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import { PieChart, Pie} from 'recharts';
+import { PieChart, Pie, Cell} from 'recharts';
 import {RenderActiveShape} from './RenderActiveShape';
 import {connect} from 'react-redux';
 
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 class TwoLevelPieChart extends Component {
   constructor(){
     super()
@@ -38,7 +39,11 @@ class TwoLevelPieChart extends Component {
 const dataSent=[{name: 'Contacted Rep', value: repPoints}, {name: 'Donation', value: donationPoints}, {name: 'Points until goal', value: this.props.currentPoints.goal - this.props.currentPoints.totalEarned}]
     return(
       <PieChart width={800} height={400} >
-      <Pie activeIndex={this.state.activeIndex} activeShape={RenderActiveShape} cx={300} cy={200} innerRadius={60} outerRadius={80} fill='#8884d8' onMouseEnter={this.onPieEnter} data={dataSent}/>
+      <Pie activeIndex={this.state.activeIndex} activeShape={RenderActiveShape} cx={300} cy={200} innerRadius={60} outerRadius={80} fill='#8884d8' onMouseEnter={this.onPieEnter} paddingAngle={5} data={dataSent}>
+      {
+          	dataSent.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+          }
+      </Pie>
       </PieChart>
     )
   }

@@ -35,7 +35,7 @@ const styles = theme => ({
 
 const EventCard = props => {
   const {event, classes, selectedSponsor} = props
-  console.log(props.totalPoints)
+  console.log('props', props)
   return (
     <Grid key={event.url} item xs={6}>
       <Grid
@@ -80,9 +80,12 @@ const EventCard = props => {
               className={classes.button}
               type="submit"
               justify="center"
+              disabled={event.pointCost > props.totalPoints ? true : false}
               onClick={() => props.updatePoints(+event.pointCost)}
             >
-              I WANT TO ATTEND
+              {event.pointCost < props.totalPoints
+                ? 'REDEEM POINTS TO ATTEND'
+                : 'YOU DONT HAVE ENOUGH POINTS'}
             </Button>
           </CardContent>
         </Card>
@@ -101,7 +104,7 @@ const mapState = state => {
     sum += point.totalEarned
   })
   return {
-    totalPoints: sum
+    totalPoints: sum - state.user.pointsSpent
   }
 }
 

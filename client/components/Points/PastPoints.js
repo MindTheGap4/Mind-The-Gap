@@ -1,7 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 import {createYearObj, monthNumToName} from '../../../helpers'
 import Chart from '../D3/BarChart'
 
@@ -9,6 +7,7 @@ export const PastPoints = props => {
   const sortedPoints = createYearObj(props.userDate, props.allPoints)
   const currentYear = new Date().getFullYear()
   const thisYearPoints = sortedPoints[currentYear]
+
   let data
   if (thisYearPoints) {
     data = thisYearPoints.map(month => {
@@ -19,6 +18,7 @@ export const PastPoints = props => {
       }
     })
   }
+  console.log("DATA", data)
   return (
     <div>
       <div>pastpoints</div>

@@ -1,25 +1,27 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import TwoLevelPieChart from '../D3/TwoLevelPieChart'
 
 export const CurrentPoints = props => {
-  const {currentPoints} = props
+  console.log('CURRENT POINTs', props.currentPoints)
   return (
     <div>
       <div>current points</div>
-      <div>Points Earned: {currentPoints.totalEarned}</div>
-      <div>Goal: {currentPoints.goal}</div>
+      <div>Points Earned: {props.currentPoints.totalEarned}</div>
+      <div>Goal: {props.currentPoints.goal}</div>
       <div>
-        Points till goal: {currentPoints.goal - currentPoints.totalEarned}
+        Points till goal: {props.currentPoints.goal - props.currentPoints.totalEarned}
       </div>
+      <TwoLevelPieChart />
+
     </div>
   )
 }
 
 const mapState = state => {
   return {
-    currentPoints: state.points.currentPoints
+    currentPoints: state.points.currentPoints,
+    activities: state.activities.activityList
   }
 }
 

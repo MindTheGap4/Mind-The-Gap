@@ -375,7 +375,7 @@ async function seed() {
       month: 5,
       year: 2018,
       goal: 100,
-      totalEarned: 60,
+      totalEarned: 5,
       userId: 2
     })
   ])

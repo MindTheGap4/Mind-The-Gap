@@ -20,7 +20,6 @@ export const CurrentPoints = props => {
 
 const mapState = state => {
   return {
-    points: state.points,
     currentPoints: state.points.currentPoints,
     activities: state.activities.activityList
   }

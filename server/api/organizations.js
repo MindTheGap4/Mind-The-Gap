@@ -22,8 +22,6 @@ router.get('/:searchTerm/:name', async (req, res, next) => {
         category: organization.category
       }
     })
-    // console.log("RESPONSE", response.data)
-    console.log('RESPONSE', orgInfo)
 
     res.json(orgInfo)
   } catch (err) {

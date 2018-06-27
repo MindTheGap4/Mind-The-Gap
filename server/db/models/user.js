@@ -40,6 +40,10 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  pointsSpent: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   }
 })
 

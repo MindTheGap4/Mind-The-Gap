@@ -2,6 +2,8 @@ const User = require('./user')
 const Point = require('./point')
 const Activity = require('./activity')
 const State = require('./state')
+const Sponsor = require('./sponsor')
+const Event = require('./event')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -24,9 +26,14 @@ Activity.belongsTo(User)
 User.hasMany(Point)
 Point.belongsTo(User)
 
+Sponsor.hasMany(Event)
+Event.belongsTo(Sponsor)
+
 module.exports = {
   User,
   Point,
   Activity,
-  State
+  State,
+  Sponsor,
+  Event
 }

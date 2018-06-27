@@ -12,7 +12,10 @@ import {
   SingleRep,
   ActivityList,
   Organizations,
-  PointsHome
+  PointsHome,
+  AllSponsors,
+  SponsorCard,
+  SingleSponsor
 } from './components'
 import {me} from './store'
 
@@ -45,6 +48,8 @@ class Routes extends Component {
           path="/representatives/singleRep/:repId"
           component={SingleRep}
         />
+        <Route exact path="/sponsors" component={AllSponsors} />
+        <Route exact path="/sponsors/:sponsorId" component={SingleSponsor} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/organizations" component={Organizations} />

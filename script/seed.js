@@ -395,6 +395,13 @@ async function seed() {
       goal: 100,
       totalEarned: 5,
       userId: 2
+    }),
+    Point.create({
+      month: 5,
+      year: 2018,
+      goal: 0,
+      totalEarned: 0,
+      userId: 3
     })
   ])
 

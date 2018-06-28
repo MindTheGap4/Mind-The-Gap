@@ -4,11 +4,13 @@ const db = require('../db')
 const Point = db.define('point', {
   month: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    defaultValue: new Date().getMonth()
   },
   year: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    defaultValue: new Date().getFullYear()
   },
   goal: {
     type: Sequelize.INTEGER,
@@ -16,7 +18,8 @@ const Point = db.define('point', {
   },
   totalEarned: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    defaultValue: 0
   }
 })
 

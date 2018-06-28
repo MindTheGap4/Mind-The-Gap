@@ -42,10 +42,8 @@ class ButtonAppBar extends React.Component {
 
   render() {
     const {classes, handleClick, isLoggedIn, points} = this.props
-    console.log('this.props', this.props)
     const {goal} = points.currentPoints
     let pointsPercentage = 0
-    console.log('islogged', isLoggedIn)
     if (points.allPoints[0]) {
       if (points.allPoints[0].totalEarned > 0 || goal > 0) {
         pointsPercentage += Math.round(
@@ -53,7 +51,6 @@ class ButtonAppBar extends React.Component {
         )
       }
     }
-    console.log('points percentage', pointsPercentage)
 
     return (
       <MuiThemeProvider>

@@ -1,6 +1,7 @@
 const crypto = require('crypto')
 const Sequelize = require('sequelize')
 const db = require('../db')
+const point = require('./point')
 
 const User = db.define('user', {
   firstName: {
@@ -80,6 +81,10 @@ const setSaltAndPassword = user => {
     user.password = User.encryptPassword(user.password(), user.salt())
   }
 }
+
+// User.beforeSave(user => {
+//   point.create({userId: user.id})
+// })
 
 User.beforeCreate(setSaltAndPassword)
 User.beforeUpdate(setSaltAndPassword)

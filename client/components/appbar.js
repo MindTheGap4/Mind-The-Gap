@@ -58,48 +58,50 @@ class ButtonAppBar extends React.Component {
               >
                 <MenuIcon />
               </IconButton>
-              <Drawer
-                docked={false}
-                width={200}
-                open={this.state.open}
-                onRequestChange={open => this.setState({open})}
-              >
-                <Link to="/home">
-                  <MenuItem onClick={this.handleClose}>Home</MenuItem>
-                </Link>
-                <Link to="/account/activities">
-                  <MenuItem onClick={this.handleClose}>Activities</MenuItem>
-                </Link>
-                <Link to="/account/points">
-                  <MenuItem onClick={this.handleClose}>My Points</MenuItem>
-                </Link>
-                <Link to="/myEvents">
-                  <MenuItem onClick={this.handleClose}>My Events</MenuItem>
-                </Link>
-                <Link to="/organizations">
-                  <MenuItem onClick={this.handleClose}>Organizations</MenuItem>
-                </Link>
-                <Link to="/representatives">
-                  <MenuItem onClick={this.handleClose}>
-                    Representatives
-                  </MenuItem>
-                </Link>
-                <Link to="/sponsors">
-                  <MenuItem onClick={this.handleClose}>Sponsors</MenuItem>
-                </Link>
-                <Link to="/events">
-                  <MenuItem onClick={this.handleClose}>
-                    Available Events
-                  </MenuItem>
-                </Link>
-                <div className="progress-wrapper">
-                  <CircularProgressbar
-                    strokeWidth={15}
-                    percentage={pointsPercentage}
-                    text={`${pointsPercentage}%`}
-                  />
-                </div>
-              </Drawer>
+              {isLoggedIn && (
+                <Drawer
+                  docked={false}
+                  width={200}
+                  open={this.state.open}
+                  onRequestChange={open => this.setState({open})}
+                >
+                  <Link to="/home">
+                    <MenuItem onClick={this.handleClose}>Home</MenuItem>
+                  </Link>
+                  <Link to="/account/activities">
+                    <MenuItem onClick={this.handleClose}>Activities</MenuItem>
+                  </Link>
+                  <Link to="/account/points">
+                    <MenuItem onClick={this.handleClose}>My Points</MenuItem>
+                  </Link>
+                  <Link to="/myEvents">
+                    <MenuItem onClick={this.handleClose}>My Events</MenuItem>
+                  </Link>
+                  <Link to="/organizations">
+                    <MenuItem onClick={this.handleClose}>
+                      Organizations
+                    </MenuItem>
+                  </Link>
+                  <Link to="/representatives">
+                    <MenuItem onClick={this.handleClose}>
+                      Representatives
+                    </MenuItem>
+                  </Link>
+                  <Link to="/sponsors">
+                    <MenuItem onClick={this.handleClose}>Sponsors</MenuItem>
+                  </Link>
+                  <Link to="/events">
+                    <MenuItem onClick={this.handleClose}>Events</MenuItem>
+                  </Link>
+                  <div className="progress-wrapper">
+                    <CircularProgressbar
+                      strokeWidth={15}
+                      percentage={pointsPercentage}
+                      text={`${pointsPercentage}%`}
+                    />
+                  </div>
+                </Drawer>
+              )}
               <Typography
                 variant="title"
                 color="inherit"
@@ -143,7 +145,7 @@ ButtonAppBar.propTypes = {
 }
 const mapState = state => {
   let sum = 0
-  if (state.user.id && state.points.allPoints) {
+  if (state.user.id && state.points && state.points.allPoints) {
     state.points.allPoints.forEach(point => {
       sum += point.totalEarned
     })

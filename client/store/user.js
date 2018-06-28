@@ -9,6 +9,7 @@ import {fetchCurrentPoints, fetchAllPoints} from './reducers/pointsReducer'
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 const PUT_POINTS = 'PUT_POINTS'
+const CREATE_USER = 'CREATE_USER'
 
 /**
  * INITIAL STATE
@@ -50,9 +51,33 @@ export const auth = (email, password, method) => async dispatch => {
     dispatch(fetchActivities())
     dispatch(fetchCurrentPoints())
     dispatch(fetchAllPoints())
-    history.push('/home')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
+  }
+}
+
+export const createUser = (
+  email,
+  password,
+  method,
+  firstName,
+  lastName
+) => async dispatch => {
+  let res
+  try {
+    res = await axios.post(`/auth/${method}`, {
+      email,
+      password,
+      firstName,
+      lastName
+    })
+    console.log('res data inside create user thunk', res.data)
+    dispatch(getUser(res.data))
+    dispatch(fetchActivities())
+    dispatch(fetchCurrentPoints())
+    dispatch(fetchAllPoints())
+  } catch (authError) {
+    return dispatch(getUser({error: authError}))
   }
 }
 

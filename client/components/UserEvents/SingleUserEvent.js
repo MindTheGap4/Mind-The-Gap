@@ -34,15 +34,15 @@ const styles = theme => ({
   }
 })
 
-const EventCard = props => {
-  const {event, classes, selectedSponsor} = props
-  async function handleClick(evt) {
-    props.updatePoints(+event.pointCost)
-    const objToSend = {eventId: evt.id}
-    console.log('objtosent', objToSend)
-    const postedEvent = await axios.post('/api/userEvents', objToSend)
-  }
+const SingleUserEvent = props => {
+  const {userEvent, classes, selectedSponsor, handleClick} = props
+  const event = userEvent.event
   console.log('props', props)
+
+  // async function handleClick(evt) {
+  //   console.log('evt', evt)
+  //   const returnedEvent = await axios.put('/api/userEvents', evt)
+  // }
   return (
     <Grid key={event.url} item xs={6}>
       <Grid
@@ -81,19 +81,20 @@ const EventCard = props => {
             <Typography variant="body2" align="center">
               Point cost: {event.pointCost}
             </Typography>
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              type="submit"
-              justify="center"
-              disabled={event.pointCost > props.totalPoints ? true : false}
-              onClick={() => handleClick(event)}
-            >
-              {event.pointCost < props.totalPoints
-                ? 'CLICK TO TRADE POINTS TO ATTEND'
-                : 'YOU DONT HAVE ENOUGH POINTS'}
-            </Button>
+            {userEvent.status === 'Active' && (
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                type="submit"
+                justify="center"
+                onClick={() => {
+                  handleClick({status: 'Redeemed', event: userEvent})
+                }}
+              >
+                CLICK TO REDEEM EVENT
+              </Button>
+            )}
           </CardContent>
         </Card>
       </Grid>
@@ -101,24 +102,24 @@ const EventCard = props => {
   )
 }
 
-EventCard.propTypes = {
+SingleUserEvent.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-const mapState = state => {
-  let sum = 0
-  state.points.allPoints.forEach(point => {
-    sum += point.totalEarned
-  })
-  return {
-    totalPoints: sum - state.user.pointsSpent
-  }
-}
+// const mapState = state => {
+//   let sum = 0
+//   state.points.allPoints.forEach(point => {
+//     sum += point.totalEarned
+//   })
+//   return {
+//     totalPoints: sum - state.user.pointsSpent
+//   }
+// }
 
-const mapDispatch = dispatch => {
-  return {
-    updatePoints: points => dispatch(updatePoints(points))
-  }
-}
+// const mapDispatch = dispatch => {
+//   return {
+//     updatePoints: points => dispatch(updatePoints(points))
+//   }
+// }
 
-export default withStyles(styles)(connect(mapState, mapDispatch)(EventCard))
+export default withStyles(styles)(SingleUserEvent)

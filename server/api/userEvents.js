@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User, Event, userEvent} = require('../db/models')
+const {User, Event, UserEvent} = require('../db/models')
 module.exports = router
 
 // router.get('/', async (req, res, next) => {
@@ -14,12 +14,44 @@ module.exports = router
 //   }
 // })
 router.get('/', async (req, res, next) => {
+  console.log('WHOA LETS GET THINGS')
   try {
-    const data = await userEvent.findAll({
+    const data = await UserEvent.findAll({
       where: {userId: req.user.id},
       include: [Event]
     })
     res.json(data)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.post('/', async (req, res, next) => {
+  try {
+    const data = await UserEvent.create({
+      userId: req.user.id,
+      eventId: req.body.eventId
+    })
+    console.log(data)
+    res.json(data)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/', async (req, res, next) => {
+  try {
+    const eventToUpdate = await UserEvent.findOne({
+      where: {eventId: req.body.event.id, userId: req.user.id}
+    })
+    const updatedEvent = await eventToUpdate.update({
+      status: req.body.status
+    })
+    const eventToReturn = {
+      ...updatedEvent.dataValues,
+      event: req.body.event.event
+    }
+    res.json(eventToReturn)
   } catch (err) {
     next(err)
   }

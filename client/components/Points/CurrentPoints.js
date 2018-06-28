@@ -10,7 +10,13 @@ export const CurrentPoints = props => {
       <div>Points Earned: {props.currentPoints.totalEarned}</div>
       <div>Goal: {props.currentPoints.goal}</div>
       <div>
-        Points till goal: {props.currentPoints.goal - props.currentPoints.totalEarned}
+        Points till goal: {
+
+          props.currentPoints.goal - props.currentPoints.totalEarned >0 ?
+            props.currentPoints.goal - props.currentPoints.totalEarned
+            : 'You met the goal for this month, congrats!'
+
+        }
       </div>
       <TwoLevelPieChart />
 

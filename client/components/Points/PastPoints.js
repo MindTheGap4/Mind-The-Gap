@@ -5,6 +5,7 @@ import Chart from '../D3/BarChart'
 
 export const PastPoints = props => {
   const sortedPoints = createYearObj(props.userDate, props.allPoints)
+  console.log('sortedpoints', sortedPoints)
   const currentYear = new Date().getFullYear()
   const thisYearPoints = sortedPoints[currentYear]
 
@@ -18,11 +19,11 @@ export const PastPoints = props => {
       }
     })
   }
-  console.log("DATA", data)
+  console.log('DATA', data)
   return (
     <div>
       <div>pastpoints</div>
-      <div>
+      {/* <div>
         {Object.keys(sortedPoints).map(key => {
           return (
             <div>
@@ -38,8 +39,27 @@ export const PastPoints = props => {
             </div>
           )
         })}
+      </div> */}
+      <div>
+        {Object.keys(sortedPoints)
+          .reverse()
+          .map(key => {
+            let data = sortedPoints[key].map(month => {
+              return {
+                name: monthNumToName(month.month),
+                goal: month.goal,
+                earned: month.totalEarned
+              }
+            })
+            return (
+              <div>
+                {key}
+                <Chart data={data} />{' '}
+              </div>
+            )
+          })}
       </div>
-      <div>{thisYearPoints && <Chart data={data} />}</div>
+      {/* <div>{thisYearPoints && <Chart data={data} />}</div> */}
     </div>
   )
 }

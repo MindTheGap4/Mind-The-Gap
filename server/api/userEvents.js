@@ -41,9 +41,12 @@ router.post('/', async (req, res, next) => {
 
 router.put('/', async (req, res, next) => {
   try {
+    console.log('req.user', req.user)
+    console.log('req.body', req.body)
     const eventToUpdate = await UserEvent.findOne({
-      where: {eventId: req.body.event.id, userId: req.user.id}
+      where: {eventId: req.body.event.event.id, userId: req.user.id}
     })
+    console.log('eventtoupdate', eventToUpdate)
     const updatedEvent = await eventToUpdate.update({
       status: req.body.status
     })

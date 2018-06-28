@@ -88,7 +88,9 @@ class ButtonAppBar extends React.Component {
                   <MenuItem onClick={this.handleClose}>Sponsors</MenuItem>
                 </Link>
                 <Link to="/events">
-                  <MenuItem onClick={this.handleClose}>Events</MenuItem>
+                  <MenuItem onClick={this.handleClose}>
+                    Available Events
+                  </MenuItem>
                 </Link>
                 <div className="progress-wrapper">
                   <CircularProgressbar
@@ -141,7 +143,7 @@ ButtonAppBar.propTypes = {
 }
 const mapState = state => {
   let sum = 0
-  if (state.user.id && state.points) {
+  if (state.user.id && state.points.allPoints) {
     state.points.allPoints.forEach(point => {
       sum += point.totalEarned
     })

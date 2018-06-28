@@ -21,9 +21,23 @@ export function createYearObj(userDate, allPoints) {
     } else {
       loopEndMonth = 11
     }
-    for (let month = loopStartMonth; month <= loopEndMonth; month++) {
+    // for (let month = loopStartMonth; month <= loopEndMonth; month++) {
+    //   // const monthName = monthNumToName(month)
+    //   yearObj[year][month] = {month: true}
+    // }
+    for (let month = 0; month <= loopEndMonth; month++) {
       // const monthName = monthNumToName(month)
-      yearObj[year][month] = {month: true}
+      if (month >= loopStartMonth) {
+        yearObj[year][month] = {month: true}
+      }
+      if (month < loopStartMonth) {
+        yearObj[year][month] = {
+          month: month,
+          year: year,
+          goal: 0,
+          totalEarned: 0
+        }
+      }
     }
   }
   // console.log('year obj', yearObj)
@@ -32,7 +46,7 @@ export function createYearObj(userDate, allPoints) {
     // const monthName = monthNumToName(point.month)
     yearObj[point.year][point.month] = point
   })
-  // console.log(yearObj)
+  console.log(yearObj)
   return yearObj
 }
 

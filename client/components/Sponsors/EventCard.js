@@ -91,7 +91,7 @@ const EventCard = props => {
               onClick={() => handleClick(event)}
             >
               {event.pointCost < props.totalPoints
-                ? 'REDEEM POINTS TO ATTEND'
+                ? 'CLICK TO TRADE POINTS TO ATTEND'
                 : 'YOU DONT HAVE ENOUGH POINTS'}
             </Button>
           </CardContent>

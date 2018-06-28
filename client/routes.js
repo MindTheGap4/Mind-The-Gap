@@ -16,7 +16,8 @@ import {
   AllSponsors,
   SponsorCard,
   SingleSponsor,
-  AllEvents
+  AllEvents,
+  UserEventList
 } from './components'
 import {me} from './store'
 
@@ -36,6 +37,7 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/account/activities" component={ActivityList} />
         <Route exact path="/account/points" component={PointsHome} />
+        <Route exact path="/myEvents" component={UserEventList} />
         <Route exact path="/representatives" component={State} />
         <Route
           exact

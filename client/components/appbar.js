@@ -42,8 +42,16 @@ class ButtonAppBar extends React.Component {
 
   render() {
     const {classes, handleClick, isLoggedIn, points} = this.props
-    const {totalEarned, goal} = points.currentPoints
-    const pointsPercentage = Math.round(totalEarned / goal * 100)
+    const {goal} = points.currentPoints
+    let pointsPercentage = 0
+    if (points.allPoints[0]) {
+      if (points.allPoints[0].totalEarned > 0 || goal > 0) {
+        pointsPercentage += Math.round(
+          points.allPoints[0].totalEarned / goal * 100
+        )
+      }
+    }
+
     return (
       <MuiThemeProvider>
         <div className={classes.root}>

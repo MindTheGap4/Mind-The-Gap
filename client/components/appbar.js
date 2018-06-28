@@ -145,15 +145,16 @@ ButtonAppBar.propTypes = {
 }
 const mapState = state => {
   let sum = 0
-  if (state.user.id && state.points && state.points.allPoints) {
+  console.log(state)
+  if (state.user.id && state.points.allPoints !== 'no user') {
     state.points.allPoints.forEach(point => {
       sum += point.totalEarned
     })
   }
   return {
     isLoggedIn: !!state.user.id,
-    points: state.points,
-    totalPoints: sum,
+    points: state.points || [],
+    totalPoints: sum || 0,
     user: state.user
   }
 }

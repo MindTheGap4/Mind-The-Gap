@@ -51,7 +51,6 @@ export const auth = (email, password, method) => async dispatch => {
     dispatch(fetchActivities())
     dispatch(fetchCurrentPoints())
     dispatch(fetchAllPoints())
-    history.push('/home')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -72,11 +71,11 @@ export const createUser = (
       firstName,
       lastName
     })
+    console.log('res data inside create user thunk', res.data)
     dispatch(getUser(res.data))
     dispatch(fetchActivities())
     dispatch(fetchCurrentPoints())
     dispatch(fetchAllPoints())
-    history.push('/home')
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }

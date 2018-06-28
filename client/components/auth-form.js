@@ -73,22 +73,26 @@ const mapSignup = state => {
   }
 }
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch, ownProps) => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      if (evt.target.firstName.value) {
+      // if (evt.target.firstName.value !== undefined) {
+      if (evt.target.name === 'signup') {
         const firstName = evt.target.firstName.value
         const lastName = evt.target.lastName.value
         const formName = evt.target.name
         const email = evt.target.email.value
         const password = evt.target.password.value
         dispatch(createUser(email, password, formName, firstName, lastName))
+        ownProps.history.push('/home')
+      } else {
+        const formName = evt.target.name
+        const email = evt.target.email.value
+        const password = evt.target.password.value
+        dispatch(auth(email, password, formName))
+        ownProps.history.push('/home')
       }
-      const formName = evt.target.name
-      const email = evt.target.email.value
-      const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
     }
   }
 }

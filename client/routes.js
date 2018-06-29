@@ -36,44 +36,57 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route exact path="/account/activities" component={ActivityList} />
-        <Route exact path="/account/points" component={PointsHome} />
-        <Route exact path="/myEvents" component={UserEventList} />
-        <Route exact path="/representatives" component={State} />
-        <Route
-          exact
-          path="/representatives/:state"
-          component={CongressChoice}
-        />
-        <Route exact path="/representatives/:state/senate" component={House} />
-        <Route exact path="/representatives/:state/house/" component={House} />
-        <Route
-          exact
-          path="/representatives/singleRep/:repId"
-          component={SingleRep}
-        />
-        <Route exact path="/sponsors" component={AllSponsors} />
-        <Route exact path="/sponsors/:sponsorId" component={SingleSponsor} />
-        <Route exact path="/events" component={AllEvents} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route exact path="/organizations" component={Organizations} />
 
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
+            <Route exact path="/home" component={UserHome} />
+            <Route exact path="/account/activities" component={ActivityList} />
+            <Route exact path="/account/points" component={PointsHome} />
+            <Route exact path="/myEvents" component={UserEventList} />
+            <Route exact path="/representatives" component={State} />
+            <Route
+              exact
+              path="/representatives/:state"
+              component={CongressChoice}
+            />
+            <Route
+              exact
+              path="/representatives/:state/senate"
+              component={House}
+            />
+            <Route
+              exact
+              path="/representatives/:state/house/"
+              component={House}
+            />
+            <Route
+              exact
+              path="/representatives/singleRep/:repId"
+              component={SingleRep}
+            />
+            <Route exact path="/sponsors" component={AllSponsors} />
+            <Route
+              exact
+              path="/sponsors/:sponsorId"
+              component={SingleSponsor}
+            />
+            <Route exact path="/events" component={AllEvents} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/organizations" component={Organizations} />
+            <Route component={Home} />
           </Switch>
         )}
         {!isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/login" component={Login} />
+            <Route exact path="/login" component={Login} />
+            <Route component={Home} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
         {/* <Route component={Login} /> */}
-        <Route component={Home} />
       </Switch>
     )
   }

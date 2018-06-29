@@ -1,9 +1,10 @@
 import React  from 'react';
 import { Sector} from 'recharts';
 
-export const RenderActiveShape = (props) => {
+
+export const RenderActiveShape = props => {
   const RADIAN = Math.PI / 180;
-  const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent} = props;
+  const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
   const sx = cx + ( outerRadius + 10) * cos;
@@ -13,6 +14,7 @@ export const RenderActiveShape = (props) => {
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
   const textAnchor = cos >= 0 ? 'start' : 'end';
+  console.log("PROPS", props)
 
   return (
     <g>
@@ -40,8 +42,11 @@ export const RenderActiveShape = (props) => {
       <path d={`M${sx}, ${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fille='none'/>
       <circle cx={ex} cy={ey} r={2} fille={fill} stroke="none" />
       <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
-        {`(${Math.floor((percent * 100))} Points )`}
+      {`${value} Points, ${percent*100} Percent`}
       </text>
     </g>
   )
 }
+
+
+

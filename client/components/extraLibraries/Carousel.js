@@ -75,11 +75,13 @@ class SimpleSlider extends Component {
                   />
                   <CardContent>
                     <Typography className={classes.title} color="textSecondary">
-                      Word of the Day
+                      {sponsor.name}
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">Learn More</Button>
+                    <a target="_blank" href={sponsor.url}>
+                      <Button size="small">Website</Button>
+                    </a>
                   </CardActions>
                 </Card>
               </div>

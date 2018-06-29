@@ -7,6 +7,9 @@
 export {default as Organizations} from './organizations'
 export {default as OrgList} from './orgList'
 export {default as UserHome} from './user-home'
+export {default as Home} from './Home'
+export {default as SimpleSlider} from './extraLibraries/Carousel'
+
 export {Login, Signup} from './auth-form'
 export {default as Appbar} from './appbar'
 export {default as State} from './Representatives/State'

@@ -51,3 +51,25 @@ h1 {
 .progress-wrapper {
   width: 150px;
 }
+
+/* .sponsor-card {
+  margin: 30px;
+} */
+
+.SimpleSlider-card-103 {
+  margin: 20px;
+}
+
+.cover-img {
+  width: 75%;
+  padding-left: 22%;
+}
+
+.image-container {
+  margin: 0 auto;
+}
+
+.quote {
+  font-size: 30px;
+  color: #ffc107;
+}

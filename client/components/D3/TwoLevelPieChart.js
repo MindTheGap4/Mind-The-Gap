@@ -64,7 +64,7 @@ class TwoLevelPieChart extends Component {
           onMouseEnter={this.onPieEnter}
           paddingAngle={5}
           data={dataSent}
-          goal={goal}
+          dataKey="value"
         >
           {dataSent.map((entry, index) => (
             <Cell fill={COLORS[index % COLORS.length]} />

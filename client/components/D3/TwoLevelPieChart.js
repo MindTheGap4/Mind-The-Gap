@@ -50,7 +50,7 @@ class TwoLevelPieChart extends Component {
       }
     ]
     let goal = this.props.currentPoints.goal
-    console.log('GOAL', goal)
+
     return (
       <PieChart width={800} height={400}>
         <Pie

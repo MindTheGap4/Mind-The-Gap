@@ -42,8 +42,16 @@ class ButtonAppBar extends React.Component {
 
   render() {
     const {classes, handleClick, isLoggedIn, points} = this.props
-    const {totalEarned, goal} = points.currentPoints
-    const pointsPercentage = Math.round(totalEarned / goal * 100)
+    const {goal} = points.currentPoints
+    let pointsPercentage = 0
+    if (points.allPoints[0]) {
+      if (points.allPoints[0].totalEarned > 0 || goal > 0) {
+        pointsPercentage += Math.round(
+          points.allPoints[0].totalEarned / goal * 100
+        )
+      }
+    }
+
     return (
       <MuiThemeProvider>
         <div className={classes.root}>
@@ -145,15 +153,16 @@ ButtonAppBar.propTypes = {
 }
 const mapState = state => {
   let sum = 0
-  if (state.user.id && state.points && state.points.allPoints) {
+  console.log(state)
+  if (state.user.id && state.points.allPoints !== 'no user') {
     state.points.allPoints.forEach(point => {
       sum += point.totalEarned
     })
   }
   return {
     isLoggedIn: !!state.user.id,
-    points: state.points,
-    totalPoints: sum,
+    points: state.points || [],
+    totalPoints: sum || 0,
     user: state.user
   }
 }

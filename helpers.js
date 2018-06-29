@@ -52,18 +52,18 @@ export function createYearObj(userDate, allPoints) {
 
 export function monthNumToName(monthNum) {
   var months = [
-    'January',
-    'February',
-    'March',
+    'Jan',
+    'Feb',
+    'Mar',
     'April',
     'May',
     'June',
     'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec'
   ]
   return months[monthNum]
 }

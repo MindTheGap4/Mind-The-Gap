@@ -13,7 +13,8 @@ export const RenderActiveShape = props => {
     endAngle,
     fill,
     payload,
-    percent
+    percent,
+    value
   } = props
   const sin = Math.sin(-RADIAN * midAngle)
   const cos = Math.cos(-RADIAN * midAngle)
@@ -24,6 +25,7 @@ export const RenderActiveShape = props => {
   const ex = mx + (cos >= 0 ? 1 : -1) * 22
   const ey = my
   const textAnchor = cos >= 0 ? 'start' : 'end'
+  console.log('PROPS', props)
 
   return (
     <g>
@@ -61,7 +63,7 @@ export const RenderActiveShape = props => {
         textAnchor={textAnchor}
         fill="#999"
       >
-        {`(${Math.floor(percent * 100)} Points )`}
+        {`${value} Points, ${percent * 100} Percent`}
       </text>
     </g>
   )

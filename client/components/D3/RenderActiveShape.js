@@ -1,10 +1,10 @@
 import React  from 'react';
 import { Sector} from 'recharts';
-import {connect} from 'react-redux'
+//import {connect} from 'react-redux'
 
 export const RenderActiveShape = props => {
   const RADIAN = Math.PI / 180;
-  const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, } = props;
+  const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
   const sx = cx + ( outerRadius + 10) * cos;
@@ -48,10 +48,10 @@ export const RenderActiveShape = props => {
   )
 }
 
-const mapState = state => {
-  return {
-    goal: state.points.currentPoints
-  }
-}
+// const mapState = state => {
+//   return {
+//    points: state.points
+//   }
+// }
 
-export default connect (mapState)(RenderActiveShape)
+//export default connect (mapState)(RenderActiveShape)

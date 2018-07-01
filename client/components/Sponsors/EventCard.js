@@ -14,7 +14,8 @@ import axios from 'axios'
 
 const styles = theme => ({
   card: {
-    minWidth: 325
+    width: 325,
+    height: 600
   },
   title: {
     marginBottom: 16,
@@ -24,7 +25,8 @@ const styles = theme => ({
     marginBottom: 12
   },
   media: {
-    paddingTop: '100%'
+    paddingTop: '100%',
+    backgroundSize: 'contain'
   },
   button: {
     margin: theme.spacing.unit
@@ -44,11 +46,11 @@ const EventCard = props => {
   }
   console.log('props', props)
   return (
-    <Grid key={event.url} item xs={6}>
+    <Grid key={event.url} item xs={3}>
       <Grid
         container
         className={classes.demo}
-        justify="center"
+        justify="space-between"
         spacing={24}
         style={{padding: 20}}
       >

@@ -11,6 +11,13 @@ import {addActivity} from '../../store/reducers/activityReducer'
 import {connect} from 'react-redux'
 import {updatePoints} from '../../store/reducers/pointsReducer'
 
+import PhoneIcon from '@material-ui/icons/Phone'
+import EmailIcon from '@material-ui/icons/Email'
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
+import OpenInNewIcon from '@material-ui/icons/OpenInNew'
+
+
+
 const styles = {
   card: {
     maxWidth: 445
@@ -98,13 +105,13 @@ const SingleRep = props => {
         <hr className="divider" />
         <CardActions>
           <Button className="social-icons" size="small" color="primary">
-            <Icon className={classes.icon}>open_in_new</Icon>
+            <OpenInNewIcon className={classes.icon}/>
             <a href={rep.url} target="_blank">
               website
             </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
-            <Icon className={classes.icon}>phone</Icon>
+            <PhoneIcon className={classes.icon}/>
             <a href={rep.url} target="_blank">
               {rep.roles[0].phone}
             </a>
@@ -115,7 +122,7 @@ const SingleRep = props => {
         <CardActions>
           <Button className="social-icons" size="small" color="primary">
             <a href={rep.roles[0].contact_form} target="_blank">
-              <Icon className={classes.icon}>email</Icon>
+              <EmailIcon className={classes.icon}/>
             </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
@@ -147,7 +154,7 @@ const SingleRep = props => {
               I CONTACTED THIS REP, COLLECT MY POINTS
             </span>
 
-            <Icon className={classes.icon}>control_point</Icon>
+            <AddCircleOutlineIcon className={classes.icon}/>
           </Button>
         </CardActions>
       </Card>

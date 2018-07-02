@@ -16,11 +16,12 @@ import {connect} from 'react-redux'
 
 const styles = theme => ({
   root: {
-    flexGrow: 2
+    flexGrow: 1
   },
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
+    justifyContent: 'space-around',
     color: theme.palette.text.secondary
   }
 })

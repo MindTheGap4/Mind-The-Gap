@@ -79,6 +79,11 @@ h1 {
   padding: 20px;
 }
 
+.repImage {
+  margin: 0 auto;
+  background-size: contain;
+}
+
 .padding {
   padding: 20px;
   text-align: center;

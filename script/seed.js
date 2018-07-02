@@ -403,6 +403,20 @@ async function seed() {
       goal: 0,
       totalEarned: 0,
       userId: 3
+    }),
+    Point.create({
+      month: 6,
+      year: 2018,
+      goal: 100,
+      totalEarned: 50,
+      userId: 2
+    }),
+    Point.create({
+      month: 6,
+      year: 2018,
+      goal: 120,
+      totalEarned: 60,
+      userId: 1
     })
   ])
 

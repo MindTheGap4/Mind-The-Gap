@@ -18,11 +18,11 @@ import {updatePoints} from '../../store/reducers/pointsReducer'
 
 const styles = {
   card: {
-    maxWidth: 445
+    width: 325
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%' // 16:9
+    paddingTop: '100%', // 16:9,
+    backgroundSize: 'contain'
   }
 }
 
@@ -30,13 +30,14 @@ const SponsorCard = props => {
   const {classes, sponsor, handleClick} = props
 
   return (
-    <div className="centering-card">
-      {/* <button
-        onClick={() => {
-          handleClick(selectedSponsor)
-        }}
-      > */}
-      <Grid item xs={12}>
+    <Grid item xs={3}>
+      <Grid
+        container
+        className={classes.demo}
+        justify="center"
+        spacing={16}
+        // style={{padding: 10}}
+      >
         <Card className={classes.card}>
           <CardMedia
             className={classes.media}
@@ -54,7 +55,6 @@ const SponsorCard = props => {
                 {sponsor.name}
               </Typography>
             </button>
-            {/* <Typography component="p">{sponsor.description}</Typography> */}
           </CardContent>
           <hr className="divider" />
           <CardActions>
@@ -64,12 +64,6 @@ const SponsorCard = props => {
                 website
               </a>
             </Button>
-            {/* <Button className="social-icons" size="small" color="primary">
-            <Icon className={classes.icon}>phone</Icon>
-            <a href={rep.url} target="_blank">
-              773.475.3283
-            </a>
-          </Button> */}
           </CardActions>
           <hr className="divider" />
 
@@ -90,25 +84,9 @@ const SponsorCard = props => {
               </a>
             </Button>
           </CardActions>
-          {/* <CardActions>
-              <Button
-                className="social-icons collect-points"
-                size="small"
-                color="primary"
-                onClick={buttonSubmit}
-              >
-                <span className="collect-points">
-                  {' '}
-                  I CONTACTED THIS REP, COLLECT MY POINTS
-                </span>
-
-                <Icon className={classes.icon}>control_point</Icon>
-              </Button>
-            </CardActions> */}
         </Card>
       </Grid>
-      {/* </button> */}
-    </div>
+    </Grid>
   )
 }
 

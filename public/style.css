@@ -73,3 +73,8 @@ h1 {
   font-size: 30px;
   color: #ffc107;
 }
+
+.center {
+  justify-content: 'center';
+  padding: 20px;
+}

@@ -38,22 +38,30 @@ const styles = {
 function SimpleCard(props) {
   const {classes, rep, handleClick} = props
   return (
-    <div>
-      <button
-        onClick={() => {
-          handleClick(rep)
-        }}
-      >
-        <Grid item xs={12}>
-          <Card className={classes.card}>
-            <CardContent>
-              <Typography variant="headline" align="center" component="h1">
-                {rep.name}
-              </Typography>
-            </CardContent>
-          </Card>
+    <div className="center">
+      <Grid item xs={12}>
+        <Grid
+          container
+          className={classes.demo}
+          justify="center"
+          spacing={16}
+          style={{padding: 10}}
+        >
+          <button
+            onClick={() => {
+              handleClick(rep)
+            }}
+          >
+            <Card className={classes.card}>
+              <CardContent>
+                <Typography variant="headline" align="center" component="h1">
+                  {rep.name}
+                </Typography>
+              </CardContent>
+            </Card>
+          </button>
         </Grid>
-      </button>
+      </Grid>
     </div>
   )
 }

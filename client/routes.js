@@ -21,6 +21,7 @@ import {
   UserEventList
 } from './components'
 import {me} from './store'
+import {fetchAllUsersPoints} from './store/reducers/pointsReducer'
 
 /**
  * COMPONENT
@@ -109,6 +110,7 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
+      dispatch(fetchAllUsersPoints())
     }
   }
 }

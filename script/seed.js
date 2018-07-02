@@ -307,7 +307,7 @@ async function seed() {
       userId: 1,
       name: 'Senator Bob',
       category: 'contact representative',
-      date: new Date(),
+      date: '2018-06-02 15:25:28.952-04',
       status: 'past',
       points: 5,
       link: 'bob.org'
@@ -316,7 +316,7 @@ async function seed() {
       userId: 1,
       name: 'Senator Paul',
       category: 'contact representative',
-      date: new Date(),
+      date: '2018-06-02 15:25:28.952-04',
       status: 'past',
       points: 5,
       link: 'paul.org'
@@ -325,7 +325,7 @@ async function seed() {
       userId: 1,
       name: 'Senator Shelly',
       category: 'contact representative',
-      date: new Date(),
+      date: '2018-06-02 15:25:28.952-04',
       status: 'past',
       points: 5,
       link: 'shelly.org'
@@ -334,7 +334,7 @@ async function seed() {
       userId: 2,
       name: 'Senator Bob',
       category: 'contact representative',
-      date: new Date(),
+      date: '2018-06-02 15:25:28.952-04',
       status: 'past',
       points: 5,
       link: 'bob.org'

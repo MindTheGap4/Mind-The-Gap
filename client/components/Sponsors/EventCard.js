@@ -43,7 +43,7 @@ const EventCard = props => {
     console.log('objtosent', objToSend)
     const postedEvent = await axios.post('/api/userEvents', objToSend)
   }
-  console.log('props', props)
+
   return (
     <Grid key={event.url} item xs={3}>
       <Grid

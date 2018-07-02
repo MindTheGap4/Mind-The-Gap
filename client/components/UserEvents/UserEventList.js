@@ -42,12 +42,11 @@ class UserEventList extends Component {
     })
   }
   async handleClick(evt) {
-    console.log('allactiveevents', this.state.allActiveEvents)
     const returnedEvent = await axios.put('/api/userEvents', evt)
     const newActive = this.state.allActiveEvents.filter(event => {
       return event.id !== evt.event.id
     })
-    //console.log('newActive', active)
+
     console.log('returnedevent', returnedEvent.data)
     this.setState({
       allActiveEvents: newActive,
@@ -61,8 +60,9 @@ class UserEventList extends Component {
     return (
       <div className={classes.root}>
         <h1>Your Events</h1>
+        <h2 className="padding"> Active:</h2>
+
         <Grid className={classes.paper} container spacing={40}>
-          <div>Active: </div>
           {this.state.allActiveEvents &&
             this.state.allActiveEvents.map(userEvent => {
               const selectedSponsor = this.state.allSponsors.filter(
@@ -77,7 +77,10 @@ class UserEventList extends Component {
                 />
               )
             })}
-          <div>Redeemed: </div>
+        </Grid>
+
+        <h2 className="padding"> Redeemed:</h2>
+        <Grid className={classes.paper} container spacing={40}>
           {this.state.allRedeemedEvents &&
             this.state.allRedeemedEvents.map(userEvent => {
               const selectedSponsor = this.state.allSponsors.filter(

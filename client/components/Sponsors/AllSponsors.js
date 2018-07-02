@@ -34,6 +34,16 @@ class AllSponsors extends Component {
   }
   async handleClick(sponsor) {
     const {data} = await axios.get(`/api/events/bySponsor/${sponsor.id}`)
+    const userEvents = await axios.get(`/api/userEvents`)
+    console.log('all sponsors events', data)
+    console.log('user events', userEvents.data)
+    const userEventIds = userEvents.data.map(event => {
+      return event.event.id
+    })
+    console.log('userEventIds', userEventIds)
+    const toShow = data.filter(event => {
+      return !userEventIds.includes(event.id)
+    })
     this.setState(
       {
         selectedSponsor: sponsor
@@ -41,7 +51,7 @@ class AllSponsors extends Component {
       () => {
         this.props.history.push({
           pathname: `/sponsors/${this.state.selectedSponsor.id}`,
-          state: {selectedSponsor: this.state.selectedSponsor, events: data}
+          state: {selectedSponsor: this.state.selectedSponsor, events: toShow}
         })
       }
     )

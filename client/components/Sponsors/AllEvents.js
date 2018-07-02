@@ -25,9 +25,17 @@ class AllEvents extends Component {
   }
   async componentDidMount() {
     const {data} = await axios.get(`/api/events`)
+    const userEvents = await axios.get(`/api/userEvents`)
+    console.log('user events', userEvents.data)
+    const userEventIds = userEvents.data.map(event => {
+      return event.event.id
+    })
+    const toShow = data.filter(event => {
+      return !userEventIds.includes(event.id)
+    })
     const sponsors = await axios.get('/api/sponsors')
     this.setState({
-      allEvents: data,
+      allEvents: toShow,
       allSponsors: sponsors.data
     })
   }

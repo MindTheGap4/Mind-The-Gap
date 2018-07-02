@@ -6,15 +6,16 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from 'material-ui-icons/Menu'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+// import {theme} from './CustomPalette'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import CircularProgressbar from 'react-circular-progressbar'
+import {logout} from '../store'
+
+import MenuIcon from 'material-ui-icons/Menu'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
-import CircularProgressbar from 'react-circular-progressbar'
-
-import {logout} from '../store'
 
 const styles = {
   root: {
@@ -54,7 +55,7 @@ class ButtonAppBar extends React.Component {
     }
 
     return (
-      <MuiThemeProvider>
+      // <MuiThemeProvider >
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar>
@@ -144,7 +145,7 @@ class ButtonAppBar extends React.Component {
             </Toolbar>
           </AppBar>
         </div>
-      </MuiThemeProvider>
+      // </MuiThemeProvider>
     )
   }
 }

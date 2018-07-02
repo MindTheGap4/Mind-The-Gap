@@ -3,7 +3,7 @@ import {PieChart, Pie, Cell} from 'recharts'
 import {RenderActiveShape} from './RenderActiveShape'
 import {connect} from 'react-redux'
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
+const COLORS = ['#D3D3D3', '#0088FE', '#00C49F' ]
 class TwoLevelPieChart extends Component {
   constructor() {
     super()
@@ -41,13 +41,13 @@ class TwoLevelPieChart extends Component {
         }
       })
     const dataSent = [
-      {name: 'Contacted Rep', value: repPoints},
-      {name: 'Donation', value: donationPoints},
       {
         name: 'Points until goal',
         value:
           this.props.currentPoints.goal - this.props.currentPoints.totalEarned
-      }
+      },
+      {name: 'Contacted Rep', value: repPoints},
+      {name: 'Donation', value: donationPoints}
     ]
     let goal = this.props.currentPoints.goal
 

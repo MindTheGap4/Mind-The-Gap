@@ -17,7 +17,9 @@ const styles = {
   },
   media: {
     height: 0,
-    paddingTop: '56.25%' // 16:9
+    paddingTop: '56.25%', // 16:9
+    margin: '0 auto',
+    backgroundSize: 'contain'
   }
 }
 
@@ -25,6 +27,7 @@ const SingleRep = props => {
   const {classes} = props
 
   const rep = props.location.state.selectedRep
+  console.log(rep)
 
   const activity = {
     name: rep.first_name + ' ' + rep.last_name,
@@ -45,19 +48,52 @@ const SingleRep = props => {
         I CONTACTED THIS REP TODAY, COLLECT MY POINTS
       </button> */}
       <Card className={classes.card}>
-        <CardMedia
+        {rep.current_party === 'R' ? (
+          <CardMedia
+            className={classes.media}
+            image="/Republicanlogo.svg.png"
+            title="Republican Logo"
+          />
+        ) : (
+          <CardMedia
+            className={classes.media}
+            image="/DemocraticLogo.png"
+            title="Democratic Logo"
+          />
+        )}
+        {/* <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
+          image="/DemocraticLogo.png"
+          title="Democratic Logo"
+        /> */}
         <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
+          {/* <Typography gutterBottom variant="headline" component="h2">
             Name: {rep.first_name} {rep.last_name}
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
+          </Typography> */}
+          {rep.roles[0].short_title === 'Sen.' ? (
+            //   <Typography component="p">
+            //   Lizards are a widespread group of squamate reptiles, with over 6,000
+            //   species, ranging across all continents except Antarctica
+            // </Typography>
+            <div>
+              <Typography gutterBottom variant="headline" component="h2">
+                Sen. {rep.first_name} {rep.last_name}
+              </Typography>
+              <Typography component="p">
+                Senator for {rep.roles[0].state}
+              </Typography>
+            </div>
+          ) : (
+            <div>
+              <Typography gutterBottom variant="headline" component="h2">
+                Rep. {rep.first_name} {rep.last_name}
+              </Typography>
+              <Typography component="p">
+                Representative for District {rep.roles[0].district},{' '}
+                {rep.roles[0].state}
+              </Typography>
+            </div>
+          )}
         </CardContent>
         <hr className="divider" />
         <CardActions>
@@ -70,7 +106,7 @@ const SingleRep = props => {
           <Button className="social-icons" size="small" color="primary">
             <Icon className={classes.icon}>phone</Icon>
             <a href={rep.url} target="_blank">
-              773.475.3283
+              {rep.roles[0].phone}
             </a>
           </Button>
         </CardActions>
@@ -78,17 +114,23 @@ const SingleRep = props => {
 
         <CardActions>
           <Button className="social-icons" size="small" color="primary">
-            <a href={rep.url} target="_blank">
+            <a href={rep.roles[0].contact_form} target="_blank">
               <Icon className={classes.icon}>email</Icon>
             </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
-            <a href={rep.url} target="_blank">
+            <a
+              href={`https://www.facebook.com/${rep.facebook_account}`}
+              target="_blank"
+            >
               <i className=" fab fa-facebook fa-lg" />
             </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
-            <a href={rep.url} target="_blank">
+            <a
+              href={`https://www.twitter.com/${rep.twitter_account}`}
+              target="_blank"
+            >
               <i className=" fab fa-twitter fa-lg" />
             </a>
           </Button>

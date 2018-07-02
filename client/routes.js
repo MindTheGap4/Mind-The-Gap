@@ -75,13 +75,15 @@ class Routes extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/organizations" component={Organizations} />
-            <Route component={Home} />
+            {/* <Route component={Home} /> */}
           </Switch>
         )}
         {!isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+
             <Route component={Home} />
           </Switch>
         )}

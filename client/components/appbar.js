@@ -43,11 +43,12 @@ class ButtonAppBar extends React.Component {
   render() {
     const {classes, handleClick, isLoggedIn, points} = this.props
     const {goal} = points.currentPoints
+    console.log('totalearned', points.currentPoints.totalEarned)
     let pointsPercentage = 0
-    if (points.allPoints[0]) {
-      if (points.allPoints[0].totalEarned > 0 || goal > 0) {
+    if (goal) {
+      if (points.currentPoints.totalEarned > 0 || goal > 0) {
         pointsPercentage += Math.round(
-          points.allPoints[0].totalEarned / goal * 100
+          points.currentPoints.totalEarned / points.currentPoints.goal * 100
         )
       }
     }

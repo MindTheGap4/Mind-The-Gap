@@ -11,7 +11,8 @@ import Grid from '@material-ui/core/Grid'
 
 const styles = {
   card: {
-    minWidth: 325
+    width: 325,
+    height: 400
   },
   title: {
     marginBottom: 16,
@@ -21,7 +22,11 @@ const styles = {
     marginBottom: 12
   },
   media: {
-    paddingTop: '100%'
+    paddingTop: '100%',
+    backgroundSize: 'contain'
+  },
+  input: {
+    display: 'none'
   }
 }
 
@@ -29,30 +34,41 @@ function SimpleCard(props) {
   const {classes, state, handleClick} = props
   return (
     <div>
-      <button
-        onClick={() => {
-          handleClick(state)
-        }}
-      >
-        <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            image={state.imageUrl}
-            title="State Picture"
-            style={{
-              display: 'block',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no - repeat',
-              backgrounPosition: 'center'
+      <Grid key={state.name} item xs={6}>
+        <Grid
+          key={state.name}
+          container
+          className={classes.demo}
+          justify="space-between"
+          spacing={16}
+          style={{padding: 20}}
+        >
+          <button
+            onClick={() => {
+              handleClick(state)
             }}
-          />
-          <CardContent>
-            <Typography variant="headline" align="center" component="h1">
-              {state.name}
-            </Typography>
-          </CardContent>
-        </Card>
-      </button>
+          >
+            <Card className={classes.card}>
+              <CardMedia
+                className={classes.media}
+                image={state.imageUrl}
+                title="State Picture"
+                style={{
+                  display: 'block',
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no - repeat',
+                  backgrounPosition: 'center'
+                }}
+              />
+              <CardContent>
+                <Typography variant="headline" align="center" component="h1">
+                  {state.name}
+                </Typography>
+              </CardContent>
+            </Card>
+          </button>
+        </Grid>
+      </Grid>
     </div>
   )
 }

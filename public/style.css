@@ -83,3 +83,8 @@ h1 {
   margin: 0 auto;
   background-size: contain;
 }
+
+.padding {
+  padding: 20px;
+  text-align: center;
+}

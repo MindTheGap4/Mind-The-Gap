@@ -14,7 +14,8 @@ import axios from 'axios'
 
 const styles = theme => ({
   card: {
-    minWidth: 325
+    width: 325,
+    height: 600
   },
   title: {
     marginBottom: 16,
@@ -24,7 +25,8 @@ const styles = theme => ({
     marginBottom: 12
   },
   media: {
-    paddingTop: '100%'
+    paddingTop: '100%',
+    backgroundSize: 'contain'
   },
   button: {
     margin: theme.spacing.unit

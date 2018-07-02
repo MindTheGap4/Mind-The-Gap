@@ -9,11 +9,13 @@ import Grid from '@material-ui/core/Grid'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 2
   },
   paper: {
-    height: 140,
-    width: 100
+    padding: theme.spacing.unit * 2,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    justifyContent: 'space-around'
   },
   control: {
     padding: theme.spacing.unit * 2
@@ -50,27 +52,16 @@ class State extends Component {
   render() {
     const {classes} = this.props
     return (
-      <div>
+      <div className={classes.root}>
         <h1>States</h1>
-        <Grid container className={classes.root} spacing={16} justify="center">
+        <Grid className={classes.paper} container spacing={40}>
           {this.state.stateList.map(state => {
             return (
-              <Grid item xs={3}>
-                <Grid
-                  key={state.name}
-                  container
-                  className={classes.demo}
-                  justify="center"
-                  spacing={16}
-                  style={{padding: 20}}
-                >
-                  <StateCard
-                    key={state.id}
-                    state={state}
-                    handleClick={this.handleClick}
-                  />
-                </Grid>
-              </Grid>
+              <StateCard
+                key={state.id}
+                state={state}
+                handleClick={this.handleClick}
+              />
             )
           })}
         </Grid>

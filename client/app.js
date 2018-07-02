@@ -9,7 +9,7 @@ import theme from './components/CustomPalette'
 const App = () => {
   return (
     <div>
-      <MuiThemeProvider >
+      <MuiThemeProvider theme={theme}>
         <Appbar />
         <Routes />
       </MuiThemeProvider>

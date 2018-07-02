@@ -13,9 +13,9 @@ import {Link} from 'react-router-dom'
 import CircularProgressbar from 'react-circular-progressbar'
 import {logout} from '../store'
 
-import MenuIcon from 'material-ui-icons/Menu'
-import Drawer from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
+import MenuIcon from '@material-ui/icons/Menu'
+import Drawer from '@material-ui/core/Drawer'
+import MenuItem from '@material-ui/core/MenuItem'
 
 const styles = {
   root: {

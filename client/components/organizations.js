@@ -18,7 +18,11 @@ import FilterOrgs from './FilterOrgs'
 const styles = theme => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    backgroundColor: '#ece7e538',
+    borderRadius: '16px',
+    padding: '17px',
+    margin: '0 auto'
   },
   card: {
     flexGrow: 1
@@ -70,7 +74,9 @@ class InputAdornments extends React.Component {
         } else if (filterType === 'city') {
           return result.city.includes(filterText.toUpperCase())
         } else if (filterType === 'state') {
-          return result.state.includes(filterText.charAt(0).toUpperCase() + filterText.slice(1))
+          return result.state.includes(
+            filterText.charAt(0).toUpperCase() + filterText.slice(1)
+          )
         } else if (filterType === 'zipCode') {
           return result.zipCode.includes(filterText)
         }
@@ -88,6 +94,7 @@ class InputAdornments extends React.Component {
         <h1>Organizations</h1>
         <div className={classes.root}>
           <FilterOrgs
+            className="filter-box"
             onFilterSubmit={this.handleSearchSubmit}
             label="Search By:"
             button="Search"

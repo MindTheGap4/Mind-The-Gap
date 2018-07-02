@@ -26,7 +26,6 @@ class AllEvents extends Component {
   async componentDidMount() {
     const {data} = await axios.get(`/api/events`)
     const userEvents = await axios.get(`/api/userEvents`)
-    console.log('user events', userEvents.data)
     const userEventIds = userEvents.data.map(event => {
       return event.event.id
     })

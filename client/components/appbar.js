@@ -6,13 +6,10 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-// import {theme} from './CustomPalette'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import CircularProgressbar from 'react-circular-progressbar'
 import {logout} from '../store'
-
 import MenuIcon from '@material-ui/icons/Menu'
 import Drawer from '@material-ui/core/Drawer'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -44,7 +41,6 @@ class ButtonAppBar extends React.Component {
   render() {
     const {classes, handleClick, isLoggedIn, points} = this.props
     const {goal} = points.currentPoints
-    console.log('totalearned', points.currentPoints.totalEarned)
     let pointsPercentage = 0
     if (goal) {
       if (points.currentPoints.totalEarned > 0 || goal > 0) {

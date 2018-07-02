@@ -68,15 +68,6 @@ const OrgList = props => {
                     orgName={org.charityName}
                     donationUrl={org.donationUrl}
                   />
-                  {/* <Button
-                    variant="contained"
-                    color="secondary"
-                    className={classes.button}
-                    type="submit"
-                    justify="center"
-                  >
-                    I Donated!
-                  </Button> */}
                 </CardContent>
               </Card>
             </Grid>

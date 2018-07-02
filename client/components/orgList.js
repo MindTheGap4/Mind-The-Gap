@@ -53,7 +53,7 @@ const OrgList = props => {
               <Card className={classes.card}>
                 <CardContent>
                   <Typography variant="headline" align="center" component="h1">
-                    <a href={org.url}>{org.charityName}</a>
+                    <a href={org.url} color="textSecondary">{org.charityName}</a>
                   </Typography>
                   <Typography variant="subheading" align="center">
                     {org.city}

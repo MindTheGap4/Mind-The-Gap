@@ -1,11 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
-import IconButton from '@material-ui/core/IconButton'
 import Input from '@material-ui/core/Input'
-import InputLabel from '@material-ui/core/InputLabel'
-import FormHelperText from '@material-ui/core/FormHelperText'
 import FormControl from '@material-ui/core/FormControl'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -78,6 +74,7 @@ class FilterOrgs extends React.Component {
           className={classNames(classes.margin, classes.textField)}
           value={this.state.filterType}
           onChange={this.handleChange}
+          color='primary'
         >
           {ranges.map(option => (
             <MenuItem key={option.value} value={option.value}>
@@ -93,6 +90,7 @@ class FilterOrgs extends React.Component {
               classes.textField
             )}
             aria-describedby="weight-helper-text"
+            color='primary'
           >
             <Input
               id="adornment-weight"
@@ -102,6 +100,7 @@ class FilterOrgs extends React.Component {
               inputProps={{
                 'aria-label': 'Weight'
               }}
+              color='primary'
             />
             <Button
               variant="contained"

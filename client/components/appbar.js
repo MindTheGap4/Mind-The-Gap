@@ -110,6 +110,11 @@ class ButtonAppBar extends React.Component {
                       text={`${pointsPercentage}%`}
                     />
                   </div>
+                  <div>
+                  <Button color="inherit" onClick={handleClick}>
+                    Logout
+                  </Button>
+                  </div>
                 </Drawer>
               )}
               <Typography
@@ -128,9 +133,7 @@ class ButtonAppBar extends React.Component {
                     Points to Spend:{' '}
                     {this.props.totalPoints - this.props.user.pointsSpent}
                   </div>
-                  <Button color="inherit" onClick={handleClick}>
-                    Logout
-                  </Button>
+
                 </div>
               ) : (
                 <div>

@@ -1,10 +1,12 @@
 import axios from 'axios'
 
+const GET_ALL_USERS_POINTS = 'GET_ALL_USERS_POINTS'
 const GET_CURRENT_POINTS = 'GET_CURRENT_POINTS'
 const GET_ALL_POINTS = 'GET_ALL_POINTS'
 const ADD_POINTS = 'ADD_POINTS'
 const ADD_GOAL = 'ADD_GOAL'
 
+const getAllUsersPoints = points => ({type: GET_ALL_USERS_POINTS, points})
 const getCurrentPoints = points => ({type: GET_CURRENT_POINTS, points})
 
 const getAllPoints = allPoints => ({type: GET_ALL_POINTS, allPoints})
@@ -16,7 +18,15 @@ const postGoal = goal => ({type: ADD_GOAL, goal})
 const initialState = {
   currentPoints: {},
   allPoints: [],
-  isFetching: true,
+  allUsersPoints: [],
+  isFetching: true
+}
+
+export const fetchAllUsersPoints = () => {
+  return async dispatch => {
+    const {data} = await axios.get('/api/points/allUsersPoints')
+    dispatch(getAllUsersPoints(data))
+  }
 }
 
 export const fetchCurrentPoints = () => {
@@ -42,15 +52,15 @@ export const updatePoints = input => {
 
 export const addGoal = goal => {
   return async dispatch => {
-    const {data} = await axios.put('/api/points/addGoal', { goal })
-    console.log('I WAS DISPATChED', data)
+    const {data} = await axios.put('/api/points/addGoal', {goal})
     dispatch(postGoal(data))
   }
 }
 
-
 export default function pointReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_ALL_USERS_POINTS:
+      return {...state, allUsersPoints: action.points}
     case GET_CURRENT_POINTS:
       return {...state, currentPoints: action.points, isFetching: false}
     case GET_ALL_POINTS:
@@ -64,11 +74,11 @@ export default function pointReducer(state = initialState, action) {
         allPoints: [...newAllPoints, action.currentPoints],
         currentPoints: action.currentPoints
       }
-      case ADD_GOAL:
-         return {
-           ...state,
-          currentPoints: {goal: action.goal.goal}
-         }
+    case ADD_GOAL:
+      return {
+        ...state,
+        currentPoints: {goal: action.goal.goal}
+      }
     default:
       return state
   }

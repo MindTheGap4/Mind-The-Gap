@@ -100,7 +100,7 @@ const SingleRep = props => {
         </CardActions>
         <CardActions>
           <Button
-            className="social-icons collect-points"
+            className={classes.button}
             size="small"
             color="primary"
             onClick={buttonSubmit}

@@ -1,18 +1,10 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
-import CardMedia from '@material-ui/core/CardMedia'
-import {Link, withRouter} from 'react-router-dom'
 import SponsorCard from './SponsorCard'
-import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import axios from 'axios'
-import {connect} from 'react-redux'
+
+
 
 const styles = theme => ({
   root: {
@@ -44,12 +36,9 @@ class AllSponsors extends Component {
   async handleClick(sponsor) {
     const {data} = await axios.get(`/api/events/bySponsor/${sponsor.id}`)
     const userEvents = await axios.get(`/api/userEvents`)
-    console.log('all sponsors events', data)
-    console.log('user events', userEvents.data)
     const userEventIds = userEvents.data.map(event => {
       return event.event.id
     })
-    console.log('userEventIds', userEventIds)
     const toShow = data.filter(event => {
       return !userEventIds.includes(event.id)
     })

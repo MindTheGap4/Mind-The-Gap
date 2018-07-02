@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
@@ -7,14 +6,12 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import CardMedia from '@material-ui/core/CardMedia'
-import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
 import Icon from '@material-ui/core/Icon'
-
-import {Link, withRouter} from 'react-router-dom'
 import {addActivity} from '../../store/reducers/activityReducer'
 import {connect} from 'react-redux'
 import {updatePoints} from '../../store/reducers/pointsReducer'
+import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 
 const styles = {
   card: {
@@ -51,15 +48,15 @@ const SponsorCard = props => {
                 handleClick(sponsor)
               }}
             >
-              <Typography gutterBottom variant="headline" component="h2">
+              <Typography gutterBottom variant="headline" component="h2" color="primary">
                 {sponsor.name}
               </Typography>
             </button>
           </CardContent>
           <hr className="divider" />
           <CardActions>
-            <Button className="social-icons" size="small" color="primary">
-              <Icon className={classes.icon}>open_in_new</Icon>
+            <Button className="social-icons" size="small">
+              <OpenInNewIcon className={classes.icon} color="primary"/>
               <a href={sponsor.url} target="_blank">
                 website
               </a>

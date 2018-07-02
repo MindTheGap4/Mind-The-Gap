@@ -12,10 +12,7 @@ class ActivityList extends Component {
   render() {
     return (
       <div>
-        Upcoming:
-        <UpcomingActivities />
         <br />
-        Past:
         <PastActivities />
       </div>
     )

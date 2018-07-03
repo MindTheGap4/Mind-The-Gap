@@ -1,5 +1,14 @@
 body {
   font-family: 'Cardo', serif;
+  /* background: url('https://png.pngtree.com/element_origin_min_pic/17/09/29/94f13b5dc37d33c3bb8b92a5d0e4059a.jpg');
+  background-attachment: fixed;
+  background-repeat: inherit;
+  color: #03034b;
+  */
+  background-image: linear-gradient(120deg, #62a4f4 0%, #c2e9fb 100%);
+  background-attachment: fixed;
+  background-repeat: inherit;
+  color: white !important;
 }
 
 a {
@@ -87,4 +96,19 @@ h1 {
 .padding {
   padding: 20px;
   text-align: center;
+}
+
+/* #app {
+  background: url('https://png.pngtree.com/element_origin_min_pic/17/09/29/94f13b5dc37d33c3bb8b92a5d0e4059a.jpg');
+  background-attachment: fixed;
+  background-repeat: inherit;
+  color: #03034b;
+  /* height: 100vh; */
+/* }  */
+
+.FilterOrgs-root-136 {
+  /* background-color: #ece7e538;
+  border-radius: 16px;
+  padding: 17px; */
+  margin: 0 auto;
 }

@@ -21,7 +21,7 @@ export const PastPoints = props => {
   console.log('DATA', data)
   return (
     <div>
-      <div>pastpoints</div>
+      {/* <div>pastpoints</div> */}
       {/* <div>
         {Object.keys(sortedPoints).map(key => {
           return (
@@ -51,8 +51,17 @@ export const PastPoints = props => {
               }
             })
             return (
-              <div>
-                {key}
+              <div
+                style={{
+                  flex: 2,
+                  marginBottom: 0,
+                  marginLeft: '1px',
+                  width: '100%',
+                  height: '300px',
+                  padding: '50px'
+                }}
+              >
+                <h1>{key} </h1>
                 <Chart data={data} />{' '}
               </div>
             )

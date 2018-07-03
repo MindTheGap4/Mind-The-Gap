@@ -60,7 +60,7 @@ export const RenderActiveShape = props => {
         y={ey}
         dy={18}
         textAnchor={textAnchor}
-        fill="#999"
+        fill={fill}
       >
         {`${value} Points, ${Math.floor((percent * 100))} Percent`}
       </text>

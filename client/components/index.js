@@ -12,6 +12,7 @@ export {default as SimpleSlider} from './extraLibraries/Carousel'
 
 export {Login, Signup} from './auth-form'
 export {default as Appbar} from './appbar'
+export {default as BottomNav} from './BottomNav'
 export {default as State} from './Representatives/State'
 export {default as CongressChoice} from './Representatives/CongressChoice'
 export {default as House} from './Representatives/House'

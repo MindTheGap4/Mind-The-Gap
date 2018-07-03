@@ -53,7 +53,13 @@ class ButtonAppBar extends React.Component {
     return (
       // <MuiThemeProvider >
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar
+          style={{
+            position: 'fixed',
+            top: 0,
+            bottom: 'unset'
+          }}
+        >
           <Toolbar>
             <IconButton
               className={classes.menuButton}

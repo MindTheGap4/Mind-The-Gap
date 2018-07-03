@@ -89,24 +89,39 @@ class InputAdornments extends React.Component {
 
   render() {
     const {classes} = this.props
+    console.log('RESULTS=============',this.state.results)
     return (
       <div>
         <h1>Organizations</h1>
-        <div className={classes.root}>
+        {
+          this.state.results.length < 1 ?
+          <div>
+            <FilterOrgs
+              className="filter-box"
+              onFilterSubmit={this.handleSearchSubmit}
+              label="Search By:"
+              button="Search"
+            />
+          </div>
+          :
+          <div>
+            <FilterOrgs
+              className="filter-box"
+              onFilterSubmit={this.handleSearchSubmit}
+              label="Search By:"
+              button="Search"
+            />
           <FilterOrgs
-            className="filter-box"
-            onFilterSubmit={this.handleSearchSubmit}
-            label="Search By:"
-            button="Search"
-          />
-          <FilterOrgs
-            onFilterSubmit={this.handleFilterSubmit}
-            label="Filter by"
-            button="Filter"
-          />
+          onFilterSubmit={this.handleFilterSubmit}
+          label="Filter by"
+          button="Filter"
+        />
+        <OrgList results={this.state.filteredResults} />
+      </div>
 
-          <OrgList results={this.state.filteredResults} />
-        </div>
+        }
+
+
       </div>
     )
   }

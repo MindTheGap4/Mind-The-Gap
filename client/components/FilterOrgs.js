@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button'
 const styles = theme => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap'
+    wrap: 'wrap'
   },
   margin: {
     margin: theme.spacing.unit
@@ -67,51 +67,53 @@ class FilterOrgs extends React.Component {
     const {classes} = this.props
     return (
       <div className={classes.root}>
-        <TextField
-          select
-          label={this.props.label}
-          name="filterType"
-          className={classNames(classes.margin, classes.textField)}
-          value={this.state.filterType}
-          onChange={this.handleChange}
-          color='primary'
-        >
-          {ranges.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <form onSubmit={this.handleSubmit}>
-          <FormControl
-            className={classNames(
-              classes.margin,
-              classes.withoutLabel,
-              classes.textField
-            )}
-            aria-describedby="weight-helper-text"
-            color='primary'
+          <TextField
+            select
+            label={this.props.label}
+            name="filterType"
+            className={classNames(classes.margin, classes.textField)}
+            value={this.state.filterType}
+            onChange={this.handleChange}
+            color='#ffffff'
           >
-            <Input
-              id="adornment-weight"
-              name="filterText"
-              value={this.state.filterText}
-              onChange={this.handleChange}
-              inputProps={{
-                'aria-label': 'Weight'
-              }}
+            {ranges.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+
+          </TextField>
+          <form onSubmit={this.handleSubmit}>
+            <FormControl
+              className={classNames(
+                classes.margin,
+                classes.withoutLabel,
+                classes.textField
+              )}
+              aria-describedby="weight-helper-text"
               color='primary'
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              type="submit"
             >
-              {this.props.button}
-            </Button>
-          </FormControl>
-        </form>
+            For:
+              <Input
+                id="adornment-weight"
+                name="filterText"
+                value={this.state.filterText}
+                onChange={this.handleChange}
+                inputProps={{
+                  'aria-label': 'Weight'
+                }}
+                color='secondary'
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                type="submit"
+              >
+                {this.props.button}
+              </Button>
+            </FormControl>
+          </form>
       </div>
     )
   }

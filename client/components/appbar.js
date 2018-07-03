@@ -16,7 +16,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 
 const styles = {
   root: {
-    flexGrow: 1
+    flexGrow: 2
   },
   flex: {
     flex: 1
@@ -75,6 +75,7 @@ class ButtonAppBar extends React.Component {
                 docked={false}
                 width={200}
                 open={this.state.open}
+                onClose={this.handleClose}
                 onRequestChange={open => this.setState({open})}
               >
                 <Link to="/home">

@@ -3,7 +3,7 @@ import {PieChart, Pie, Cell} from 'recharts'
 import {RenderActiveShape} from './RenderActiveShape'
 import {connect} from 'react-redux'
 
-const COLORS = ['#D3D3D3', '#0088FE', '#00C49F' ]
+const COLORS = ['#D3D3D3', '#0088FE', '#004d40' ]
 class TwoLevelPieChart extends Component {
   constructor() {
     super()

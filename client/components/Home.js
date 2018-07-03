@@ -15,11 +15,18 @@ export const Home = props => {
 
   return (
     <div>
-      <h3>This is Mind Matters!</h3>
       <div>
-        <span className="quote">"By Doing Good, We Do Well"</span>
+        {/* <span className="quote">"By Doing Good, We Do Well"</span> */}
         <div className="image-container">
-          <img src="cover.jpg" className="cover-img" />
+          <div className="homeDescription">
+            <h3>MIND THE GAP</h3>
+            <p>
+              With all the BAD in the world, we are here to help you do more
+              GOOD. If we all contribute a LITTLE more, together we will make a
+              BIG difference
+            </p>
+          </div>
+          <img src="circle-home.png" className="cover-img" />
         </div>
       </div>
       <SimpleSlider />

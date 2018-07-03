@@ -78,6 +78,8 @@ h1 {
 
 .image-container {
   margin: 0 auto;
+  position: relative;
+  width: 70%;
 }
 
 .quote {
@@ -98,6 +100,15 @@ h1 {
 .padding {
   padding: 20px;
   text-align: center;
+}
+
+.homeDescription {
+  display: block;
+  position: absolute;
+  width: 300px;
+  text-align: center;
+  bottom: 200px;
+  left: 375px;
 }
 
 /* #app {

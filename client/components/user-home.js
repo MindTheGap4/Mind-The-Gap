@@ -30,7 +30,7 @@ export const UserHome = props => {
   }
   console.log('thisyearspts', data)
   return (
-    <div>
+    <div style={{margin: '30px'}}>
       <h1
         style={{
           marginBottom: 40

@@ -4,6 +4,9 @@ import {connect} from 'react-redux'
 import GoalsDialog from './GoalsDialog'
 import {ProgressBar} from 'react-bootstrap'
 import TwoLevelPieChart from './D3/TwoLevelPieChart'
+import {createYearObj, monthNumToName} from '../../helpers'
+import Chart from './D3/BarChart'
+
 /**
  * COMPONENT
  */
@@ -12,7 +15,20 @@ export const UserHome = props => {
   const percentage = props.usersTotalEarned / props.usersTotalGoal * 100
   console.log('GOAL', goal)
   console.log('POINTS', points)
-
+  const sortedPoints = createYearObj(props.userDate, props.allPoints)
+  const currentYear = new Date().getFullYear()
+  const thisYearPoints = sortedPoints[currentYear]
+  let data
+  if (thisYearPoints) {
+    data = thisYearPoints.map(month => {
+      return {
+        name: monthNumToName(month.month),
+        goal: month.goal,
+        earned: month.totalEarned
+      }
+    })
+  }
+  console.log('thisyearspts', data)
   return (
     <div>
       <h3>
@@ -24,14 +40,40 @@ export const UserHome = props => {
           <GoalsDialog />
         </div>
       ) : (
-        <TwoLevelPieChart />
+        <div
+          style={{
+            display: 'flex',
+            flex: 1,
+            flexDirection: 'row',
+            alignItems: 'center'
+          }}
+        >
+          <div
+            style={{
+              flex: 1,
+              marginBottom: 0,
+              marginRight: '1px'
+            }}
+          >
+            <TwoLevelPieChart />
+          </div>
+          <div
+            style={{
+              flex: 1,
+              marginBottom: 0,
+              marginLeft: '1px'
+            }}
+          >
+            <Chart data={data} />{' '}
+          </div>
+        </div>
       )}
-      <div>
+      {/* <div>
         All User Progress
         <ProgressBar active now={percentage} label={`${percentage}%`} />
         <div>Total Points Earned: {props.usersTotalEarned}</div>
         <div>Total Goal: {props.usersTotalGoal}</div>
-      </div>
+      </div> */}
     </div>
   )
 }
@@ -55,7 +97,9 @@ const mapState = state => {
     goal: state.points.currentPoints.goal,
     points: state.points,
     usersTotalGoal: usersTotalGoal,
-    usersTotalEarned: usersTotalEarned
+    usersTotalEarned: usersTotalEarned,
+    allPoints: state.points.allPoints,
+    userDate: new Date(state.user.createdAt)
   }
 }
 

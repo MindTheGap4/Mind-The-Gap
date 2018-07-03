@@ -112,7 +112,7 @@ class ButtonAppBar extends React.Component {
                   />
                 </div>
                 <div>
-                  <Button color="inherit" onClick={handleClick}>
+                  <Button color="primary" onClick={handleClick}>
                     Logout
                   </Button>
                 </div>

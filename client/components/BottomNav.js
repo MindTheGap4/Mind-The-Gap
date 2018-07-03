@@ -25,7 +25,8 @@ function BottomNav(props) {
         style={{
           position: 'fixed',
           top: 'unset',
-          bottom: 0
+          bottom: 0,
+          backgroundColor: '#d1d1d1'
         }}
       >
         <Toolbar>

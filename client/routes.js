@@ -37,6 +37,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route exact path="/" component={Home} />
 
         {isLoggedIn && (
           <Switch>
@@ -85,7 +86,7 @@ class Routes extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
 
-            <Route component={Home} />
+            {/* <Route component={Home} /> */}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

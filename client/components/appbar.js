@@ -123,7 +123,7 @@ class ButtonAppBar extends React.Component {
               color="inherit"
               className={classes.flex}
             >
-              Mind the Gap
+              <Link to="/">MIND THE GAP</Link>
             </Typography>
             {isLoggedIn ? (
               <div>

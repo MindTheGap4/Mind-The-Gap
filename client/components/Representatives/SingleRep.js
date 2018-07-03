@@ -16,16 +16,15 @@ import EmailIcon from '@material-ui/icons/Email'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 
-
-
 const styles = {
   card: {
     maxWidth: 445
   },
   media: {
+    margin: 29,
     height: 0,
     paddingTop: '56.25%', // 16:9
-    margin: '0 auto',
+    // margin: '0 auto',
     backgroundSize: 'contain'
   }
 }
@@ -105,13 +104,13 @@ const SingleRep = props => {
         <hr className="divider" />
         <CardActions>
           <Button className="social-icons" size="small" color="primary">
-            <OpenInNewIcon className={classes.icon}/>
+            <OpenInNewIcon className={classes.icon} />
             <a href={rep.url} target="_blank">
               website
             </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
-            <PhoneIcon className={classes.icon}/>
+            <PhoneIcon className={classes.icon} />
             <a href={rep.url} target="_blank">
               {rep.roles[0].phone}
             </a>
@@ -122,7 +121,7 @@ const SingleRep = props => {
         <CardActions>
           <Button className="social-icons" size="small" color="primary">
             <a href={rep.roles[0].contact_form} target="_blank">
-              <EmailIcon className={classes.icon}/>
+              <EmailIcon className={classes.icon} />
             </a>
           </Button>
           <Button className="social-icons" size="small" color="primary">
@@ -154,7 +153,7 @@ const SingleRep = props => {
               I CONTACTED THIS REP, COLLECT MY POINTS
             </span>
 
-            <AddCircleOutlineIcon className={classes.icon}/>
+            <AddCircleOutlineIcon className={classes.icon} />
           </Button>
         </CardActions>
       </Card>

@@ -6,15 +6,13 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from 'material-ui-icons/Menu'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import Drawer from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
 import CircularProgressbar from 'react-circular-progressbar'
-
 import {logout} from '../store'
+import MenuIcon from '@material-ui/icons/Menu'
+import Drawer from '@material-ui/core/Drawer'
+import MenuItem from '@material-ui/core/MenuItem'
 
 const styles = {
   root: {
@@ -43,7 +41,6 @@ class ButtonAppBar extends React.Component {
   render() {
     const {classes, handleClick, isLoggedIn, points} = this.props
     const {goal} = points.currentPoints
-    console.log('totalearned', points.currentPoints.totalEarned)
     let pointsPercentage = 0
     if (goal) {
       if (points.currentPoints.totalEarned > 0 || goal > 0) {
@@ -54,7 +51,7 @@ class ButtonAppBar extends React.Component {
     }
 
     return (
-      <MuiThemeProvider>
+      // <MuiThemeProvider >
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar>
@@ -109,6 +106,11 @@ class ButtonAppBar extends React.Component {
                       text={`${pointsPercentage}%`}
                     />
                   </div>
+                  <div>
+                  <Button color="inherit" onClick={handleClick}>
+                    Logout
+                  </Button>
+                  </div>
                 </Drawer>
               )}
               <Typography
@@ -127,9 +129,7 @@ class ButtonAppBar extends React.Component {
                     Points to Spend:{' '}
                     {this.props.totalPoints - this.props.user.pointsSpent}
                   </div>
-                  <Button color="inherit" onClick={handleClick}>
-                    Logout
-                  </Button>
+
                 </div>
               ) : (
                 <div>
@@ -144,7 +144,7 @@ class ButtonAppBar extends React.Component {
             </Toolbar>
           </AppBar>
         </div>
-      </MuiThemeProvider>
+      // </MuiThemeProvider>
     )
   }
 }

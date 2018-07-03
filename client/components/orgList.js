@@ -2,11 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import CardMedia from '@material-ui/core/CardMedia'
 import Grid from '@material-ui/core/Grid'
 import Textfield from './textfield'
 
@@ -56,7 +53,7 @@ const OrgList = props => {
               <Card className={classes.card}>
                 <CardContent>
                   <Typography variant="headline" align="center" component="h1">
-                    <a href={org.url}>{org.charityName}</a>
+                    <a href={org.url} color="textSecondary">{org.charityName}</a>
                   </Typography>
                   <Typography variant="subheading" align="center">
                     {org.city}
@@ -71,15 +68,6 @@ const OrgList = props => {
                     orgName={org.charityName}
                     donationUrl={org.donationUrl}
                   />
-                  {/* <Button
-                    variant="contained"
-                    color="secondary"
-                    className={classes.button}
-                    type="submit"
-                    justify="center"
-                  >
-                    I Donated!
-                  </Button> */}
                 </CardContent>
               </Card>
             </Grid>

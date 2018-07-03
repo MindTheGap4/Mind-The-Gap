@@ -95,7 +95,7 @@ class InputAdornments extends React.Component {
         <h1>Organizations</h1>
         {
           this.state.results.length < 1 ?
-          <div >
+          <div>
             <FilterOrgs
               className="filter-box"
               onFilterSubmit={this.handleSearchSubmit}

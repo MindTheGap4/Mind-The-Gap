@@ -33,6 +33,7 @@ class House extends Component {
     this.setState({
       allReps: data.results
     })
+    console.log('allreps', this.state.allReps)
   }
   async handleClick(evt) {
     const {data} = await axios.get(`/api/representatives/singleRep/${evt.id}`)

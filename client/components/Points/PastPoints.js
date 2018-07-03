@@ -5,7 +5,6 @@ import Chart from '../D3/BarChart'
 
 export const PastPoints = props => {
   const sortedPoints = createYearObj(props.userDate, props.allPoints)
-  console.log('sortedpoints', sortedPoints)
   const currentYear = new Date().getFullYear()
   const thisYearPoints = sortedPoints[currentYear]
 

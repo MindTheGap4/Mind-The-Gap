@@ -31,9 +31,14 @@ export const UserHome = props => {
   console.log('thisyearspts', data)
   return (
     <div>
-      <h3>
-        Welcome, {firstName} {lastName}
-      </h3>
+      <h1
+        style={{
+          marginBottom: 40
+        }}
+      >
+        {firstName.toUpperCase()} {lastName.toUpperCase()}, YOU'RE ON YOUR WAY
+        TO MAKING THE WORLD A BETTER PLACE
+      </h1>
       {goal === 0 ? (
         <div>
           <p>You haven't set up your goal yet!!</p>
@@ -50,18 +55,22 @@ export const UserHome = props => {
         >
           <div
             style={{
-              flex: 1,
+              flex: 2,
               marginBottom: 0,
-              marginRight: '1px'
+              marginRight: '10px',
+              width: '100%',
+              height: '300px'
             }}
           >
             <TwoLevelPieChart />
           </div>
           <div
             style={{
-              flex: 1,
+              flex: 2,
               marginBottom: 0,
-              marginLeft: '1px'
+              marginLeft: '1px',
+              width: '100%',
+              height: '300px'
             }}
           >
             <Chart data={data} />{' '}

@@ -71,7 +71,7 @@ class ButtonAppBar extends React.Component {
                   open={this.state.open}
                   onRequestChange={open => this.setState({open})}
                 >
-                  <Link to="/home">
+                  <Link to="/home" >
                     <MenuItem onClick={this.handleClose}>Home</MenuItem>
                   </Link>
                   <Link to="/account/activities">
@@ -107,7 +107,7 @@ class ButtonAppBar extends React.Component {
                     />
                   </div>
                   <div>
-                  <Button color="#111111" onClick={handleClick}>
+                  <Button color="contrastText" onClick={handleClick}>
                     Logout
                   </Button>
                   </div>

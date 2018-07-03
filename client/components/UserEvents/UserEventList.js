@@ -59,7 +59,7 @@ class UserEventList extends Component {
 
     return (
       <div className={classes.root}>
-        <h1>Your Events</h1>
+        <h1>YOUR EVENTS</h1>
         <h2 className="padding"> Active:</h2>
 
         <Grid className={classes.paper} container spacing={40}>

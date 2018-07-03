@@ -60,7 +60,7 @@ class UserEventList extends Component {
     return (
       <div className={classes.root}>
         <h1>YOUR EVENTS</h1>
-        <h2 className="padding"> Active:</h2>
+        <h2 className="padding"> Events To Redeem:</h2>
 
         <Grid className={classes.paper} container spacing={40}>
           {this.state.allActiveEvents &&

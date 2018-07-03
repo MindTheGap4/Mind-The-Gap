@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {PieChart, Pie, Cell} from 'recharts'
+import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts'
 import {RenderActiveShape} from './RenderActiveShape'
 import {connect} from 'react-redux'
 
@@ -52,25 +52,27 @@ class TwoLevelPieChart extends Component {
 
 
     return (
-      <PieChart width={800} height={400}>
-        <Pie
-          activeIndex={this.state.activeIndex}
-          activeShape={RenderActiveShape}
-          cx={300}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          onMouseEnter={this.onPieEnter}
-          paddingAngle={5}
-          data={dataSent}
-          dataKey="value"
-        >
-          {dataSent.map((entry, index) => (
-            <Cell fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
+      <ResponsiveContainer>
+        <PieChart>
+          <Pie
+            activeIndex={this.state.activeIndex}
+            activeShape={RenderActiveShape}
+            cx={300}
+            cy={150}
+            innerRadius={60}
+            outerRadius={80}
+            fill="#8884d8"
+            onMouseEnter={this.onPieEnter}
+            paddingAngle={5}
+            data={dataSent}
+            dataKey="value"
+          >
+            {dataSent.map((entry, index) => (
+              <Cell fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
     )
   }
 }

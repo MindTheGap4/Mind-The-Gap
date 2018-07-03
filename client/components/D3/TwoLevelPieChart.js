@@ -49,7 +49,7 @@ class TwoLevelPieChart extends Component {
       {name: 'Contacted Rep', value: repPoints},
       {name: 'Donation', value: donationPoints}
     ]
-    let goal = this.props.currentPoints.goal
+
 
     return (
       <PieChart width={800} height={400}>

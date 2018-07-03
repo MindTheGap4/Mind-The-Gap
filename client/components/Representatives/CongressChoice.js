@@ -12,17 +12,19 @@ import Grid from '@material-ui/core/Grid'
 
 const styles = theme => ({
   root: {
-    flexGrow: 2
+    flexGrow: 2,
+    marginTop: '13%'
   },
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    justifyContent: 'space-around'
+    justifyContent: 'center'
   },
   card: {
     width: 325,
-    height: 400
+    height: 400,
+    padding: 40
   },
   title: {
     marginBottom: 16,
@@ -80,7 +82,7 @@ function SimpleCard(props) {
             </Link>
           </Grid>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={3} style={{maxWidth: '100%'}}>
           <Grid
             key={selectedState.name}
             container

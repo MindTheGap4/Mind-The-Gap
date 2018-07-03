@@ -72,54 +72,6 @@ class ButtonAppBar extends React.Component {
                 onClose={this.handleClose}
                 onRequestChange={open => this.setState({open})}
               >
-<<<<<<< HEAD
-                <MenuIcon />
-              </IconButton>
-              {isLoggedIn && (
-                <Drawer
-                  docked={false}
-                  width={200}
-                  open={this.state.open}
-                  onRequestChange={open => this.setState({open})}
-                >
-                  <Link to="/home" >
-                    <MenuItem onClick={this.handleClose}>Home</MenuItem>
-                  </Link>
-                  <Link to="/account/activities">
-                    <MenuItem onClick={this.handleClose}>Activities</MenuItem>
-                  </Link>
-                  <Link to="/account/points">
-                    <MenuItem onClick={this.handleClose}>My Points</MenuItem>
-                  </Link>
-                  <Link to="/myEvents">
-                    <MenuItem onClick={this.handleClose}>My Events</MenuItem>
-                  </Link>
-                  <Link to="/organizations">
-                    <MenuItem onClick={this.handleClose}>
-                      Organizations
-                    </MenuItem>
-                  </Link>
-                  <Link to="/representatives">
-                    <MenuItem onClick={this.handleClose}>
-                      Representatives
-                    </MenuItem>
-                  </Link>
-                  <Link to="/sponsors">
-                    <MenuItem onClick={this.handleClose}>Sponsors</MenuItem>
-                  </Link>
-                  <Link to="/events">
-                    <MenuItem onClick={this.handleClose}>Events</MenuItem>
-                  </Link>
-                  <div className="progress-wrapper">
-                    <CircularProgressbar
-                      strokeWidth={15}
-                      percentage={pointsPercentage}
-                      text={`${pointsPercentage}%`}
-                    />
-                  </div>
-                  <div>
-                  <Button color="contrastText" onClick={handleClick}>
-=======
                 <Link to="/home">
                   <MenuItem onClick={this.handleClose}>Home</MenuItem>
                 </Link>
@@ -155,7 +107,6 @@ class ButtonAppBar extends React.Component {
                 </div>
                 <div>
                   <Button color="inherit" onClick={handleClick}>
->>>>>>> master
                     Logout
                   </Button>
                 </div>

@@ -2,21 +2,32 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth, createUser} from '../store'
+import Button from '@material-ui/core/Button'
 
 /**
  * COMPONENT
  */
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
+
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
+
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
+      <form onSubmit={handleSubmit} name={name} color='primary'>
         {name === 'signup' && (
           <div>
-            <div>
-              <label htmlFor="firstName">
-                <small textcolor='#0d47a1'>First Name</small>
+            <div color='primary'>
+              <label htmlFor="firstName" color='primary'>
+                <small >First Name</small>
               </label>
               <input name="firstName" type="text" />
             </div>
@@ -41,7 +52,7 @@ const AuthForm = props => {
           <input name="password" type="password" color='#0d47a1'/>
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <Button variant="contained" color="primary" >{displayName}</Button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>

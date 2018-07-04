@@ -100,7 +100,9 @@ h1 {
 
 .padding {
   padding: 20px;
-  text-align: center;
+  text-align: left;
+  border-bottom: solid;
+  margin: 64px;
 }
 
 .homeDescription {
@@ -130,4 +132,10 @@ h1 {
 .MuiTypography-headline-69 {
   margin: 30px !important;
   font-weight: 700 !important;
+}
+
+.spend-points {
+  background-color: white;
+  padding: 12px;
+  border-radius: 200px;
 }

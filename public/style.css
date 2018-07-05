@@ -76,7 +76,7 @@ h1 {
 .image-container {
   margin: 0 auto;
   position: relative;
-  width: 70%;
+  width: 50%;
 }
 
 .quote {
@@ -102,12 +102,10 @@ h1 {
 }
 
 .homeDescription {
-  display: block;
-  position: absolute;
+  position: relative;
   width: 300px;
   text-align: center;
   bottom: 200px;
-  left: 375px;
 }
 
 /* #app {

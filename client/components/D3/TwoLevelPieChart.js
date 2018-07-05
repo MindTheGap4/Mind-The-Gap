@@ -3,7 +3,7 @@ import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts'
 import {RenderActiveShape} from './RenderActiveShape'
 import {connect} from 'react-redux'
 
-const COLORS = ['#fafafa', '#ff1616', '#10f710' ]
+const COLORS = ['#fafafa', '#ff1616', '#10f710']
 class TwoLevelPieChart extends Component {
   constructor() {
     super()
@@ -50,7 +50,6 @@ class TwoLevelPieChart extends Component {
       {name: 'Donation', value: donationPoints}
     ]
 
-
     return (
       <ResponsiveContainer>
         <PieChart>
@@ -59,8 +58,8 @@ class TwoLevelPieChart extends Component {
             activeShape={RenderActiveShape}
             cx={300}
             cy={150}
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={70}
+            outerRadius={90}
             fill="#8884d8"
             onMouseEnter={this.onPieEnter}
             paddingAngle={5}

@@ -18,15 +18,7 @@ export const Home = props => {
       <div>
         {/* <span className="quote">"By Doing Good, We Do Well"</span> */}
         <div className="image-container">
-          <div className="homeDescription">
-            <h3>MIND THE GAP</h3>
-            <p>
-              With all the BAD in the world, we are here to help you do more
-              GOOD. If we all contribute a LITTLE more, together we will make a
-              BIG difference
-            </p>
-          </div>
-          <img src="circle-home.png" className="cover-img" />
+          <img src="HOME CIRCLE 2.png" className="cover-img" />
         </div>
       </div>
       <SimpleSlider />

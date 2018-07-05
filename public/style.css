@@ -139,3 +139,14 @@ h1 {
 .sponsors {
   margin: 40px 40px 20px 20px;
 }
+
+.centerBold {
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 4em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

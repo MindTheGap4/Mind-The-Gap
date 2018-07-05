@@ -60,8 +60,7 @@ class House extends Component {
       <div className={classes.root}>
         {repubs.length > 0 ? (
           <div>
-            <h1>Republicans</h1>
-
+            <div className="centerBold">Republicans</div>
             <Grid
               className={classes.paper}
               container
@@ -84,7 +83,7 @@ class House extends Component {
         )}
         {dems.length > 0 ? (
           <div>
-            <h1>Democrats</h1>
+            <div className="centerBold">Democrats</div>
             <Grid className={classes.paper} container spacing={40}>
               {dems.map(rep => {
                 return (

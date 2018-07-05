@@ -36,6 +36,7 @@ const styles = theme => ({
 function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
+
 class TextFields extends React.Component {
   constructor(props) {
     super(props)

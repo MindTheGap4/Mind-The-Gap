@@ -198,9 +198,6 @@ class ButtonAppBar extends React.Component {
             </Grid>
             {isLoggedIn ? (
               <div>
-                {/* <Button color="inherit" component={Link} to="/home">
-                    Home
-                  </Button> */}
                 <div className="spend-points">
                   Points to Spend:{' '}
                   {this.props.totalPoints - this.props.user.pointsSpent}

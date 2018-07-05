@@ -70,6 +70,7 @@ class FilterOrgs extends React.Component {
     const {classes} = this.props
     return (
       <div className={classes.root}>
+      <form onSubmit={this.handleSubmit}>
           <TextField
             select
             label={this.props.label}
@@ -86,8 +87,8 @@ class FilterOrgs extends React.Component {
             ))}
 
           </TextField>
-          <form onSubmit={this.handleSubmit}>
-            <FormControl
+
+            {/* <FormControl
               className={classNames(
                 classes.margin,
                 classes.withoutLabel,
@@ -95,9 +96,19 @@ class FilterOrgs extends React.Component {
               )}
               aria-describedby="weight-helper-text"
               color='primary'
-            >
-            For:
-              <Input
+            > */}
+            <TextField
+              id="search"
+              label="For:"
+              type="text"
+              className={classes.textField}
+              margin="normal"
+              color='primary'
+              name="filterText"
+              value={this.state.filterText}
+              onChange={this.handleChange}
+            />
+              {/* <Input
                 id="adornment-weight"
                 name="filterText"
                 value={this.state.filterText}
@@ -106,7 +117,7 @@ class FilterOrgs extends React.Component {
                   'aria-label': 'Weight'
                 }}
                 color='secondary'
-              />
+              /> */}
               <Button
                 variant="contained"
                 color="primary"
@@ -115,7 +126,6 @@ class FilterOrgs extends React.Component {
               >
                 {this.props.button}
               </Button>
-            </FormControl>
           </form>
       </div>
     )

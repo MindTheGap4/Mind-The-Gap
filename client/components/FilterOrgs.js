@@ -83,18 +83,7 @@ class FilterOrgs extends React.Component {
                 {option.label}
               </MenuItem>
             ))}
-
           </TextField>
-
-            {/* <FormControl
-              className={classNames(
-                classes.margin,
-                classes.withoutLabel,
-                classes.textField
-              )}
-              aria-describedby="weight-helper-text"
-              color='primary'
-            > */}
             <TextField
               id="search"
               label="For:"

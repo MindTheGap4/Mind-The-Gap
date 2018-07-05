@@ -6,6 +6,11 @@ import Button from '@material-ui/core/Button'
 import {addActivity} from '../store'
 import {connect} from 'react-redux'
 import {updatePoints} from '../store/reducers/pointsReducer'
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
   container: {
@@ -55,20 +60,18 @@ class TextFields extends React.Component {
     const {classes} = this.props
     return (
       <div>
-        <TextField
-          id="number"
-          label="Amount Donated"
-          align="center"
+        <FormControl >
+          <InputLabel htmlFor="adornment-amount">
+            Amount Donated
+          </InputLabel>
+          <Input
+          id="adornment-amount"
           value={this.state.amount}
           onChange={this.handleChange('amount')}
-          type="number"
           className={classes.textField}
-          InputLabelProps={{
-            shrink: true
-          }}
-          InputProps={{inputProps: {min: 0, max: 100}}}
-          margin="normal"
-        />
+          startAdornment={<InputAdornment position="start">$</InputAdornment>}
+          />
+        </FormControl>
         <Button
           variant="contained"
           color="secondary"

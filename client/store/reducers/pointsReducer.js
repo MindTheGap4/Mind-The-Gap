@@ -7,6 +7,7 @@ const ADD_POINTS = 'ADD_POINTS'
 const ADD_GOAL = 'ADD_GOAL'
 
 const getAllUsersPoints = points => ({type: GET_ALL_USERS_POINTS, points})
+
 const getCurrentPoints = points => ({type: GET_CURRENT_POINTS, points})
 
 const getAllPoints = allPoints => ({type: GET_ALL_POINTS, allPoints})
@@ -45,7 +46,9 @@ export const fetchAllPoints = () => {
 
 export const updatePoints = input => {
   return async dispatch => {
+    console.log('input', input)
     const {data} = await axios.put('/api/points/addPoints', input)
+    console.log('updatepoints thunk', data)
     dispatch(addPoints(data))
   }
 }
@@ -69,10 +72,14 @@ export default function pointReducer(state = initialState, action) {
       const newAllPoints = state.allPoints.filter(pointRow => {
         return pointRow.id !== action.currentPoints.id
       })
+      const newAllUsersPoints = state.allUsersPoints.filter(userPoints => {
+        return userPoints.userId !== action.currentPoints.userId
+      })
       return {
         ...state,
         allPoints: [...newAllPoints, action.currentPoints],
-        currentPoints: action.currentPoints
+        currentPoints: action.currentPoints,
+        allUsersPoints: [...newAllUsersPoints, action.currentPoints]
       }
     case ADD_GOAL:
       return {

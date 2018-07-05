@@ -12,8 +12,6 @@ import Chart from './D3/BarChart'
 export const UserHome = props => {
   const {firstName, lastName, goal, points} = props
   const percentage = props.usersTotalEarned / props.usersTotalGoal * 100
-  console.log('GOAL', goal)
-  console.log('POINTS', points)
   let data
   if (props.allPoints !== 'no user') {
     const sortedPoints = createYearObj(props.userDate, props.allPoints)
@@ -30,7 +28,6 @@ export const UserHome = props => {
       })
     }
   }
-  console.log('thisyearspts', data)
   return (
     <div style={{margin: '30px'}}>
       <h1

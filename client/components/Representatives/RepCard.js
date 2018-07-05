@@ -14,7 +14,7 @@ const styles = {
     // minWidth: 275,
     // padding: '1 1 1 1'
     width: 275,
-    height: 100
+    height: 150
   },
   bullet: {
     display: 'inline-block',

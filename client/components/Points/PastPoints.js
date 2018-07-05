@@ -54,9 +54,9 @@ export const PastPoints = props => {
               <div
                 style={{
                   flex: 2,
-                  marginBottom: 0,
+                  marginBottom: '70px',
                   marginLeft: '1px',
-                  width: '100%',
+                  width: '70%',
                   height: '300px',
                   padding: '50px'
                 }}

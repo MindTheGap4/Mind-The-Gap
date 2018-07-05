@@ -25,7 +25,8 @@ const styles = theme => ({
   },
   media: {
     paddingTop: '100%',
-    backgroundSize: 'contain'
+    backgroundSize: 'contain',
+    margin: 20
   },
   button: {
     margin: theme.spacing.unit
@@ -79,9 +80,11 @@ const EventCard = props => {
             <Typography variant="subheading" align="center">
               {event.location}
             </Typography>
-            <Typography variant="body2" align="center">
-              Point cost: {event.pointCost}
-            </Typography>
+            <div className="point-cost">
+              <Typography variant="body2" align="center" className="point-cost">
+                Point Cost: {event.pointCost}
+              </Typography>
+            </div>
             <Button
               variant="contained"
               color="secondary"

@@ -76,7 +76,7 @@ h1 {
 .image-container {
   margin: 0 auto;
   position: relative;
-  width: 70%;
+  width: 50%;
 }
 
 .quote {
@@ -102,12 +102,10 @@ h1 {
 }
 
 .homeDescription {
-  display: block;
-  position: absolute;
+  position: relative;
   width: 300px;
   text-align: center;
   bottom: 200px;
-  left: 375px;
 }
 
 /* #app {
@@ -138,4 +136,32 @@ h1 {
 
 .sponsors {
   margin: 40px 40px 20px 20px;
+}
+
+.single-sponsor {
+  padding-bottom: 80px;
+  margin: 45px;
+}
+
+.sponsor-desc {
+  margin: 0 auto;
+  width: 500px;
+  letter-spacing: 1.5px;
+  font-weight: 100;
+  font-size: 15px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.point-cost {
+  font-size: 20px !important;
+  font-style: italic !important;
+  color: #ff4081 !important;
+}
+
+.upcoming-events {
+  font-weight: 500;
+  margin-left: 25px;
+  border-bottom: solid;
+  padding-bottom: 10px;
 }

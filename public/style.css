@@ -57,6 +57,7 @@ h1 {
 
 .progress-wrapper {
   width: 150px;
+  margin: 20px;
 }
 
 /* .sponsor-card {
@@ -133,4 +134,8 @@ h1 {
   background-color: white;
   padding: 12px;
   border-radius: 200px;
+}
+
+.sponsors {
+  margin: 40px 40px 20px 20px;
 }

@@ -6,7 +6,7 @@ import PastPoints from './PastPoints'
 export const PointsHome = props => {
   return (
     <div>
-      <h1>PREVIOUS YEAR POINTS</h1>
+      <h1 style={{marginRight: '140px'}}>PREVIOUS YEAR POINTS</h1>
       {/* <div>
         <CurrentPoints />
       </div> */}

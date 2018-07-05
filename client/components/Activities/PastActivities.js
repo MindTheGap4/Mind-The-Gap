@@ -24,9 +24,7 @@ const PastActivities = props => {
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            List of Good You've Done This Month
-          </Paper>
+          <Paper className={classes.paper}>List of Good You've Done</Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
@@ -37,7 +35,7 @@ const PastActivities = props => {
               return (
                 <div>
                   <Grid item xs={12} className={classes.paper}>
-                    {item.name}
+                    {item}
                   </Grid>
                 </div>
               )
@@ -50,7 +48,7 @@ const PastActivities = props => {
             {donations.map(item => {
               return (
                 <Grid item xs={12} className={classes.paper}>
-                  {item.name}
+                  {item}
                 </Grid>
               )
             })}
@@ -70,16 +68,24 @@ const PastActivities = props => {
 }
 
 const mapState = state => {
-  const contactRep = state.activities.activityList.filter(activity => {
-    return (
+  let repNames = []
+  let orgNames = []
+  state.activities.activityList.map(activity => {
+    if (
+      !repNames.includes(activity.name) &&
       activity.status === 'past' &&
       activity.category === 'contact representative'
-    )
+    ) {
+      repNames.push(activity.name)
+    } else if (
+      !orgNames.includes(activity.name) &&
+      activity.status === 'past' &&
+      activity.category === 'donation'
+    ) {
+      orgNames.push(activity.name)
+    }
   })
-  const donations = state.activities.activityList.filter(activity => {
-    return activity.status === 'past' && activity.category === 'donation'
-  })
-  return {contactRep: contactRep, donations: donations}
+  return {contactRep: repNames, donations: orgNames}
 }
 
 PastActivities.propTypes = {

@@ -15,6 +15,7 @@ import OrgList from './orgList'
 import Grid from '@material-ui/core/Grid'
 import FilterOrgs from './FilterOrgs'
 
+
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -45,13 +46,13 @@ const styles = theme => ({
 })
 
 
-
 class InputAdornments extends React.Component {
   constructor() {
     super()
     this.state = {
       results: [],
-      filteredResults: []
+      filteredResults: [],
+      open: false
     }
 
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this)

@@ -1,8 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
 import {withStyles} from '@material-ui/core/styles'
-import Input from '@material-ui/core/Input'
-import FormControl from '@material-ui/core/FormControl'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import Button from '@material-ui/core/Button'
@@ -85,18 +83,7 @@ class FilterOrgs extends React.Component {
                 {option.label}
               </MenuItem>
             ))}
-
           </TextField>
-
-            {/* <FormControl
-              className={classNames(
-                classes.margin,
-                classes.withoutLabel,
-                classes.textField
-              )}
-              aria-describedby="weight-helper-text"
-              color='primary'
-            > */}
             <TextField
               id="search"
               label="For:"

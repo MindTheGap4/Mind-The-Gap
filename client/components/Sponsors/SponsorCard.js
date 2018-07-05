@@ -13,7 +13,8 @@ import {connect} from 'react-redux'
 import {updatePoints} from '../../store/reducers/pointsReducer'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 
-const styles = {
+
+const styles = theme => ({
   card: {
     width: 325,
     height: 600
@@ -21,8 +22,11 @@ const styles = {
   media: {
     paddingTop: '100%', // 16:9,
     backgroundSize: 'contain'
+  },
+  butttonText: {
+    color: '#ffffff',
   }
-}
+})
 
 const SponsorCard = props => {
   const {classes, sponsor, handleClick} = props
@@ -43,21 +47,18 @@ const SponsorCard = props => {
             title="Sponsor Card"
           />
           <CardContent>
-            <button
-              type="button"
+            <Button
+              variant="extendedFab"
               onClick={() => {
                 handleClick(sponsor)
               }}
+              color="primary"
+
             >
-              <Typography
-                gutterBottom
-                variant="headline"
-                component="h2"
-                color="primary"
-              >
+              <Typography gutterBottom variant="body2" className={classes.butttonText}>
                 {sponsor.name}
               </Typography>
-            </button>
+            </Button>
           </CardContent>
           <hr className="divider" />
           <CardActions>

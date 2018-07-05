@@ -22,6 +22,7 @@ router.post('/signup', async (req, res, next) => {
   try {
     console.log('the req body!', req.body)
     const user = await User.create(req.body)
+    console.log("USER", user)
     Point.create({userId: user.id})
     await req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {

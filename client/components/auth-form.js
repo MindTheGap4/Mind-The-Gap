@@ -2,48 +2,87 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth, createUser} from '../store'
+import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input'
+import FormControl from '@material-ui/core/FormControl'
+import classNames from 'classnames'
+import {withStyles} from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import Grid from '@material-ui/core/Grid'
 
 /**
  * COMPONENT
  */
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200
+  },
+  menu: {
+    width: 200,
+  },
+});
+
 const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+  const {name, displayName, handleSubmit, error, classes} = props
+
 
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
+      <Grid>
         {name === 'signup' && (
-          <div>
-            <div>
-              <label htmlFor="firstName">
-                <small textcolor='#0d47a1'>First Name</small>
-              </label>
-              <input name="firstName" type="text" />
-            </div>
-            <div>
-              <label htmlFor="lastName">
-                <small color='#0d47a1'>Last Name</small>
-              </label>
-              <input name="lastName" type="text" />
-            </div>
-          </div>
+          <Grid>
+          <TextField
+          id="firstName"
+          label="First Name"
+          type="text"
+          className={classes.textField}
+          margin="normal"
+          color='primary'
+        />
+        <TextField
+        id="lastName"
+        label="Last Name"
+        type="text"
+        className={classes.textField}
+        margin="normal"
+        color='primary'
+      />
+      </Grid>
         )}
+        <TextField
+        id="email"
+        label="Email"
+        type="email"
+        className={classes.textField}
+        margin="normal"
+        color='primary'
+      />
+      <TextField
+        id="password"
+        label="Password"
+        type="password"
+        className={classes.textField}
+        margin="normal"
+        color='primary'
+      />
         <div>
-          <label htmlFor="email">
-            <small color='#0d47a1'>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small color='#0d47a1'>Password</small>
-          </label>
-          <input name="password" type="password" color='#0d47a1'/>
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
+          <Button variant="contained" color="primary" type="submit" className={classes.button}>{displayName}</Button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
+        </Grid>
       </form>
       <a href="/auth/google">{displayName} with Google</a>
     </div>
@@ -97,8 +136,8 @@ const mapDispatch = (dispatch, ownProps) => {
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+export const Login = withStyles(styles)(connect(mapLogin, mapDispatch)(AuthForm))
+export const Signup = withStyles(styles)(connect(mapSignup, mapDispatch)(AuthForm))
 
 /**
  * PROP TYPES

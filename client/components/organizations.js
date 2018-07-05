@@ -44,6 +44,8 @@ const styles = theme => ({
   }
 })
 
+
+
 class InputAdornments extends React.Component {
   constructor() {
     super()
@@ -89,7 +91,6 @@ class InputAdornments extends React.Component {
 
   render() {
     const {classes} = this.props
-    console.log('RESULTS=============',this.state.results)
     return (
       <div>
         <h1>Organizations</h1>

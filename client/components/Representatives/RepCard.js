@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 
 const styles = {
   card: {
@@ -36,28 +37,26 @@ function SimpleCard(props) {
   const {classes, rep, handleClick} = props
   return (
     <div className="center">
-      <Grid item xs={12}>
-        <Grid
-          container
-          className={classes.demo}
-          justify="center"
-          spacing={16}
-          style={{padding: 10}}
+      <Grid
+        container
+        className={classes.demo}
+        justify="center"
+        spacing={16}
+        style={{padding: 10}}
+      >
+        <Button
+          onClick={() => {
+            handleClick(rep)
+          }}
         >
-          <button
-            onClick={() => {
-              handleClick(rep)
-            }}
-          >
-            <Card className={classes.card}>
-              <CardContent>
-                <Typography variant="headline" align="center" component="h1">
-                  {rep.name}
-                </Typography>
-              </CardContent>
-            </Card>
-          </button>
-        </Grid>
+          <Card className={classes.card}>
+            <CardContent>
+              <Typography variant="headline" align="center" component="h1">
+                {rep.name}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Button>
       </Grid>
     </div>
   )

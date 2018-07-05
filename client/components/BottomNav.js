@@ -3,20 +3,26 @@ import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import {ProgressBar} from 'react-bootstrap'
 import {connect} from 'react-redux'
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const styles = {
   root: {
-    flexGrow: 5
+    flexGrow: 5,
+  },
+  bar: {
+    flex: 1,
+    marginBottom: 0
   }
-}
+};
 
 function BottomNav(props) {
-  const percentage = Math.floor(
-    props.usersTotalEarned / props.usersTotalGoal * 100
-  )
+  let percentage = 0;
+  if (props.usersTotalEarned > 0 && props.usersTotalGoal) {
+    percentage = Math.floor(
+      props.usersTotalEarned / props.usersTotalGoal * 100
+    )
+  }
   const {classes} = props
   return (
     <div className={classes.root}>
@@ -47,9 +53,9 @@ function BottomNav(props) {
                 marginRight: '12px'
               }}
             >
-              All User Progress
+              All User Progress: {percentage}%
             </div>
-            <ProgressBar
+            {/* <ProgressBar
               active
               now={percentage}
               label={`${percentage}%`}
@@ -57,7 +63,10 @@ function BottomNav(props) {
                 flex: 1,
                 marginBottom: 0
               }}
-            />
+            /> */}
+            <LinearProgress variant="determinate" value={percentage} className={classes.bar}/>
+
+
             <div
               style={{
                 marginLeft: '12px'

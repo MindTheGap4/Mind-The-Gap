@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import {connect} from 'react-redux'
@@ -26,8 +26,10 @@ const styles = {
     flexGrow: 2,
     width: '100%'
   },
-  flex: {
-    flex: 1
+  navTitle: {
+    flex: 1,
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   menuButton: {
     marginLeft: -12,
@@ -94,13 +96,13 @@ class ButtonAppBar extends React.Component {
             {isLoggedIn && (
               <Drawer
                 docked={false}
-                width={200}
                 open={this.state.open}
                 onClose={this.handleClose}
                 onRequestChange={open => this.setState({open})}
               >
                 <Link to="/home">
-                  <MenuItem onClick={this.handleClose}>Home</MenuItem>
+                  <MenuItem onClick={this.handleClose}
+                    >Home</MenuItem>
                 </Link>
                 <MenuItem button onClick={this.handleClick}>
                   My Info
@@ -191,13 +193,9 @@ class ButtonAppBar extends React.Component {
                 </div>
               </Drawer>
             )}
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
+            <Grid container className={classes.navTitle}>
               <Link to="/">MIND THE GAP</Link>
-            </Typography>
+            </Grid>
             {isLoggedIn ? (
               <div>
                 {/* <Button color="inherit" component={Link} to="/home">

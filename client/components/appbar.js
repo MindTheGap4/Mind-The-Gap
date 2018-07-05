@@ -78,7 +78,6 @@ class ButtonAppBar extends React.Component {
             {isLoggedIn && (
               <Drawer
                 docked={false}
-                width={200}
                 open={this.state.open}
                 onClose={this.handleClose}
                 onRequestChange={open => this.setState({open})}

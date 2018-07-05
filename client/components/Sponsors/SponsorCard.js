@@ -15,7 +15,8 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 
 const styles = {
   card: {
-    width: 325
+    width: 325,
+    height: 600
   },
   media: {
     paddingTop: '100%', // 16:9,

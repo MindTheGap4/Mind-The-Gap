@@ -20,9 +20,10 @@ const SingleSponsor = props => {
   const {selectedSponsor, events} = props.location.state
   const {classes} = props
   return (
-    <div>
+    <div className="single-sponsor">
       <h1>{selectedSponsor.name}</h1>
-      <h5>{selectedSponsor.description}</h5>
+      <h5 className="sponsor-desc">{selectedSponsor.description}</h5>
+      <h2 className="upcoming-events">Upcoming Events</h2>
       <div className={classes.root}>
         <Grid className={classes.paper} container spacing={40}>
           {events.map(event => {

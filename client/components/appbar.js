@@ -26,6 +26,9 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20
+  },
+  menuItem : {
+    fontSize: 16
   }
 }
 
@@ -81,30 +84,31 @@ class ButtonAppBar extends React.Component {
                 onRequestChange={open => this.setState({open})}
               >
                 <Link to="/home">
-                  <MenuItem onClick={this.handleClose}>Home</MenuItem>
+                  <MenuItem onClick={this.handleClose} className={classes.menuItem}
+                    >Home</MenuItem>
                 </Link>
                 <Link to="/account/activities">
-                  <MenuItem onClick={this.handleClose}>Activities</MenuItem>
+                  <MenuItem onClick={this.handleClose} className={classes.menuItem}>Activities</MenuItem>
                 </Link>
                 <Link to="/account/points">
-                  <MenuItem onClick={this.handleClose}>My Points</MenuItem>
+                  <MenuItem onClick={this.handleClose} className={classes.menuItem}>My Points</MenuItem>
                 </Link>
                 <Link to="/myEvents">
-                  <MenuItem onClick={this.handleClose}>My Events</MenuItem>
+                  <MenuItem onClick={this.handleClose} className={classes.menuItem}>My Events</MenuItem>
                 </Link>
                 <Link to="/organizations">
-                  <MenuItem onClick={this.handleClose}>Organizations</MenuItem>
+                  <MenuItem onClick={this.handleClose} className={classes.menuItem}>Organizations</MenuItem>
                 </Link>
                 <Link to="/representatives">
-                  <MenuItem onClick={this.handleClose}>
+                  <MenuItem onClick={this.handleClose} className={classes.menuItem}>
                     Representatives
                   </MenuItem>
                 </Link>
                 <Link to="/sponsors">
-                  <MenuItem onClick={this.handleClose}>Sponsors</MenuItem>
+                  <MenuItem onClick={this.handleClose} className={classes.menuItem}>Sponsors</MenuItem>
                 </Link>
                 <Link to="/events">
-                  <MenuItem onClick={this.handleClose}>Events</MenuItem>
+                  <MenuItem onClick={this.handleClose} className={classes.menuItem}>Events</MenuItem>
                 </Link>
                 <div className="progress-wrapper">
                   <CircularProgressbar
@@ -114,7 +118,7 @@ class ButtonAppBar extends React.Component {
                   />
                 </div>
                 <div>
-                  <Button color="primary" onClick={handleClick}>
+                  <Button color="primary" onClick={handleClick} className={classes.menuItem}>
                     Logout
                   </Button>
                 </div>

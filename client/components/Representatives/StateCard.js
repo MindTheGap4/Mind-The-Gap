@@ -33,38 +33,38 @@ function SimpleCard(props) {
   const {classes, state, handleClick} = props
   return (
     <div>
-        <Grid
-          key={state.name}
-          container
-          className={classes.demo}
-          justify="space-between"
-          spacing={16}
-          style={{padding: 20}}
+      <Grid
+        key={state.name}
+        container
+        className={classes.demo}
+        justify="space-between"
+        spacing={16}
+        style={{padding: 20}}
+      >
+        <Button
+          onClick={() => {
+            handleClick(state)
+          }}
         >
-          <Button
-            onClick={() => {
-              handleClick(state)
-            }}
-          >
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.media}
-                image={state.imageUrl}
-                title="State Picture"
-                style={{
-                  display: 'block',
-                  backgroundSize: 'contain',
-                  backgroundRepeat: 'no - repeat',
-                  backgrounPosition: 'center'
-                }}
-              />
-              <CardContent>
-                <Typography variant="headline" align="center" component="h1">
-                  {state.name}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Button>
+          <Card className={classes.card}>
+            <CardMedia
+              className={classes.media}
+              image={state.imageUrl}
+              title="State Picture"
+              style={{
+                display: 'block',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no - repeat',
+                backgrounPosition: 'center'
+              }}
+            />
+            <CardContent>
+              <Typography variant="headline" align="center" component="h1">
+                {state.name}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Button>
       </Grid>
     </div>
   )

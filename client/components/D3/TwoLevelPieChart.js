@@ -59,8 +59,8 @@ class TwoLevelPieChart extends Component {
             activeShape={RenderActiveShape}
             cx={300}
             cy={150}
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={100}
+            outerRadius={120}
             fill="#8884d8"
             onMouseEnter={this.onPieEnter}
             paddingAngle={5}

@@ -9,6 +9,8 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
+import Slide from '@material-ui/core/Slide';
+import DonationDialogSlide from './DonationDialog';
 
 const styles = theme => ({
   container: {
@@ -25,6 +27,10 @@ const styles = theme => ({
   }
 })
 
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
+}
+
 class TextFields extends React.Component {
   constructor(props) {
     super(props)
@@ -34,6 +40,8 @@ class TextFields extends React.Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.handleClickOpen = this.handleClickOpen.bind(this)
+    this.handleClose = this.handleClose.bind(this)
   }
 
   handleChange = name => event => {
@@ -50,9 +58,16 @@ class TextFields extends React.Component {
       type: 'organizations',
       donationUrl: this.props.donationUrl
     }
-
+    this.setState({ open: true});
     this.props.addActivity(activity)
   }
+
+  handleClickOpen = () => {
+    this.setState({ open: true});
+  };
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
   render() {
     const {classes} = this.props

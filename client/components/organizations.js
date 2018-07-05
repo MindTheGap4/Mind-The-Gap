@@ -14,7 +14,7 @@ import axios from 'axios'
 import OrgList from './orgList'
 import Grid from '@material-ui/core/Grid'
 import FilterOrgs from './FilterOrgs'
-import Slide from '@material-ui/core/Slide';
+
 
 const styles = theme => ({
   root: {
@@ -44,9 +44,6 @@ const styles = theme => ({
     display: 'none'
   }
 })
-function Transition(props) {
-  return <Slide direction="up" {...props} />;
-}
 
 
 class InputAdornments extends React.Component {
@@ -60,8 +57,6 @@ class InputAdornments extends React.Component {
 
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
     this.handleFilterSubmit = this.handleFilterSubmit.bind(this)
-    this.handleClickOpen = this.handleClickOpen.bind(this)
-    this.handleClose = this.handleClose.bind(this)
   }
 
   async handleSearchSubmit(filterType, filterText) {
@@ -94,12 +89,6 @@ class InputAdornments extends React.Component {
       return {filteredResults: newResults}
     })
   }
-  handleClickOpen = () => {
-    this.setState({ open: true});
-  };
-  handleClose = () => {
-    this.setState({open: false});
-  };
 
   render() {
     const {classes} = this.props

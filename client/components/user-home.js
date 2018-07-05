@@ -31,9 +31,10 @@ export const UserHome = props => {
   return (
     <div style={{margin: '30px'}}>
       <h1
-        style={{
-          marginBottom: 40
-        }}
+        className="header-home"
+        // style={{
+        //   marginBottom: 40
+        // }}
       >
         {firstName.toUpperCase()} {lastName.toUpperCase()}, YOU'RE ON YOUR WAY
         TO MAKING THE WORLD A BETTER PLACE
@@ -61,6 +62,7 @@ export const UserHome = props => {
               height: '300px'
             }}
           >
+            <h3 className="current-month">Current Month Goals</h3>
             <TwoLevelPieChart />
           </div>
           <div
@@ -72,6 +74,7 @@ export const UserHome = props => {
               height: '300px'
             }}
           >
+            <h3 className="current-month">2018</h3>
             <Chart data={data} />{' '}
           </div>
         </div>

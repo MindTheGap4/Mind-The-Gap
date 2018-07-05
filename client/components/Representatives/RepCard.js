@@ -9,10 +9,12 @@ import Button from '@material-ui/core/Button'
 
 const styles = {
   card: {
-    width: '33%',
-    margin: '0 auto',
-    minWidth: 275,
-    padding: '1 1 1 1'
+    // width: '33%',
+    // margin: '0 auto',
+    // minWidth: 275,
+    // padding: '1 1 1 1'
+    width: 275,
+    height: 100
   },
   bullet: {
     display: 'inline-block',
@@ -51,7 +53,14 @@ function SimpleCard(props) {
         >
           <Card className={classes.card}>
             <CardContent>
-              <Typography variant="headline" align="center" component="h1">
+              <Typography
+                variant="headline"
+                align="center"
+                text-align="center"
+                justify-content="center"
+                align-items="center"
+                component="h1"
+              >
                 {rep.name}
               </Typography>
             </CardContent>

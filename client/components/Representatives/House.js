@@ -12,7 +12,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    justifyContent: 'space-around'
+    justifyContent: 'space-between'
   }
 })
 class House extends Component {
@@ -53,15 +53,53 @@ class House extends Component {
   }
   render() {
     const {classes} = this.props
+    const dems = this.state.allReps.filter(rep => rep.party === 'D')
+    const repubs = this.state.allReps.filter(rep => rep.party === 'R')
+
     return (
       <div className={classes.root}>
-        <Grid className={classes.paper} container spacing={40}>
-          {this.state.allReps.map(rep => {
-            return (
-              <RepCard key={rep.id} rep={rep} handleClick={this.handleClick} />
-            )
-          })}
-        </Grid>
+        {repubs.length > 0 ? (
+          <div>
+            <h1>Republicans</h1>
+
+            <Grid
+              className={classes.paper}
+              container
+              spacing={40}
+              style={{paddingTop: 20, justifyContent: 'space-between'}}
+            >
+              {repubs.map(rep => {
+                return (
+                  <RepCard
+                    key={rep.id}
+                    rep={rep}
+                    handleClick={this.handleClick}
+                  />
+                )
+              })}
+            </Grid>
+          </div>
+        ) : (
+          <h1>No Republican Representatives</h1>
+        )}
+        {dems.length > 0 ? (
+          <div>
+            <h1>Democrats</h1>
+            <Grid className={classes.paper} container spacing={40}>
+              {dems.map(rep => {
+                return (
+                  <RepCard
+                    key={rep.id}
+                    rep={rep}
+                    handleClick={this.handleClick}
+                  />
+                )
+              })}
+            </Grid>
+          </div>
+        ) : (
+          <h1>No Democratic Representatives</h1>
+        )}
       </div>
     )
   }

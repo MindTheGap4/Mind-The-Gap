@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import {addActivity} from '../store'
 import {connect} from 'react-redux'
@@ -9,7 +8,6 @@ import {updatePoints} from '../store/reducers/pointsReducer'
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
@@ -71,7 +69,6 @@ class TextFields extends React.Component {
           className={classes.textField}
           startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
-        </FormControl>
         <Button
           variant="contained"
           color="secondary"
@@ -82,6 +79,7 @@ class TextFields extends React.Component {
         >
           I Donated!
         </Button>
+        </FormControl>
       </div>
     )
   }

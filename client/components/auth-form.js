@@ -79,7 +79,7 @@ const AuthForm = props => {
         color='primary'
       />
         <div>
-          <Button variant="contained" color="primary" type="submit">{displayName}</Button>
+          <Button variant="contained" color="primary" type="submit" className={classes.button}>{displayName}</Button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         </Grid>

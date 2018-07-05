@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import CardMedia from '@material-ui/core/CardMedia'
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 
 const styles = {
   card: {
@@ -32,7 +33,6 @@ function SimpleCard(props) {
   const {classes, state, handleClick} = props
   return (
     <div>
-      <Grid key={state.name} item xs={6}>
         <Grid
           key={state.name}
           container
@@ -41,7 +41,7 @@ function SimpleCard(props) {
           spacing={16}
           style={{padding: 20}}
         >
-          <button
+          <Button
             onClick={() => {
               handleClick(state)
             }}
@@ -64,8 +64,7 @@ function SimpleCard(props) {
                 </Typography>
               </CardContent>
             </Card>
-          </button>
-        </Grid>
+          </Button>
       </Grid>
     </div>
   )

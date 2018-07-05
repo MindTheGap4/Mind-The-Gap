@@ -52,7 +52,7 @@ const AuthForm = props => {
           <input name="password" type="password" color='#0d47a1'/>
         </div>
         <div>
-          <Button variant="contained" color="primary" >{displayName}</Button>
+          <Button variant="contained" color="primary" type="submit">{displayName}</Button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>

@@ -10,11 +10,16 @@ import Icon from '@material-ui/core/Icon'
 import {addActivity} from '../../store/reducers/activityReducer'
 import {connect} from 'react-redux'
 import {updatePoints} from '../../store/reducers/pointsReducer'
-
 import PhoneIcon from '@material-ui/icons/Phone'
 import EmailIcon from '@material-ui/icons/Email'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
+import Slide from '@material-ui/core/Slide';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const styles = {
   card: {

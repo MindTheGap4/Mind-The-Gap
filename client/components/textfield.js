@@ -112,7 +112,7 @@ class TextFields extends React.Component {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Great Job donating today!
+            Great Job donating ${this.state.amount} today!
           </DialogContentText>
         </DialogContent>
         <DialogActions>

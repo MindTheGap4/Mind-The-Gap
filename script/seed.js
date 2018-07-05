@@ -34,7 +34,7 @@ async function seed() {
       lastName: 'theDog',
       email: 'cody@email.com',
       password: '123',
-      createdAt: new Date('2017-12-26 11:07:26.571-04'),
+      createdAt: new Date('2017-6-26 11:07:26.571-04'),
       id: 1,
       pointsSpent: 300
     }),
@@ -1203,6 +1203,48 @@ async function seed() {
       userId: 1
     }),
     Point.create({
+      month: 10,
+      year: 2017,
+      goal: 100,
+      totalEarned: 90,
+      userId: 1
+    }),
+    Point.create({
+      month: 9,
+      year: 2017,
+      goal: 120,
+      totalEarned: 100,
+      userId: 1
+    }),
+    Point.create({
+      month: 8,
+      year: 2017,
+      goal: 85,
+      totalEarned: 110,
+      userId: 1
+    }),
+    Point.create({
+      month: 7,
+      year: 2017,
+      goal: 90,
+      totalEarned: 65,
+      userId: 1
+    }),
+    Point.create({
+      month: 6,
+      year: 2017,
+      goal: 100,
+      totalEarned: 110,
+      userId: 1
+    }),
+    Point.create({
+      month: 5,
+      year: 2017,
+      goal: 50,
+      totalEarned: 35,
+      userId: 1
+    }),
+    Point.create({
       month: 6,
       year: 2018,
       goal: 100,
@@ -1319,6 +1361,30 @@ async function seed() {
       instagramUrl: 'https://www.instagram.com/fatcatnyc/?hl=en',
       city: 'New York City',
       state: 'NY'
+    }),
+    Sponsor.create({
+      name: 'Dunkin Donuts',
+      id: 4,
+      description:
+        'Dunkin Donuts is the worlds leading baked goods and coffee chain, serving more than 3 million customers each and every day. True to our name, we offer 50+ varieties of donuts, but you can also enjoy dozens of premium beverages, bagels, breakfast sandwiches and other baked goods.',
+      imageUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6pNWgRRnQRLHxu7BJM5H7OsMaZJ96EiYGOe3M0Njgyc_q8Z2z',
+      url: 'https://www.dunkindonuts.com',
+      twitterUrl: 'https://twitter.com/dunkindonuts',
+      facebookUrl: 'https://www.facebook.com/DunkinDonuts',
+      instagramUrl: 'https://www.instagram.com/dunkindonuts'
+    }),
+    Sponsor.create({
+      name: 'Crunch Fitness',
+      id: 5,
+      description:
+        'Crunch is best known for our colorful personality and kickass group fitness and training programs that are #OnlyAtCrunch. With two brands, and a variety of membership options with no long-term commitments, the right Crunch experience is ready for you.',
+      imageUrl:
+        'http://static1.squarespace.com/static/56c387f986db43dff7c63344/t/5890f63829687f4ab799b9c5/1530555399511/',
+      url: 'www.crunch.com',
+      twitterUrl: 'https://twitter.com/CrunchGym',
+      facebookUrl: 'https://www.facebook.com/CRUNCH',
+      instagramUrl: 'https://www.instagram.com/crunchgym'
     })
   ])
 
@@ -1372,6 +1438,41 @@ async function seed() {
       description: '30 minutes of ping pong',
       pointCost: 70,
       sponsorId: 3
+    }),
+    Event.create({
+      name: 'One Free Donut',
+      location: '90 Broad St New York, NY 10004',
+      description: '1 Free Donut',
+      pointCost: 10,
+      sponsorId: 4
+    }),
+    Event.create({
+      name: 'One Free Large Coffee',
+      location: '90 Broad St New York, NY 10004',
+      description: '1 Free Large Coffee',
+      pointCost: 20,
+      sponsorId: 4
+    }),
+    Event.create({
+      name: 'One Free Sandwich',
+      location: '90 Broad St New York, NY 10004',
+      description: '1 Free Sandwich',
+      pointCost: 30,
+      sponsorId: 4
+    }),
+    Event.create({
+      name: 'One Free Gym Day',
+      location: '140 Broadway, New York, NY 10005',
+      description: '1 Free Gym Day',
+      pointCost: 85,
+      sponsorId: 5
+    }),
+    Event.create({
+      name: 'One Free Class',
+      location: '140 Broadway, New York, NY 10005',
+      description: '1 Free Class',
+      pointCost: 55,
+      sponsorId: 5
     })
   ])
   const userEvents = await Promise.all([

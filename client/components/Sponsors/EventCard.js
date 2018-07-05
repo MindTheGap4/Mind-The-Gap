@@ -41,7 +41,7 @@ const EventCard = props => {
   async function handleClick(evt) {
     props.updatePoints(+event.pointCost)
     const objToSend = {eventId: evt.id}
-    console.log('objtosent', objToSend)
+
     const postedEvent = await axios.post('/api/userEvents', objToSend)
   }
 

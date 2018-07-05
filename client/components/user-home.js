@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import GoalsDialog from './GoalsDialog'
-import {ProgressBar} from 'react-bootstrap'
 import TwoLevelPieChart from './D3/TwoLevelPieChart'
 import {createYearObj, monthNumToName} from '../../helpers'
 import Chart from './D3/BarChart'
@@ -77,12 +76,6 @@ export const UserHome = props => {
           </div>
         </div>
       )}
-      {/* <div>
-        All User Progress
-        <ProgressBar active now={percentage} label={`${percentage}%`} />
-        <div>Total Points Earned: {props.usersTotalEarned}</div>
-        <div>Total Goal: {props.usersTotalGoal}</div>
-      </div> */}
     </div>
   )
 }

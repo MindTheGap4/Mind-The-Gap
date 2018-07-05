@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import {connect} from 'react-redux'
@@ -13,13 +13,23 @@ import {logout} from '../store'
 import MenuIcon from '@material-ui/icons/Menu'
 import Drawer from '@material-ui/core/Drawer'
 import MenuItem from '@material-ui/core/MenuItem'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import Collapse from '@material-ui/core/Collapse'
+import ExpandLess from '@material-ui/icons/ExpandLess'
+import ExpandMore from '@material-ui/icons/ExpandMore'
 
 const styles = {
   root: {
-    flexGrow: 2
+    flexGrow: 2,
+    width: '100%'
   },
-  flex: {
-    flex: 1
+  navTitle: {
+    flex: 1,
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   menuButton: {
     marginLeft: -12,
@@ -28,13 +38,26 @@ const styles = {
 }
 
 class ButtonAppBar extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      open: false
-    }
+  state = {
+    open: false,
+    open2: false,
+    open3: false,
+    open4: false
   }
-  handleToggle = () => this.setState({open: !this.state.open})
+
+  handleToggle = () => this.setState(state => ({open: !state.open}))
+
+  handleClick = () => {
+    this.setState(state => ({open2: !state.open2}))
+  }
+
+  handleClick2 = () => {
+    this.setState(state => ({open3: !state.open3}))
+  }
+
+  handleClick3 = () => {
+    this.setState(state => ({open4: !state.open4}))
+  }
 
   handleClose = () => this.setState({open: false})
 
@@ -73,37 +96,89 @@ class ButtonAppBar extends React.Component {
             {isLoggedIn && (
               <Drawer
                 docked={false}
-                width={200}
                 open={this.state.open}
                 onClose={this.handleClose}
                 onRequestChange={open => this.setState({open})}
               >
                 <Link to="/home">
-                  <MenuItem onClick={this.handleClose}>Home</MenuItem>
+                  <MenuItem onClick={this.handleClose}
+                    >Home</MenuItem>
                 </Link>
-                <Link to="/account/activities">
-                  <MenuItem onClick={this.handleClose}>Activities</MenuItem>
-                </Link>
-                <Link to="/account/points">
-                  <MenuItem onClick={this.handleClose}>My Points</MenuItem>
-                </Link>
-                <Link to="/myEvents">
-                  <MenuItem onClick={this.handleClose}>My Events</MenuItem>
-                </Link>
-                <Link to="/organizations">
-                  <MenuItem onClick={this.handleClose}>Organizations</MenuItem>
-                </Link>
-                <Link to="/representatives">
-                  <MenuItem onClick={this.handleClose}>
-                    Representatives
-                  </MenuItem>
-                </Link>
-                <Link to="/sponsors">
-                  <MenuItem onClick={this.handleClose}>Sponsors</MenuItem>
-                </Link>
-                <Link to="/events">
-                  <MenuItem onClick={this.handleClose}>Events</MenuItem>
-                </Link>
+                <MenuItem button onClick={this.handleClick}>
+                  My Info
+                  {/* <ListItemText inset primary="Inbox" /> */}
+                  {this.state.open2 ? <ExpandLess /> : <ExpandMore />}
+                </MenuItem>
+                <Collapse in={this.state.open2} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <ListItem
+                      button
+                      onClick={this.handleClose}
+                      className={classes.nested}
+                    >
+                      <MenuItem onClick={this.handleClose}>
+                        <Link to="/account/activities">My Activities</Link>
+                      </MenuItem>
+                    </ListItem>
+                    <ListItem button className={classes.nested}>
+                      <MenuItem onClick={this.handleClose}>
+                        <Link to="/account/points">My Points</Link>
+                      </MenuItem>
+                    </ListItem>
+                    <ListItem button className={classes.nested}>
+                      <MenuItem onClick={this.handleClose}>
+                        <Link to="/myEvents">My Events</Link>
+                      </MenuItem>
+                    </ListItem>
+                  </List>
+                </Collapse>
+
+                <MenuItem button onClick={this.handleClick2}>
+                  Earn Points
+                  {/* <ListItemText inset primary="Inbox" /> */}
+                  {this.state.open3 ? <ExpandLess /> : <ExpandMore />}
+                </MenuItem>
+                <Collapse in={this.state.open3} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <ListItem
+                      button
+                      onClick={this.handleClose}
+                      className={classes.nested}
+                    >
+                      <MenuItem onClick={this.handleClose}>
+                        <Link to="/organizations">Organizations</Link>
+                      </MenuItem>
+                    </ListItem>
+                    <ListItem button className={classes.nested}>
+                      <MenuItem onClick={this.handleClose}>
+                        <Link to="/representatives">Representatives</Link>
+                      </MenuItem>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <MenuItem button onClick={this.handleClick3}>
+                  Spend Points
+                  {/* <ListItemText inset primary="Inbox" /> */}
+                  {this.state.open4 ? <ExpandLess /> : <ExpandMore />}
+                </MenuItem>
+                <Collapse in={this.state.open4} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <ListItem
+                      button
+                      onClick={this.handleClose}
+                      className={classes.nested}
+                    >
+                      <MenuItem onClick={this.handleClose}>
+                        <Link to="/sponsors">Sponsors</Link>
+                      </MenuItem>
+                    </ListItem>
+                    <ListItem button className={classes.nested}>
+                      <MenuItem onClick={this.handleClose}>
+                        <Link to="/events">Events</Link>
+                      </MenuItem>
+                    </ListItem>
+                  </List>
+                </Collapse>
                 <div className="progress-wrapper">
                   <CircularProgressbar
                     strokeWidth={15}
@@ -118,13 +193,9 @@ class ButtonAppBar extends React.Component {
                 </div>
               </Drawer>
             )}
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
+            <Grid container className={classes.navTitle}>
               <Link to="/">MIND THE GAP</Link>
-            </Typography>
+            </Grid>
             {isLoggedIn ? (
               <div>
                 {/* <Button color="inherit" component={Link} to="/home">

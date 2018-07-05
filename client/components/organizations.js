@@ -15,7 +15,6 @@ import OrgList from './orgList'
 import Grid from '@material-ui/core/Grid'
 import FilterOrgs from './FilterOrgs'
 
-
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -44,7 +43,6 @@ const styles = theme => ({
     display: 'none'
   }
 })
-
 
 class InputAdornments extends React.Component {
   constructor() {
@@ -95,8 +93,7 @@ class InputAdornments extends React.Component {
     return (
       <div>
         <h1>Organizations</h1>
-        {
-          this.state.results.length < 1 ?
+        {this.state.results.length < 1 ? (
           <div>
             <FilterOrgs
               className="filter-box"
@@ -105,7 +102,7 @@ class InputAdornments extends React.Component {
               button="Search"
             />
           </div>
-          :
+        ) : (
           <div>
             <FilterOrgs
               className="filter-box"
@@ -113,17 +110,15 @@ class InputAdornments extends React.Component {
               label="Search By:"
               button="Search"
             />
-          <FilterOrgs
-          onFilterSubmit={this.handleFilterSubmit}
-          label="Filter by"
-          button="Filter"
-        />
-        <OrgList results={this.state.filteredResults} />
-      </div>
+            <FilterOrgs
+              onFilterSubmit={this.handleFilterSubmit}
+              label="Filter by"
+              button="Filter"
+            />
 
-        }
-
-
+            <OrgList results={this.state.filteredResults} />
+          </div>
+        )}
       </div>
     )
   }

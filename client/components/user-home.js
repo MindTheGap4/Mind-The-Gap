@@ -14,18 +14,21 @@ export const UserHome = props => {
   const percentage = props.usersTotalEarned / props.usersTotalGoal * 100
   console.log('GOAL', goal)
   console.log('POINTS', points)
-  const sortedPoints = createYearObj(props.userDate, props.allPoints)
-  const currentYear = new Date().getFullYear()
-  const thisYearPoints = sortedPoints[currentYear]
   let data
-  if (thisYearPoints) {
-    data = thisYearPoints.map(month => {
-      return {
-        name: monthNumToName(month.month),
-        goal: month.goal,
-        earned: month.totalEarned
-      }
-    })
+  if (props.allPoints !== 'no user') {
+    const sortedPoints = createYearObj(props.userDate, props.allPoints)
+    const currentYear = new Date().getFullYear()
+    const thisYearPoints = sortedPoints[currentYear]
+
+    if (thisYearPoints) {
+      data = thisYearPoints.map(month => {
+        return {
+          name: monthNumToName(month.month),
+          goal: month.goal,
+          earned: month.totalEarned
+        }
+      })
+    }
   }
   console.log('thisyearspts', data)
   return (
@@ -94,6 +97,7 @@ const mapState = state => {
   console.log('usersTotalEarned ', usersTotalEarned)
   return {
     email: state.user.email,
+    user: state.user,
     firstName: state.user.firstName,
     lastName: state.user.lastName,
     goal: state.points.currentPoints.goal,

@@ -27,13 +27,13 @@ const SponsorCard = props => {
   const {classes, sponsor, handleClick} = props
 
   return (
-    <Grid item xs={3}>
+    <Grid item xs={6}>
       <Grid
         container
         className={classes.demo}
-        justify="center"
+        justify="space-around"
         spacing={16}
-        // style={{padding: 10}}
+        style={{padding: 10}}
       >
         <Card className={classes.card}>
           <CardMedia
@@ -48,7 +48,12 @@ const SponsorCard = props => {
                 handleClick(sponsor)
               }}
             >
-              <Typography gutterBottom variant="headline" component="h2" color="primary">
+              <Typography
+                gutterBottom
+                variant="headline"
+                component="h2"
+                color="primary"
+              >
                 {sponsor.name}
               </Typography>
             </button>
@@ -56,7 +61,7 @@ const SponsorCard = props => {
           <hr className="divider" />
           <CardActions>
             <Button className="social-icons" size="small">
-              <OpenInNewIcon className={classes.icon} color="primary"/>
+              <OpenInNewIcon className={classes.icon} color="primary" />
               <a href={sponsor.url} target="_blank">
                 website
               </a>

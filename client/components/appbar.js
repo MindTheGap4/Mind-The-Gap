@@ -130,7 +130,7 @@ class ButtonAppBar extends React.Component {
                 {/* <Button color="inherit" component={Link} to="/home">
                     Home
                   </Button> */}
-                <div>
+                <div className="spend-points">
                   Points to Spend:{' '}
                   {this.props.totalPoints - this.props.user.pointsSpent}
                 </div>

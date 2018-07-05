@@ -42,6 +42,7 @@ async function seed() {
       firstName: 'Murphy',
       lastName: 'theDog',
       email: 'murphy@email.com',
+      createdAt: new Date('2018-04-01 11:07:26.571-04'),
       password: '123',
       id: 2
     }),
@@ -49,8 +50,33 @@ async function seed() {
       firstName: 'Crystal',
       lastName: 'Berry',
       email: 'crystal@email.com',
+      createdAt: new Date('2018-06-30 11:07:26.571-04'),
       password: '123',
       id: 3
+    }),
+    User.create({
+      firstName: 'Marisa',
+      lastName: 'Oppenheim',
+      email: 'marisa@email.com',
+      createdAt: new Date('2018-06-30 11:07:26.571-04'),
+      password: '123',
+      id: 4
+    }),
+    User.create({
+      firstName: 'Ashley',
+      lastName: 'Comras',
+      email: 'ashley@email.com',
+      createdAt: new Date('2018-06-30 11:07:26.571-04'),
+      password: '123',
+      id: 5
+    }),
+    User.create({
+      firstName: 'GG',
+      lastName: 'Ganzorig',
+      email: 'gg@email.com',
+      createdAt: new Date('2018-06-30 11:07:26.571-04'),
+      password: '123',
+      id: 6
     })
   ])
 
@@ -256,6 +282,11 @@ async function seed() {
       imageUrl: 'https://www.freeclipartnow.com/d/21895-6/south-carolina.jpg'
     }),
     State.create({
+      name: 'South Dakota',
+      abbreviation: 'SD',
+      imageUrl: 'https://www.freeclipartnow.com/d/21896-1/south-dakota.jpg'
+    }),
+    State.create({
       name: 'Tennessee',
       abbreviation: 'TN',
       imageUrl: 'https://www.freeclipartnow.com/d/21899-6/tennessee.jpg'
@@ -307,6 +338,42 @@ async function seed() {
       userId: 1,
       name: 'Senator Bob',
       category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 35,
+      link: 'www.humanesociety.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Bob',
+      category: 'contact representative',
       date: '2018-06-02 15:25:28.952-04',
       status: 'past',
       points: 5,
@@ -331,16 +398,761 @@ async function seed() {
       link: 'shelly.org'
     }),
     Activity.create({
-      userId: 2,
+      userId: 1,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-05-02 15:25:28.952-04',
+      status: 'past',
+      points: 90,
+      link: 'www.humanesociety.org'
+    }),
+    Activity.create({
+      userId: 1,
       name: 'Senator Bob',
       category: 'contact representative',
-      date: '2018-06-02 15:25:28.952-04',
+      date: '2018-04-02 15:25:28.952-04',
       status: 'past',
       points: 5,
       link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-04-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-04-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-04-05 15:25:28.952-04',
+      status: 'past',
+      points: 50,
+      link: 'www.humanesociety.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-04-07 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-04-08 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-04-09 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-03-07 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-03-08 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-03-09 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Yachad',
+      category: 'donation',
+      date: '2018-02-05 15:25:28.952-04',
+      status: 'past',
+      points: 90,
+      link: 'www.yachad.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-01-08 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-01-09 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-01-07 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-01-08 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-01-09 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Yachad',
+      category: 'donation',
+      date: '2018-01-05 15:25:28.952-04',
+      status: 'past',
+      points: 45,
+      link: 'www.yachad.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-01-05 15:25:28.952-04',
+      status: 'past',
+      points: 40,
+      link: 'www.yachad.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-01-08 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-01-09 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-01-07 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-01-08 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-01-09 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Yachad',
+      category: 'donation',
+      date: '2017-12-28 15:25:28.952-04',
+      status: 'past',
+      points: 60,
+      link: 'www.yachad.org'
+    }),
+    Activity.create({
+      userId: 1,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-12-28 15:25:28.952-04',
+      status: 'past',
+      points: 60,
+      link: 'www.yachad.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-04-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-04-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-04-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-04-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-04-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Yachad',
+      category: 'donation',
+      date: '2018-05-28 15:25:28.952-04',
+      status: 'past',
+      points: 50,
+      link: 'yachad.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Yachad',
+      category: 'donation',
+      date: '2018-06-28 15:25:28.952-04',
+      status: 'past',
+      points: 25,
+      link: 'yachad.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-06-25 15:25:28.952-04',
+      status: 'past',
+      points: 45,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 2,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-07-01 15:25:28.952-04',
+      status: 'past',
+      points: 50,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 25,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 3,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 35,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 25,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 4,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 35,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 25,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 5,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 35,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-06-30 15:25:28.952-04',
+      status: 'past',
+      points: 25,
+      link: 'humane-society.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Bob',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'bob.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Phil',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'phil.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Tom',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'tom.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Paul',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'paul.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Senator Shelly',
+      category: 'contact representative',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 5,
+      link: 'shelly.org'
+    }),
+    Activity.create({
+      userId: 6,
+      name: 'Humane Society',
+      category: 'donation',
+      date: '2018-07-02 15:25:28.952-04',
+      status: 'past',
+      points: 35,
+      link: 'humane-society.org'
     })
   ])
   const points = await Promise.all([
+    Point.create({
+      month: 6,
+      year: 2018,
+      goal: 120,
+      totalEarned: 50,
+      userId: 1
+    }),
     Point.create({
       month: 5,
       year: 2018,
@@ -365,15 +1177,15 @@ async function seed() {
     Point.create({
       month: 2,
       year: 2018,
-      goal: 120,
-      totalEarned: 100,
+      goal: 60,
+      totalEarned: 15,
       userId: 1
     }),
     Point.create({
       month: 1,
       year: 2018,
-      goal: 100,
-      totalEarned: 110,
+      goal: 80,
+      totalEarned: 90,
       userId: 1
     }),
     Point.create({
@@ -391,20 +1203,6 @@ async function seed() {
       userId: 1
     }),
     Point.create({
-      month: 5,
-      year: 2018,
-      goal: 100,
-      totalEarned: 5,
-      userId: 2
-    }),
-    Point.create({
-      month: 5,
-      year: 2018,
-      goal: 0,
-      totalEarned: 0,
-      userId: 3
-    }),
-    Point.create({
       month: 6,
       year: 2018,
       goal: 100,
@@ -412,11 +1210,74 @@ async function seed() {
       userId: 2
     }),
     Point.create({
+      month: 5,
+      year: 2018,
+      goal: 80,
+      totalEarned: 70,
+      userId: 2
+    }),
+    Point.create({
+      month: 4,
+      year: 2018,
+      goal: 40,
+      totalEarned: 50,
+      userId: 2
+    }),
+    Point.create({
+      month: 3,
+      year: 2018,
+      goal: 30,
+      totalEarned: 25,
+      userId: 2
+    }),
+    Point.create({
+      month: 5,
+      year: 2018,
+      goal: 50,
+      totalEarned: 50,
+      userId: 3
+    }),
+    Point.create({
       month: 6,
       year: 2018,
-      goal: 120,
+      goal: 70,
       totalEarned: 60,
-      userId: 1
+      userId: 3
+    }),
+    Point.create({
+      month: 5,
+      year: 2018,
+      goal: 50,
+      totalEarned: 50,
+      userId: 4
+    }),
+    Point.create({
+      month: 6,
+      year: 2018,
+      goal: 70,
+      totalEarned: 60,
+      userId: 4
+    }),
+    Point.create({
+      month: 5,
+      year: 2018,
+      goal: 50,
+      totalEarned: 50,
+      userId: 5
+    }),
+    Point.create({
+      month: 6,
+      year: 2018,
+      goal: 70,
+      totalEarned: 60,
+      userId: 6
+    }),
+    Point.create({
+      month: 6,
+      year: 2018,
+      goal: 70,
+      totalEarned: 60,
+      userId: 6
     })
   ])
 

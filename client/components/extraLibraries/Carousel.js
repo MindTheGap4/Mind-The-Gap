@@ -12,7 +12,8 @@ import CardMedia from '@material-ui/core/CardMedia'
 
 const styles = {
   card: {
-    minWidth: 275
+    minWidth: 275,
+    margin: 20
   },
   bullet: {
     display: 'inline-block',
@@ -61,7 +62,7 @@ class SimpleSlider extends Component {
 
     return (
       <div className="sponsor-card">
-        <h2> Our Sponsors</h2>
+        <h2 className="sponsors"> Our Sponsors</h2>
         <Slider {...settings}>
           {this.state.allSponsors.map(sponsor => {
             return (

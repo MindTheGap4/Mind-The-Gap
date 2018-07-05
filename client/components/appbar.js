@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import {connect} from 'react-redux'
@@ -18,8 +18,10 @@ const styles = {
   root: {
     flexGrow: 2
   },
-  flex: {
-    flex: 1
+  navTitle: {
+    flex: 1,
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   menuButton: {
     marginLeft: -12,
@@ -118,13 +120,9 @@ class ButtonAppBar extends React.Component {
                 </div>
               </Drawer>
             )}
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
+            <Grid container className={classes.navTitle}>
               <Link to="/">MIND THE GAP</Link>
-            </Typography>
+            </Grid>
             {isLoggedIn ? (
               <div>
                 {/* <Button color="inherit" component={Link} to="/home">

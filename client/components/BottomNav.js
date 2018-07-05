@@ -16,8 +16,6 @@ const styles = {
   }
 };
 
-
-
 function BottomNav(props) {
   let percentage = 0;
   if (props.usersTotalEarned > 0 && props.usersTotalGoal) {

@@ -78,7 +78,9 @@ const OrgList = props => {
                       {org.state}
                     </Typography>
                     <Typography variant="body2" align="center">
-                      <a href={org.donationUrl}>Donate Here</a>
+                      <a target="_blank" href={org.donationUrl}>
+                        Donate Here
+                      </a>
                     </Typography>
                     <Textfield
                       orgName={org.charityName}

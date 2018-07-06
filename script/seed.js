@@ -30,9 +30,9 @@ async function seed() {
   // executed until that promise resolves!
   const users = await Promise.all([
     User.create({
-      firstName: 'Cody',
-      lastName: 'theDog',
-      email: 'cody@email.com',
+      firstName: 'Maize',
+      lastName: 'The Dog',
+      email: 'maize@email.com',
       password: '123',
       createdAt: new Date('2017-6-26 11:07:26.571-04'),
       id: 1,
@@ -1325,8 +1325,19 @@ async function seed() {
 
   const sponsors = await Promise.all([
     Sponsor.create({
-      name: 'SoulCycle',
+      name: 'Petco',
       id: 1,
+      description:
+        'With more than 50 years of service to pet parents, Petco is a leading pet specialty retailer that obsesses about delivering health and happy experiences for pets and the people who love them. We do this by providing the products, services, advice and experiences that keep pets physically fit, mentally alert, socially engaged and emotionally happy.',
+      imageUrl:
+        'https://montecitoplazashoppingcenter.com/wp-content/uploads/2016/04/petco.png',
+      twitterUrl: 'https://twitter.com/petco?lang=en',
+      facebookUrl: 'https://www.facebook.com/Petco/',
+      instagramUrl: 'https://www.instagram.com/petco/?hl=en'
+    }),
+    Sponsor.create({
+      name: 'SoulCycle',
+      id: 6,
       description:
         "Our mission is to bring Soul to the people. Our one of a kind, rockstar instructors guide riders through an inspirational, meditative fitness experience that’s designed to benefit the body, mind and soul. Set in a dark candlelit room to high-energy music, our riders move in unison as a pack to the beat and follow the signature choreography of our instructors. The experience is tribal. It's primal. It's fun.",
       imageUrl:
@@ -1390,13 +1401,25 @@ async function seed() {
 
   const events = await Promise.all([
     Event.create({
+      name: 'Free Meaty Bone',
+      description: 'Juicy delicious dog bone',
+      pointCost: 30,
+      sponsorId: 1
+    }),
+    Event.create({
+      name: 'Free Tennis Ball',
+      description: 'Fetch more, play more!',
+      pointCost: 50,
+      sponsorId: 1
+    }),
+    Event.create({
       name: 'Spin Class',
       date: new Date('2018-07-26 7:30:00'),
       location: '5 Bryant Park New York, NY 10018',
       description: 'One hour soul cycle class',
       spotsAvailable: 20,
       pointCost: 100,
-      sponsorId: 1
+      sponsorId: 6
     }),
     Event.create({
       name: 'Spin Class',
@@ -1405,7 +1428,7 @@ async function seed() {
       description: 'One hour soul cycle class',
       spotsAvailable: 20,
       pointCost: 100,
-      sponsorId: 1
+      sponsorId: 6
     }),
     Event.create({
       name: 'Yoga Class',
@@ -1478,17 +1501,17 @@ async function seed() {
   const userEvents = await Promise.all([
     UserEvent.create({
       status: 'Active',
-      userId: 1,
+      userId: 2,
       eventId: 1
     }),
     UserEvent.create({
       status: 'Active',
-      userId: 1,
+      userId: 2,
       eventId: 2
     }),
     UserEvent.create({
       status: 'Active',
-      userId: 1,
+      userId: 2,
       eventId: 3
     })
   ])

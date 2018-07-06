@@ -3,26 +3,23 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth, createUser} from '../store'
 import Button from '@material-ui/core/Button'
-import Input from '@material-ui/core/Input'
-import FormControl from '@material-ui/core/FormControl'
-import classNames from 'classnames'
 import {withStyles} from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
-
+import {Link} from 'react-router-dom'
 /**
  * COMPONENT
  */
 const styles = theme => ({
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing.unit
   },
   input: {
-    display: 'none',
+    display: 'none'
   },
   container: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   textField: {
     marginLeft: theme.spacing.unit,
@@ -30,61 +27,71 @@ const styles = theme => ({
     width: 200
   },
   menu: {
-    width: 200,
-  },
-});
+    width: 200
+  }
+})
 
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error, classes} = props
 
-
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit} name={name}>
-      <Grid>
-        {name === 'signup' && (
-          <Grid>
+        <Grid>
+          {name === 'signup' && (
+            <Grid>
+              <TextField
+                id="firstName"
+                label="First Name"
+                type="text"
+                className={classes.textField}
+                margin="normal"
+                color="primary"
+              />
+              <TextField
+                id="lastName"
+                label="Last Name"
+                type="text"
+                className={classes.textField}
+                margin="normal"
+                color="primary"
+              />
+            </Grid>
+          )}
           <TextField
-          id="firstName"
-          label="First Name"
-          type="text"
-          className={classes.textField}
-          margin="normal"
-          color='primary'
-        />
-        <TextField
-        id="lastName"
-        label="Last Name"
-        type="text"
-        className={classes.textField}
-        margin="normal"
-        color='primary'
-      />
-      </Grid>
-        )}
-        <TextField
-        id="email"
-        label="Email"
-        type="email"
-        className={classes.textField}
-        margin="normal"
-        color='primary'
-      />
-      <TextField
-        id="password"
-        label="Password"
-        type="password"
-        className={classes.textField}
-        margin="normal"
-        color='primary'
-      />
-        <div>
-          <Button variant="contained" color="primary" type="submit" className={classes.button}>{displayName}</Button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
+            id="email"
+            label="Email"
+            type="email"
+            className={classes.textField}
+            margin="normal"
+            color="primary"
+          />
+          <TextField
+            id="password"
+            label="Password"
+            type="password"
+            className={classes.textField}
+            margin="normal"
+            color="primary"
+          />
+          <div className="login-btn">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              className={classes.button}
+            >
+              {displayName}
+            </Button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
         </Grid>
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
+      <Button variant="contained" color="default" className={classes.button}>
+        <Link className="google" to="/auth/google">
+          {displayName} with {'     '} <i className="fab fa-google fa-lg" />
+        </Link>
+      </Button>
     </div>
   )
 }
@@ -136,8 +143,12 @@ const mapDispatch = (dispatch, ownProps) => {
   }
 }
 
-export const Login = withStyles(styles)(connect(mapLogin, mapDispatch)(AuthForm))
-export const Signup = withStyles(styles)(connect(mapSignup, mapDispatch)(AuthForm))
+export const Login = withStyles(styles)(
+  connect(mapLogin, mapDispatch)(AuthForm)
+)
+export const Signup = withStyles(styles)(
+  connect(mapSignup, mapDispatch)(AuthForm)
+)
 
 /**
  * PROP TYPES
